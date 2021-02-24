@@ -1,4 +1,4 @@
-export default class element{
+export default class ElementBase{
 
 constructor(ctx) {
     this.move = [];
@@ -23,14 +23,24 @@ constructor(ctx) {
 
 draw(currentSecond){
 const seq = this.getCurrentSequence(currentSecond);
-console.log(seq);
-     this.ctx.beginPath();
-     this.ctx.fillStyle = "red";
-     this.x = this.x + seq.deltaX;
-     this.y = this.y + seq.deltaY;
-    
-     this.ctx.rect(this.x, this.y, this.width, this.height);
-     this.ctx.stroke();
+console.log("seq",seq);
+  
+
+ this.x = this.x + seq.deltaX;
+this.y = this.y + seq.deltaY;
+ 
+//var cx     = this.x + 0.5 * this.width;   // x of shape center
+//var cy     = this.y + 0.5 * this.height;  // y of shape center
+
+this.ctx.fillStyle = "#ff0000";
+this.ctx.fillRect(this.x, this.y, this.width, this.height);  //draw normal shape
+
+//this.ctx.translate(cx, cy);              //translate to center of shape
+this.ctx.rotate( (Math.PI / 180) * 25);  //rotate 25 degrees.
+//this.ctx.translate(-cx, -cy);            //translate center back to 0,0
+
+// this.ctx.fillStyle = "#0000ff";
+// this.ctx.fillRect(this.x, this.y, this.width, this.height);  //draw normal shape
 }//fn
 
 addMove(fromX,fromY,toX,toY,startTime,endTime){
