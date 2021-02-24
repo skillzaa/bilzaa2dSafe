@@ -42,7 +42,7 @@ this.ctx.translate( this.x+this.width/2, this.y+this.height/2 );
 const rotationalConstant = 10 * Math.PI / 180;
 
 //this.rotateValue = this.rotateValue * rotationalConstant; 
-this.rotateValue = this.rotateValue + 0.1; 
+this.rotateValue = this.rotateValue + 0.9; 
 this.ctx.rotate( this.rotateValue );
 this.ctx.translate( -this.x-this.width/2, -this.y-this.height/2 );
 //this.ctx.translate( -20, -200 );
