@@ -5,13 +5,17 @@ const ctx = canvas.getContext('2d');
 
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;    
-
+let currentSecond = 0;
 const element = new Element(ctx);
-element.animate(10,10,500,500,1,60);
+//element.animate(10,10,500,500,1,60);
+element.addMove(10,10,500,10,1,10); //top line
+element.addMove(500,10,500,500,11,20); // right line
+element.addMove(500,500,10,500,21,30); //bottom line
+element.addMove(10,500,10,10,31,40); // left line
 /////////////////////////////////////////////////////////
 setInterval(function(){
     clearCanvas();
-    element.draw();
+    element.draw(currentSecond++);
     
 },100);
 /////////////////////////////////////////////////////////
