@@ -17,8 +17,8 @@ constructor(ctx) {
     this.deltaX = 0;  
     this.deltaY = 0;  
 
-    this.height = 100;
-    this.width = 200;
+    this.height = 20;
+    this.width = 40;
 }
 
 
