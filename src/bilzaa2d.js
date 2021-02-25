@@ -1,40 +1,38 @@
 import Element from "./Element.js";
 
-const canvas = document.getElementById("crown");
-const ctx = canvas.getContext('2d');
-const itemsCollection = [];
-ctx.canvas.width  = window.innerWidth;
-ctx.canvas.height = window.innerHeight;    
-let currentSecond = 0;
-const element = addItem();
-const e2 = addItem();
+export default class Bilzaa2d {
+    constructor(canvasName = "bilzaaCanvas") {
+        this.canvas = document.getElementById("bilzaaCanvas");
+        this.ctx = this.canvas.getContext('2d');
+        this.itemsCollection = [];
+        this.ctx.canvas.width  = window.innerWidth;
+        this.ctx.canvas.height = window.innerHeight;    
+        this.currentSecond = 0;
+        
+     
+        
+    }
 
-//element.addMove(100,100,600,100,0,100); //rotate----
-element.addMove(10,10,500,10,1,20); //top line
-element.addMove(500,10,500,500,20,40); // right line
-element.addMove(500,500,10,500,40,60); //bottom line
-element.addMove(10,500,10,10,60,80); // left line
 /////////////////////////////////////////////////////////
-e2.addMove(100,500,500,500,1,20); //top line
-e2.addMove(500,500,100,500,20,40); // right line
-e2.addMove(100,500,500,500,40,60); //bottom line
-e2.addMove(500,500,100,500,60,80); // left line
 /////////////////////////////////////////////////////////
-setInterval(function(){
-clearCanvas();
-    itemsCollection.forEach(item => {
-        item.draw(currentSecond++);
-    });
-},100);
-/////////////////////////////////////////////////////////
-function clearCanvas(){
-    ctx.fillStyle = "#f5ecc3";
+ clearCanvas(){
+    this.ctx.fillStyle = "#f5ecc3";
     //clear the canvas
-    ctx.fillRect(0,0,canvas.width,canvas.height)
+    this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
 }//fn
 
-function addItem(){
-    const element = new Element(ctx);
-    itemsCollection.push(element);
+ addItem(){
+    const element = new Element(this.ctx);
+    this.itemsCollection.push(element);
     return element;
 }
+play(){
+    setInterval(()=>{
+        this.clearCanvas();
+    this.itemsCollection.forEach(item => {
+            item.draw(this.currentSecond++); //important this.currentSecond++
+        });
+    },100);
+}//play
+//////////////////////////////////////////////
+}//class
