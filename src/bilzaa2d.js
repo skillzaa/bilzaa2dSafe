@@ -1,4 +1,4 @@
-import Element from "./Element.js";
+import Element from "./premtives/Element.js";
 
 export default class Bilzaa2d {
     constructor(canvasName = "bilzaaCanvas") {

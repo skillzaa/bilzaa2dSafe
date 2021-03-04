@@ -1,6 +1,6 @@
-import Rotate from "./Rotate.js";
+import ElementBase from "./ElementBase.js";
 
-export default class Element extends Rotate {
+export default class Element extends ElementBase {
 
 constructor(ctx) {
     super(ctx);
