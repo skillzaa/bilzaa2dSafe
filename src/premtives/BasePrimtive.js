@@ -30,8 +30,8 @@ if(seq === undefined || seq === null){return;}
 console.log("seq",seq);
   
 
- this.x = this.x + seq.deltaX;
-this.y = this.y + seq.deltaY;
+ this.x = this.x + seq.deltaXPerFrame;
+this.y = this.y + seq.deltaYPerFrame;
  
 
 this.ctx.fillStyle = "#ff0000";
@@ -57,22 +57,24 @@ this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 }//fn
 
 addMove(fromX,fromY,toX,toY,startTime,endTime){
-    const moveSeq = {};
+const moveSeq = {};
 moveSeq.x = fromX;
+moveSeq.toX = toX;
 moveSeq.y = fromY;
-    moveSeq.toX = toX;
-    moveSeq.toY = toY;
+moveSeq.toY = toY;
 
 moveSeq.startTime = startTime;
 moveSeq.endTime = endTime;
 moveSeq.animationDuration  = endTime - startTime ; 
 
-    moveSeq.deltaX = ( (toX - fromX) / moveSeq.animationDuration );         
-    moveSeq.deltaY = ( (toY - fromY) / moveSeq.animationDuration );         
+moveSeq.deltaX = ( (toX - fromX) / moveSeq.animationDuration );         
+moveSeq.deltaY = ( (toY - fromY) / moveSeq.animationDuration );         
+moveSeq.deltaXPerFrame = Math.ceil(moveSeq.deltaX /60);
+moveSeq.deltaYPerFrame = Math.ceil(moveSeq.deltaY /60);
 
     //this.currentAnimationFrame =0; 
 this.sequences.push(moveSeq);    
-     console.log(this.sequences);
+   //  console.log(this.sequences);
 }//fn
 
 getCurrentSequence(currentSecond){
@@ -86,5 +88,12 @@ getCurrentSequence(currentSecond){
 return null; //final value if no found
 }//getCurrentSequence
 
+singleVariableAnimation(){
+
+}
+doubleVariableAnimation(varOneStart,varOneEnd,varTwoStart,varTwoEnd,startTime,endTime){
+
+}
+multipleVariableAnimation(){}
 //////////////////////////classsss-----------------
 }
