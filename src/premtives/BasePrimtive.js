@@ -13,7 +13,7 @@ constructor(ctx) {
     this.endTime;  
     this.animationDuration =0;  
     this.currentAnimationFrame =0;
-    this.rotateValue =0;
+    this.rotateSpeed = 1;
     this.deltaX = 0;  
     this.deltaY = 0;  
 
@@ -22,36 +22,30 @@ constructor(ctx) {
 }
 
 draw(currentFrame){
-//this.ctx.save();    
-const seq = this.getCurrentSequenceByFrame(currentFrame);
-
-if(seq === undefined || seq === null){return;}
-//console.log("seq",seq);
-
- this.x = this.x + seq.deltaXPerFrame;
-this.y = this.y + seq.deltaYPerFrame;
-
+    const seq = this.getCurrentSequenceByFrame(currentFrame);
+    
+    if(seq === undefined || seq === null){return;}
+    
+    this.x = this.x + seq.deltaXPerFrame;
+    this.y = this.y + seq.deltaYPerFrame;
+    
     console.log(`X : ${this.x} Y: ${this.y} CurrentFrame: ${currentFrame}`); 
-
-this.ctx.fillStyle = "#ff0000";
-
-///////////////////////////////////////////////////
-//this.ctx.translate( this.x+this.width/2, this.y+this.height/2 );
-//this.ctx.translate( 20, 200 );
+    
+    this.ctx.fillStyle = "#ff0000";
+    
+    ///////////////////////////////////////////////////
+    this.ctx.save();
+this.ctx.translate( this.x+this.width/2, this.y+this.height/2 );
 //const rotationalConstant = 10 * Math.PI / 180;
 
 //this.rotateValue = this.rotateValue * rotationalConstant; 
 //this.rotateValue = this.rotateValue + 0.9; 
-//this.ctx.rotate( this.rotateValue );
-//this.ctx.translate( -this.x-this.width/2, -this.y-this.height/2 );
-//this.ctx.translate( -20, -200 );
-
+this.rotateSpeed = this.rotateSpeed +1;
+this.ctx.rotate( (Math.PI /180 )* this.rotateSpeed );
+this.ctx.translate( - (this.x+this.width/2), -(this.y+this.height/2 ));
 this.ctx.fillRect(this.x, this.y, this.width, this.height);  //draw normal shape
-
-//this.ctx.rotate(-rotateValue );
-///////////////////////////////////////////////////
+this.ctx.restore();
 //this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-//this.ctx.restore();
 
 }//fn
 
