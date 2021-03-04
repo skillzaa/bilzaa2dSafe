@@ -7,7 +7,9 @@ export default class Bilzaa2d {
         this.painter = new Painter(canvasName);
         this.itemsCollection = [];
         this.currentSecond = 0;  
-        this.currentFrame = 0;  
+        this.currentFrame = 0; 
+        this.startTime = 0; 
+        //this.PauseTime = 0; 
         this.pauseFlag = false; 
         this.loopAnimation = false;
     }
@@ -22,14 +24,10 @@ addRectangle(){
 }
 
 play(){
-if (this.pauseFlag === true){return;}    
- //   setInterval(()=>{
-        this.painter.clearCanvas();
-    this.itemsCollection.forEach(item => {
-
-            item.draw(this.currentSecond++); //important this.currentSecond++
+this.painter.clearCanvas();
+this.itemsCollection.forEach(item => {
+            item.draw(this.currentFrame++);
         });
- //   },100);
 window.requestAnimationFrame(this.play.bind(this));    
 }//play
 

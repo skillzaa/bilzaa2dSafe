@@ -21,37 +21,36 @@ constructor(ctx) {
     this.width = 40;
 }
 
-
-draw(currentSecond){
+draw(currentFrame){
 //this.ctx.save();    
-const seq = this.getCurrentSequence(currentSecond);
+const seq = this.getCurrentSequenceByFrame(currentFrame);
 
 if(seq === undefined || seq === null){return;}
-console.log("seq",seq);
-  
+//console.log("seq",seq);
 
  this.x = this.x + seq.deltaXPerFrame;
 this.y = this.y + seq.deltaYPerFrame;
- 
+
+    console.log(`X : ${this.x} Y: ${this.y} CurrentFrame: ${currentFrame}`); 
 
 this.ctx.fillStyle = "#ff0000";
 
 ///////////////////////////////////////////////////
-this.ctx.translate( this.x+this.width/2, this.y+this.height/2 );
+//this.ctx.translate( this.x+this.width/2, this.y+this.height/2 );
 //this.ctx.translate( 20, 200 );
-const rotationalConstant = 10 * Math.PI / 180;
+//const rotationalConstant = 10 * Math.PI / 180;
 
 //this.rotateValue = this.rotateValue * rotationalConstant; 
-this.rotateValue = this.rotateValue + 0.9; 
-this.ctx.rotate( this.rotateValue );
-this.ctx.translate( -this.x-this.width/2, -this.y-this.height/2 );
+//this.rotateValue = this.rotateValue + 0.9; 
+//this.ctx.rotate( this.rotateValue );
+//this.ctx.translate( -this.x-this.width/2, -this.y-this.height/2 );
 //this.ctx.translate( -20, -200 );
 
 this.ctx.fillRect(this.x, this.y, this.width, this.height);  //draw normal shape
 
 //this.ctx.rotate(-rotateValue );
 ///////////////////////////////////////////////////
-this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+//this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 //this.ctx.restore();
 
 }//fn
@@ -87,11 +86,39 @@ getCurrentSequence(currentSecond){
 }//for ends
 return null; //final value if no found
 }//getCurrentSequence
+getCurrentSequenceByFrame(currentFrame){
 
-singleVariableAnimation(){
+    for (let x = 0; x < this.sequences.length; x++) {
+    
+    if(this.sequences[x].startFrame < currentFrame && this.sequences[x].endFrame > currentFrame ){
+        return this.sequences[x];  
+    }
+}//for ends
+return null; //final value if no found
+}//getCurrentSequence
 
-}
-doubleVariableAnimation(varOneStart,varOneEnd,varTwoStart,varTwoEnd,startTime,endTime){
+addMoveByFrames(fromX,fromY,toX,toY,startTime,endTime){
+const moveSeq = {};
+moveSeq.x = fromX;
+moveSeq.toX = toX;
+moveSeq.y = fromY;
+moveSeq.toY = toY;
+
+moveSeq.startTime = startTime;
+moveSeq.endTime = endTime;
+moveSeq.startFrame = startTime * 60;
+moveSeq.endFrame = endTime * 60 ;
+
+moveSeq.animationDuration  = endTime - startTime ; 
+moveSeq.animationDurationFrame  = moveSeq.endFrame - moveSeq.startFrame ; 
+
+moveSeq.deltaX = ( (toX - fromX) / moveSeq.animationDuration );         
+moveSeq.deltaY = ( (toY - fromY) / moveSeq.animationDuration );         
+moveSeq.deltaXPerFrame = ( (toX - fromX) / moveSeq.animationDurationFrame );
+moveSeq.deltaYPerFrame = (( (toY - fromY) / moveSeq.animationDurationFrame ));
+
+    //this.currentAnimationFrame =0; 
+this.sequences.push(moveSeq);    
 
 }
 multipleVariableAnimation(){}
