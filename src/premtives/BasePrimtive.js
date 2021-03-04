@@ -1,7 +1,7 @@
-export default class ElementBase{
+export default class BasePrimtive{
 
 constructor(ctx) {
-    this.move = [];
+    this.sequences = [];
     this.ctx = ctx;
     this.x = 20;
     this.y = 20;
@@ -71,16 +71,16 @@ moveSeq.animationDuration  = endTime - startTime ;
     moveSeq.deltaY = ( (toY - fromY) / moveSeq.animationDuration );         
 
     //this.currentAnimationFrame =0; 
-this.move.push(moveSeq);    
-     console.log(this.move);
+this.sequences.push(moveSeq);    
+     console.log(this.sequences);
 }//fn
 
 getCurrentSequence(currentSecond){
 
-    for (let x = 0; x < this.move.length; x++) {
+    for (let x = 0; x < this.sequences.length; x++) {
     
-    if(this.move[x].startTime < currentSecond && this.move[x].endTime > currentSecond ){
-        return this.move[x];  
+    if(this.sequences[x].startTime < currentSecond && this.sequences[x].endTime > currentSecond ){
+        return this.sequences[x];  
     }
 }//for ends
 return null; //final value if no found

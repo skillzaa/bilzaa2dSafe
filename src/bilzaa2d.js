@@ -7,10 +7,7 @@ export default class Bilzaa2d {
         this.itemsCollection = [];
         this.ctx.canvas.width  = window.innerWidth;
         this.ctx.canvas.height = window.innerHeight;    
-        this.currentSecond = 0;
-        
-     
-        
+        this.currentSecond = 0;   
     }
 
 /////////////////////////////////////////////////////////
@@ -21,7 +18,7 @@ export default class Bilzaa2d {
     this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
 }//fn
 
- addItem(){
+addRectangle(){
     const element = new Element(this.ctx);
     this.itemsCollection.push(element);
     return element;
