@@ -1,8 +1,8 @@
 import Bilzaa2d from "./src/bilzaa2d.js";
 
 const bilzaa2d = new Bilzaa2d();
-const element = bilzaa2d.addItem();
-const e2 = bilzaa2d.addItem();
+const element = bilzaa2d.addRectangle();
+const e2 = bilzaa2d.addRectangle();
 
 //element.addMove(100,100,600,100,0,100); //rotate----
 element.addMove(10,10,500,10,1,20); //top line

@@ -1,38 +1,52 @@
-import Element from "./Element.js";
+import Rectangle from "./premtives/Rectangle.js";
+import Painter from "./painter/Painter.js";
 
 export default class Bilzaa2d {
     constructor(canvasName = "bilzaaCanvas") {
-        this.canvas = document.getElementById("bilzaaCanvas");
-        this.ctx = this.canvas.getContext('2d');
-        this.itemsCollection = [];
-        this.ctx.canvas.width  = window.innerWidth;
-        this.ctx.canvas.height = window.innerHeight;    
-        this.currentSecond = 0;
-        
      
-        
+        this.painter = new Painter(canvasName);
+        this.itemsCollection = [];
+        this.currentSecond = 0;  
+        this.currentFrame = 0;  
+        this.pauseFlag = false; 
+        this.loopAnimation = false;
     }
 
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
- clearCanvas(){
-    this.ctx.fillStyle = "#f5ecc3";
-    //clear the canvas
-    this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
-}//fn
-
- addItem(){
-    const element = new Element(this.ctx);
-    this.itemsCollection.push(element);
-    return element;
+ 
+addRectangle(){
+    const rectangle = new Rectangle(this.painter.ctx);
+    this.itemsCollection.push(rectangle);
+    return rectangle;
 }
+
 play(){
-    setInterval(()=>{
-        this.clearCanvas();
+if (this.pauseFlag === true){return;}    
+ //   setInterval(()=>{
+        this.painter.clearCanvas();
     this.itemsCollection.forEach(item => {
+
             item.draw(this.currentSecond++); //important this.currentSecond++
         });
-    },100);
+ //   },100);
+window.requestAnimationFrame(this.play.bind(this));    
 }//play
+
+start(){this.pauseFlag = false;}//start = recontinue ofter pause
+stop(){this.currentSecond = 0;}
+pause(){
+    if (this.pauseFlag===true){
+        this.pauseFlag=false;
+    }else {
+        this.pauseFlag=true
+    }   
+}
+//------------------------
+getCurrentSecond(){
+    var d = new Date();
+    const now = d.getTime();
+    
+}
 //////////////////////////////////////////////
 }//class
