@@ -9,6 +9,8 @@ element.addMoveByFrames(10,10,800,10,1,5); //top line
 element.addMoveByFrames(800,10,800,800,5,10); // right line
 element.addMoveByFrames(800,800,10,800,10,15); //bottom line
 element.addMoveByFrames(10,800,10,10,15,20); // left line
+
+//element.addRotate(2,1,10);
 /////////////////////////////////////////////////////////
 // e2.addMoveByFrames(100,500,500,500,1,20); //top line
 // e2.addMoveByFrames(500,500,100,500,20,40); // right line

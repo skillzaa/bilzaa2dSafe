@@ -1,0 +1,3 @@
+I am getting timings from the user in seconds, but internally i am using frames and getTime (ie milli seconds).
+
+-- Where do I use frames and where do I use getTime?
