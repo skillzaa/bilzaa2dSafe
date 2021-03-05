@@ -1,0 +1,42 @@
+{
+  "name": "bilzaa2d",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^10.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-uglify": "3.0.0",
+    "gulp-watch": "4.3.11",
+    "jest": "^24.8.0",
+    "parcel-bundler": "^1.12.3",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skillzaa/bilzaa_modular/issues"
+  },
+  "homepage": "https://github.com/skillzaa/bilzaa_modular#readme",
+  "description": ""
+}

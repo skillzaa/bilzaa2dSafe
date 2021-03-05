@@ -24,16 +24,13 @@ this.frameFunction(); //first time run this fn wo requestAni..Frame
 frameFunction(){
 this.painter.clearCanvas();
 this.itemsCollection.forEach(item => {
-            this.timer.incrementFrame();
+            //this.timer.incrementFrame();
             item.draw(this.timer.getCurrentFrame());
         });
-window.requestAnimationFrame(this.play.bind(this));    
+window.requestAnimationFrame(this.play.bind(this));  
+console.log("Current Second",this.timer.getCurrentSecond());  
 }
 //------------------------
-getCurrentSecond(){
-    var d = new Date();
-    const now = d.getTime();
-    
-}
+
 //////////////////////////////////////////////
 }//class

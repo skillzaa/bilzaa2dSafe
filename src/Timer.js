@@ -6,13 +6,14 @@ constructor() {
     this.currentSecond = 0;  
     this.currentFrame = 0; 
     this.pauseFlag = false; 
-    this.pausedAt = 0;
+    this.pausedAt = 0;    
 }
 
 start(){
-    this.pauseFlag = false;
+this.pauseFlag = false;
 const d = new Date();
 this.startTime = d.getTime();
+this.incrementFrame();
 }//start = recontinue ofter pause
 
 
@@ -26,14 +27,25 @@ pause(){
 }
 
 incrementFrame(){
-    this.currentFrame = this.currentFrame+1;
-    return this.currentFrame;
+    if(this.pauseFlag === false){
+        this.currentFrame = this.currentFrame+1;
+        window.requestAnimationFrame(this.incrementFrame.bind(this));  
+        return this.currentFrame;
+    }else {
+        window.requestAnimationFrame(this.incrementFrame.bind(this));  
+        return false;
+    }
 }
 getCurrentFrame(){
     return this.currentFrame;
 }
 getCurrentSecond(){
-    
+    const d = new Date();
+    const now = d.getTime();
+
+    const diffFromStart = now - this.startTime;
+    console.log("getCurrentSecond",diffFromStart);
+    this.currentSecond =  (diffFromStart / 1000);
     return this.currentSecond;
 }
 //////////////////////////classsss-----------------
