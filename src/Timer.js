@@ -14,6 +14,7 @@ this.pauseFlag = false;
 const d = new Date();
 this.startTime = d.getTime();
 this.incrementFrame();
+return true;
 }//start = recontinue ofter pause
 
 

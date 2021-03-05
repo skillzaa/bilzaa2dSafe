@@ -30,3 +30,5 @@
     - first step is typeing "tsc" or we can used "tsc --watch" and can leave it running in a terminal instance.
     - second step is to run "npm run buildTest or buildDist". after that we can test or distribute.
     - if we directly run "npm run test" it will pre run "buildTest" also
+# The Problem of Testing ES-6 Modules
+the main problem is that jest can not use es-6 modules thus need to have cjs module. We can use rollup to create a cjs module BUT there can only be one such file in a folder (called the main / index). So if we need to test more than 1 modules we have to make the main file provide them. For example the bilzaa2d should also expose Timer module.

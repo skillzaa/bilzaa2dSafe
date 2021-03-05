@@ -1,10 +1,8 @@
 import Rectangle from "./premtives/Rectangle.js";
-import Painter from "./painter/Painter.js";
 import Timer from "./Timer.js";
 
 export default class Bilzaa2d {
 constructor(canvasName = "bilzaaCanvas") {
-    this.painter = new Painter(canvasName);
     this.timer = new Timer();
     this.itemsCollection = [];
     this.loopAnimation = false;
