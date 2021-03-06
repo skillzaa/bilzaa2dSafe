@@ -153,45 +153,53 @@ this.sequences.push(moveSeq);
 class Timer {
 
 constructor() {
+    this.playState = true;
     this.startTime = null; //wil only be null before first run 
-    this.currentSecond = 0;  
-    this.currentFrame = 0; 
-    this.pauseFlag = false; 
-    this.pausedAt = 0;    
+    //this.currentSecond = 0;  //?? it shd be a function
+    //this.currentFrame = 0;   //?? it shd be a function
+    this.animationDuration = 60;
+    //this.pauseFlag = true; -- not requ now
+    this.pausedAtTime = null;    
 }
 
-start(){
-this.pauseFlag = false;
-const d = new Date();
-this.startTime = d.getTime();
-this.incrementFrame();
+start(startPaused=false){
+this.setState(true,this.getTime(),null);
+this.nextFrame(); // this will start the loop
 return true;
-}//start = recontinue ofter pause
-
-
-stop(){this.currentSecond = 0;}
-pause(){
-    if (this.pauseFlag===true){
-        this.pauseFlag=false;
-    }else {
-        this.pauseFlag=true;
-    }   
+}//start 
+pause(){ 
+this.setState(false,this.startTime,this.getTime());
 }
-
-incrementFrame(){
-    if(this.pauseFlag === false){
+resume(){
+this.setState(true,this.pausedAtTime,null);
+}
+setState(playState,startTime, pausedAtTime){
+this.startTime = startTime;
+    
+}
+rewind(){return true;}
+foreward(){return true;}
+nextFrame(){
+    if(this.pauseFlag === false && this.startTime !== null){
         this.currentFrame = this.currentFrame+1;
-        window.requestAnimationFrame(this.incrementFrame.bind(this));  
+        window.requestAnimationFrame(this.nextFrame.bind(this));  
         return this.currentFrame;
     }else {
-        window.requestAnimationFrame(this.incrementFrame.bind(this));  
+        window.requestAnimationFrame(this.nextFrame.bind(this));  
         return false;
     }
 }
-getCurrentFrame(){
-    return this.currentFrame;
+currentFrame(){
+    if(this.startTime == null){return 0;}
+    if(this.pause === true){
+        const diff = this.getTime() - this.pausedAtTime;
+        return diff/16; //if there are 60fps then 1sec = 1000 ms
+    }else {
+        const diff = this.getTime() - this.startTime;
+        return diff/16; //if there are 60fps then 1sec = 1000 ms
+    }
 }
-getCurrentSecond(){
+currentSecond(){
     const d = new Date();
     const now = d.getTime();
 
@@ -200,12 +208,77 @@ getCurrentSecond(){
     this.currentSecond =  (diffFromStart / 1000);
     return this.currentSecond;
 }
+getTime(){
+    const d = new Date();
+    return d.getTime();
+}
+//////////////////////////classsss-----------------
+}
+
+/**This object has 4 states
+ * first start : when the object start for the first time. it will always start in start-paused state and if the user want to start it in non-paused state then the user has to do it manually. "first start" will only begin when startTime is null. once it is made non null then it can be made null only when stopped. when stopped it returns to first-start-paused phase   
+ * 
+ */
+
+class PlayHead {
+constructor(animationDuration=20) {
+    this.playState = false;
+    this.currentSecond = 0;//?? null ??
+    this.secBeginTime = 0;
+    this.animationDuration = animationDuration; 
+    this.gameLoopHandle = null;  
+}
+
+stop(){
+    this.playState = false;
+    this.currentSecond = 0;
+    this.secBeginTime = null;
+    window.cancelAnimationFrame(this.gameLoopHandle);
+}
+start(){
+    this.playState = true;
+    this.currentSecond = 0;
+    this.secBeginTime = this.getTime();
+    this.gameLoop();
+}
+gameLoop(){
+this.gameLoopHandle = window.requestAnimationFrame(this.gameLoop.bind(this));    
+if(this.playState === false){return false;}
+this.calcCurrentSecond();  
+}
+calcCurrentSecond(){
+let calculations = this.currentSecond;    
+const timeNow = this.getTime();    
+    const diffBwNowAndSecBeginTime = timeNow -  this.secBeginTime;   
+        const factor = (diffBwNowAndSecBeginTime/1000).toFixed(2);
+        calculations = this.currentSecond += parseFloat(factor);
+        this.secBeginTime = timeNow;
+if(calculations > this.animationDuration){
+    calculations = this.animationDuration;
+}        
+//finally
+this.currentSecond = calculations;        
+return this.currentSecond;        
+}
+
+pause(){
+    this.playState = false;
+}
+resume(){
+    this.playState = true;
+    this.secBeginTime = this.getTime();
+}
+getTime(){
+    const d = new Date();
+    return d.getTime();
+}
 //////////////////////////classsss-----------------
 }
 
 class Bilzaa2d {
 constructor(canvasName = "bilzaaCanvas") {
     this.timer = new Timer();
+    this.playHead = new PlayHead();
     this.itemsCollection = [];
     this.loopAnimation = false;
 }

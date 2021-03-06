@@ -6,7 +6,6 @@
   "scripts": {
     "buildTest": "rollup -c rollup.config.t.js",
     "buildDist": "rollup -c rollup.config.dist.js",
-    "dev": "rollup -c -w",
     "test": "jest ",
     "pretest": "npm run buildTest"
   },
