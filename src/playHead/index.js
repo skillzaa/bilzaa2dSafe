@@ -12,8 +12,8 @@ document.getElementById("pause").addEventListener("click",
 ()=>{ playhead.pause();});
 document.getElementById("resume").addEventListener("click",
 ()=>{ playhead.resume();});
-// document.getElementById("forward").addEventListener("click",
-// ()=>{ playhead.forward();});
+document.getElementById("changeDuration").addEventListener("click",
+()=>{ playhead.animationDuration = 10;});
 // document.getElementById("rewind").addEventListener("click",
 // ()=>{ playhead.rewind();});
 
