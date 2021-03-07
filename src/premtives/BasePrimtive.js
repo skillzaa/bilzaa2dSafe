@@ -19,7 +19,22 @@ constructor(ctx) {
 }
 
 draw(){}
+addMove(fromX,fromY,toX,toY,startTime,endTime){
+const seq = {};
+seq.fromX = fromX;
+seq.toX = toX;
+seq.fromY = fromY;
+seq.toY = toY;
 
+seq.startTime = startTime;
+seq.endTime = endTime;
+seq.seqDuration  = endTime - startTime ; 
+
+seq.deltaX = ( (toX - fromX) / seq.seqDuration );         
+seq.deltaY = ( (toY - fromY) / seq.seqDuration );         
+this.sequences.push(seq);    
+    
+}//fn
 getCurrentSequence(currentSecond){
 
     for (let x = 0; x < this.sequences.length; x++) {

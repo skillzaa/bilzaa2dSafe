@@ -10,54 +10,35 @@ constructor(ctx) {
     this.toY=0;
     
 }
-draw(currentFrame){
-    const seq = this.getCurrentSequenceByFrame(currentFrame);
+draw(currentSecond){
+    const seq = this.getCurrentSequence(currentSecond);
     
-    if(seq === undefined || seq === null){return;}
+    if(seq === undefined || seq === null){return false;}
     
-    this.x = this.x + seq.deltaXPerFrame;
-    this.y = this.y + seq.deltaYPerFrame;
+    this.x = this.x + seq.deltaX;
+    this.y = this.y + seq.deltaY;
     
-    console.log(`X : ${this.x} Y: ${this.y} CurrentFrame: ${currentFrame}`); 
+  //  console.log(`X : ${this.x} Y: ${this.y} currentSecond: ${currentSecond}`); 
     
     this.ctx.fillStyle = "#ff0000";
     
     ///////////////////////////////////////////////////
-    this.ctx.save();
-this.ctx.translate( this.x+this.width/2, this.y+this.height/2 );
+ //   this.ctx.save();
+//this.ctx.translate( this.x+this.width/2, this.y+this.height/2 );
 //const rotationalConstant = 10 * Math.PI / 180;
 
 //this.rotateValue = this.rotateValue * rotationalConstant; 
 //this.rotateValue = this.rotateValue + 0.9; 
-this.rotateSpeed = this.rotateSpeed +1;
-this.ctx.rotate( (Math.PI /180 )* this.rotateSpeed );
-this.ctx.translate( - (this.x+this.width/2), -(this.y+this.height/2 ));
+//this.rotateSpeed = this.rotateSpeed +1;
+//this.ctx.rotate( (Math.PI /180 )* this.rotateSpeed );
+//this.ctx.translate( - (this.x+this.width/2), -(this.y+this.height/2 ));
 this.ctx.fillRect(this.x, this.y, this.width, this.height);  //draw normal shape
-this.ctx.restore();
+//this.ctx.restore();
 //this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 
 }//fn
 //...............
-addMove(fromX,fromY,toX,toY,startTime,endTime){
-const moveSeq = {};
-moveSeq.x = fromX;
-moveSeq.toX = toX;
-moveSeq.y = fromY;
-moveSeq.toY = toY;
 
-moveSeq.startTime = startTime;
-moveSeq.endTime = endTime;
-moveSeq.animationDuration  = endTime - startTime ; 
-
-moveSeq.deltaX = ( (toX - fromX) / moveSeq.animationDuration );         
-moveSeq.deltaY = ( (toY - fromY) / moveSeq.animationDuration );         
-moveSeq.deltaXPerFrame = Math.ceil(moveSeq.deltaX /60);
-moveSeq.deltaYPerFrame = Math.ceil(moveSeq.deltaY /60);
-
-    
-this.sequences.push(moveSeq);    
-    
-}//fn
 addMoveByFrames(fromX,fromY,toX,toY,startTime,endTime){
 const moveSeq = {};
 moveSeq.x = fromX;

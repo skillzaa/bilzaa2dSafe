@@ -1,8 +1,9 @@
 export default class PlayHead {
-constructor(animationDuration=20) {
+constructor(animationDuration=300,fps=60) {
     this.playState = false;
     this.currentSecond = 0;//?? null ??
     this.secBeginTime = 0;
+    this.fpsMs = fps/1000;//incomming fps is in seconds we converted it to mili seconds
     this.animationDuration = animationDuration; 
     this.gameLoopHandle = null;  
 }
@@ -11,18 +12,24 @@ stop(){
     this.playState = false;
     this.currentSecond = 0;
     this.secBeginTime = null;
-    window.cancelAnimationFrame(this.gameLoopHandle);
+    window.clearInterval(this.gameLoopHandle);
 }
 start(){
     this.playState = true;
     this.currentSecond = 0;
     this.secBeginTime = this.getTime();
-    this.gameLoop();
+    //this.gameLoopHandle = window.setInterval(
+      //  this.gameLoop, 16); 
+      this.gameLoopHandle = window.setInterval(() => {
+            this.gameLoop();
+        }, (this.fpsMs).toFixed(0));
+    
 }
 gameLoop(){
-this.gameLoopHandle = window.requestAnimationFrame(this.gameLoop.bind(this));    
-if(this.playState === false){return false;}
-this.calcCurrentSecond();  
+//this.gameLoopHandle = window.requestAnimationFrame(this.gameLoop.bind(this));    
+    if(this.playState === true){
+    this.calcCurrentSecond();  
+    }
 }
 calcCurrentSecond(){
 let calculations = this.currentSecond;    
@@ -55,5 +62,7 @@ getTime(){
     const d = new Date();
     return d.getTime();
 }
+
+
 //////////////////////////classsss-----------------
 }
