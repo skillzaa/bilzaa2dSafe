@@ -4,7 +4,7 @@ export default class BasePrimtive  extends Metal{
 
 constructor() {
     super();
-    this.sequences = [];
+    this.animations = [];
     this.elementData = {};
     this.basicData = {
         x: 100,
@@ -22,6 +22,10 @@ constructor() {
     };
 }
 
+addAnimation(animationSequence){
+this.animations.push(animationSequence);
+}
+
 addMove(fromX,fromY,toX,toY,startTime,endTime){
 const seq = {};
 seq.fromX = fromX;
@@ -35,26 +39,27 @@ seq.seqDuration  = endTime - startTime ;
 
 seq.deltaX = ( (toX - fromX) / seq.seqDuration );         
 seq.deltaY = ( (toY - fromY) / seq.seqDuration );         
-this.sequences.push(seq);    
+this.animations.push(seq);    
     
 }//fn
 getCurrentSequences(currentSecond){
 const seq = [];
-    for (let x = 0; x < this.sequences.length; x++) {
+    for (let x = 0; x < this.animations.length; x++) {
     
-    if(this.sequences[x].startTime < currentSecond && this.sequences[x].endTime > currentSecond ){
-        seq.push(this.sequences[x]);  
+    if(this.animations[x].startTime < currentSecond && this.animations[x].endTime > currentSecond ){
+        seq.push(this.animations[x]);  
     }
 }//for ends
  if (seq.length > 0){return seq;}else{ return false;}
 }//getCurrentSequence
 
 draw(){
-    if(this.basicData.drawBorder === true){
-        this.drawWithBorder();
-    }else {
-        this.drawWithoutBorder();
-    }
+    // if(this.basicData.drawBorder === true){
+    //     this.drawWithBorder();
+    // }else {
+    //     this.drawWithoutBorder();
+    // }
+this.drawWithoutBorder();    
 }
 
 drawWithoutBorder(){
