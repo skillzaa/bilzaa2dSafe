@@ -5,20 +5,22 @@ export default class BasePrimtive  extends Metal{
 constructor() {
     super();
     this.sequences = [];
-    this.x = 0;
-    this.y = 0;
-    this.startTime;
-    this.endTime;  
-    this.animationDuration =0;  
-    
-    this.rotateSpeed = 1;
-    this.deltaX = 0;  
-    this.deltaY = 0;  
-
-    this.height = 20;
-    this.width = 40;
+    this.elementData = {};
+    this.basicData = {
+        x: 100,
+        y:100,
+        width: 100,
+        drawBorder : true,
+        borderColor : "red",
+        height: 50,
+        fillStyle: "green",
+        strokeStyle: "#FF0000",
+        shadowColor: "blue",
+        shadowBlur: 4,
+        shadowOffsetX: 4,
+        shadowOffsetY: 4
+    };
 }
-
 
 addMove(fromX,fromY,toX,toY,startTime,endTime){
 const seq = {};
@@ -36,27 +38,34 @@ seq.deltaY = ( (toY - fromY) / seq.seqDuration );
 this.sequences.push(seq);    
     
 }//fn
-getCurrentSequence(currentSecond){
-
+getCurrentSequences(currentSecond){
+const seq = [];
     for (let x = 0; x < this.sequences.length; x++) {
     
     if(this.sequences[x].startTime < currentSecond && this.sequences[x].endTime > currentSecond ){
-        return this.sequences[x];  
+        seq.push(this.sequences[x]);  
     }
 }//for ends
-return null; //final value if no found
+ if (seq.length > 0){return seq;}else{ return false;}
 }//getCurrentSequence
-getCurrentSequenceByFrame(currentFrame){
 
-    for (let x = 0; x < this.sequences.length; x++) {
+draw(){
+    if(this.basicData.drawBorder === true){
+        this.drawWithBorder();
+    }else {
+        this.drawWithoutBorder();
+    }
+}
+
+drawWithoutBorder(){
     
-    if(this.sequences[x].startFrame < currentFrame && this.sequences[x].endFrame > currentFrame ){
-        return this.sequences[x];  
-    }
-}//for ends
-return null; //final value if no found
-}//getCurrentSequence
+}
+drawWithBorder(){
 
+}
+editBasicData(itemName, itemValue=""){
+    this.basicData[itemName] = itemValue;
+}
 
 //////////////////////////classsss-----------------
 }

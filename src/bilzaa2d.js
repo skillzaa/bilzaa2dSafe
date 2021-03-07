@@ -11,7 +11,7 @@ constructor(canvasName = "bilzaaCanvas") {
 }
  
 addRectangle(){
-    const rectangle = new Rectangle(this.painter.ctx);
+    const rectangle = new Rectangle();
     this.itemsCollection.push(rectangle);
     return rectangle;
 }

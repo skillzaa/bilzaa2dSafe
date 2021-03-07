@@ -1,11 +1,21 @@
 
 export default class Metal {
 
-constructor(canvasName = "bilzaaCanvas") {
-    this.canvas = document.getElementById(canvasName);
-    this.ctx = this.canvas.getContext('2d');
-    this.ctx.canvas.width  = window.innerWidth;
-    this.ctx.canvas.height = window.innerHeight;    
+constructor() {
+ this.load();
+}
+//....................
+load(canvasName = "bilzaaCanvas"){
+    
+    try {
+        this.canvas = document.getElementById(canvasName);
+        this.ctx = this.canvas.getContext('2d');
+        this.ctx.canvas.width  = window.innerWidth;
+        this.ctx.canvas.height = window.innerHeight;    
+      }
+      catch(err) {
+        return false;
+      }
 }
 //....................
 clear(){

@@ -4,9 +4,10 @@ const bilzaa2d = new Bilzaa2d();
 
 const a = bilzaa2d.addRectangle();
 const b = bilzaa2d.addRectangle();
-a.addMove(10,10,200,200,1,15);
-b.addMove(10,10,200,200,15,20);
-bilzaa2d.play();
+a.draw();
+b.basicData.x=200;
+b.basicData.y=200;
+b.draw();
 // bilzaa2d.play();
 // bilzaa2d.playHead.start();
 // document.addEventListener("click", function(){
