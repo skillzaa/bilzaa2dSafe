@@ -25,7 +25,14 @@ constructor() {
 addAnimation(animationSequence){
 this.animations.push(animationSequence);
 }
-
+setNextFrame(){
+    this.animations.forEach(animation => {
+      //  const args = this.getAnimationArgument(animation.argumentsRequired);
+        animation.animationManipulation();
+        this.basicData.x += 1;
+        this.basicData.y += 1;
+    });
+}
 addMove(fromX,fromY,toX,toY,startTime,endTime){
 const seq = {};
 seq.fromX = fromX;

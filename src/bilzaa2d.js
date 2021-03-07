@@ -22,6 +22,7 @@ this.animationLoop();
 animationLoop(){
 this.metal.clear();    
 this.element.shapes.forEach(item => {
+            item.setNextFrame();
             item.draw(this.playHead.currentSecond);
         });
 window.requestAnimationFrame(this.animationLoop.bind(this));  

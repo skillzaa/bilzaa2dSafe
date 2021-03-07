@@ -12,9 +12,10 @@ constructor(){
 }
 
 animationManipulation(currentSecond,args){
-args.x = args.x + 1;
-args.y = args.y + 1;
-return args;
+// args.x = args.x + 1;
+// args.y = args.y + 1;
+console.log("animationManipulation");
+//return args;
 }
 
 
