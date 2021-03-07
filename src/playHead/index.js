@@ -14,8 +14,10 @@ document.getElementById("resume").addEventListener("click",
 ()=>{ playhead.resume();});
 document.getElementById("changeDuration").addEventListener("click",
 ()=>{ playhead.animationDuration = 10;});
-// document.getElementById("rewind").addEventListener("click",
-// ()=>{ playhead.rewind();});
+document.getElementById("forward").addEventListener("click",
+()=>{ playhead.forward();});
+document.getElementById("rewind").addEventListener("click",
+()=>{ playhead.rewind();});
 
 setInterval(() => {
  const h = document.getElementById("currentSecond");
