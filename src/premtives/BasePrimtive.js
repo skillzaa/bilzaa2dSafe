@@ -1,11 +1,12 @@
-export default class BasePrimtive{
+import Metal from "../metal/Metal.js";
 
-constructor(ctx) {
+export default class BasePrimtive  extends Metal{
+
+constructor() {
+    super();
     this.sequences = [];
-    this.ctx = ctx;
     this.x = 0;
     this.y = 0;
-    
     this.startTime;
     this.endTime;  
     this.animationDuration =0;  
@@ -18,7 +19,7 @@ constructor(ctx) {
     this.width = 40;
 }
 
-draw(){}
+
 addMove(fromX,fromY,toX,toY,startTime,endTime){
 const seq = {};
 seq.fromX = fromX;

@@ -1,0 +1,24 @@
+
+export default class Metal {
+
+constructor(canvasName = "bilzaaCanvas") {
+    this.canvas = document.getElementById(canvasName);
+    this.ctx = this.canvas.getContext('2d');
+    this.ctx.canvas.width  = window.innerWidth;
+    this.ctx.canvas.height = window.innerHeight;    
+}
+//....................
+clear(){
+this.ctx.fillStyle = "#f5ecc3";
+//clear the canvas
+this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
+}//fn
+
+drawRectangle(x=10,y=10,width=100,height = 100){
+    this.ctx.fillStyle = "red";
+this.ctx.fillRect(x, y, width, height)
+const diff = 150
+this.ctx.strokeRect(x+50, y+50, width, height)
+}
+//////////////////////////classsss-----------------
+}
