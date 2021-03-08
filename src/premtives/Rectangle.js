@@ -24,16 +24,15 @@ this.sequences.push(moveSeq);
 }
 
 drawWithoutBorder(){
-
     //set ctx to basic data
-    this.ctx.fillStyle      = this.basicData.fillStyle      ; 
-    this.ctx.strokeStyle    = this.basicData.strokeStyle    ;
-    this.ctx.shadowColor    = this.basicData.shadowColor    ;
-    this.ctx.shadowBlur     = this.basicData.shadowBlur     ;
-    this.ctx.shadowOffsetX  = this.basicData.shadowOffsetX  ;
-    this.ctx.shadowOffsetY  = this.basicData.shadowOffsetY  ;
+    this.ctx.fillStyle      = this.getBD("fillStyle").value;
+    this.ctx.strokeStyle    = this.getBD("strokeStyle").value;
+    this.ctx.shadowColor    = this.getBD("shadowColor").value;
+    this.ctx.shadowBlur     = this.getBD("shadowBlur").value;
+    this.ctx.shadowOffsetX  = this.getBD("shadowOffsetX").value;
+    this.ctx.shadowOffsetY  = this.getBD("shadowOffsetY").value;
     
-    this.ctx.fillRect(this.basicData.x,this.basicData.y,this.basicData.width,this.basicData.height);
+    this.ctx.fillRect(this.getBD("x").value,this.getBD("y").value,this.getBD("width").value,this.getBD("height").value);
 //--the draw function
 }
 

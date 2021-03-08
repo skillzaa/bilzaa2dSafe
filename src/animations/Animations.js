@@ -6,8 +6,8 @@ constructor(){
     
 }
 
-addMove(){
-return new Move();
+addMove(fromX,fromY,toX,toY,fromSecond,toSecond){
+return new Move(fromX,fromY,toX,toY,fromSecond,toSecond);
 }
 
 
