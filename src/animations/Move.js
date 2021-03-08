@@ -1,7 +1,7 @@
 
-import BaseSequence from "./BaseSequence.js";
+import BaseAnimation from "./BaseAnimation.js";
 
-export default class Move extends BaseSequence {
+export default class Move extends BaseAnimation {
 
 constructor(fromX,fromY,toX,toY,fromSecond,toSecond){
     super("move","basic");

@@ -6,7 +6,7 @@ constructor(name="Not named",type="basic") {
     super();
     this.name=name;
     this.type = type;
-    this.animations = [];
+    this.animationSequences = [];
     this.elementData = {};
     this.basicData = [
     { name : "x",  value : 100, comments:"The X location"},
@@ -25,10 +25,10 @@ constructor(name="Not named",type="basic") {
 }
 
 addAnimation(animationSequence){
-this.animations.push(animationSequence);
+this.animationSequences.push(animationSequence);
 }
 setNextFrame(){
-    this.animations.forEach(animation => {
+    this.animationSequences.forEach(animation => {
 const bdReqForAni = this.getbdReqForAni(animation.bdReqForAni);
 const retData = animation.animationManipulation(bdReqForAni);
 this.absorbBDReqForAni(retData);
@@ -59,28 +59,13 @@ this.basicData.forEach(bd => {
 return ret;    
 }
 
-addMove(fromX,fromY,toX,toY,startTime,endTime){
-const seq = {};
-seq.fromX = fromX;
-seq.toX = toX;
-seq.fromY = fromY;
-seq.toY = toY;
 
-seq.startTime = startTime;
-seq.endTime = endTime;
-seq.seqDuration  = endTime - startTime ; 
-
-seq.deltaX = ( (toX - fromX) / seq.seqDuration );         
-seq.deltaY = ( (toY - fromY) / seq.seqDuration );         
-this.animations.push(seq);    
-    
-}//fn
 getCurrentSequences(currentSecond){
 const seq = [];
-    for (let x = 0; x < this.animations.length; x++) {
+    for (let x = 0; x < this.animationSequences.length; x++) {
     
-    if(this.animations[x].startTime < currentSecond && this.animations[x].endTime > currentSecond ){
-        seq.push(this.animations[x]);  
+    if(this.animationSequences[x].startTime < currentSecond && this.animationSequences[x].endTime > currentSecond ){
+        seq.push(this.animationSequences[x]);  
     }
 }//for ends
  if (seq.length > 0){return seq;}else{ return false;}

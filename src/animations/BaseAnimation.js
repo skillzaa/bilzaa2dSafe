@@ -1,6 +1,6 @@
 
 
-export default class BaseSequence {
+export default class BaseAnimation {
 
 constructor(name="newSequence",type="basic"){
  this.name = name;   
