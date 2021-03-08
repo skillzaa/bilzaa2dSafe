@@ -30,5 +30,11 @@ this.ctx.fillRect(x, y, width, height)
 const diff = 150
 this.ctx.strokeRect(x+50, y+50, width, height)
 }
+drawRectangleBorder(x, y, width, height, fillStyle='#000',thickness = 1)
+{
+  this.ctx.fillStyle= fillStyle;
+  this.ctx.fillRect(x - (thickness), y - (thickness), width + (thickness * 2), height + (thickness * 2));
+  this.ctx.fillRect(x - (thickness), y - (thickness), width + (thickness * 2), height + (thickness * 2));
+}
 //////////////////////////classsss-----------------
 }

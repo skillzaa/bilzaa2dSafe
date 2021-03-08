@@ -14,13 +14,14 @@ constructor(name="Not named",type="basic") {
     { name : "width",  value : 100, comments:""},
     { name : "drawBorder",  value  : true, comments:""},
     { name : "borderColor",  value  : "red", comments:""},
+    { name : "borderWidth",  value  : 10, comments:""},
     { name : "height",  value : 50, comments:""},
     { name : "fillStyle",  value : "green", comments:""},
     { name : "strokeStyle",  value : "#F0000", comments:""},
     { name : "shadowColor",  value : "blue", comments:""},
-    { name : "shadowBlur",  value : 4, comments:""},
-    { name : "shadowOffsetX",  value : 4, comments:""},
-    { name : "shadowOffsetY",  value : 4, comments:""},
+    { name : "shadowBlur",  value : 0, comments:""},
+    { name : "shadowOffsetX",  value : 0, comments:""},
+    { name : "shadowOffsetY",  value : 0, comments:""},
     ];
 }
 
@@ -59,7 +60,6 @@ this.basicData.forEach(bd => {
 return ret;    
 }
 
-
 getCurrentSequences(currentSecond){
 const seq = [];
     for (let x = 0; x < this.animationSequences.length; x++) {
@@ -72,23 +72,19 @@ const seq = [];
 }//getCurrentSequence
 
 draw(){
-    // if(this.basicData.drawBorder === true){
-    //     this.drawWithBorder();
-    // }else {
-    //     this.drawWithoutBorder();
-    // }
-this.drawWithoutBorder();    
+  //  if(this.basicData.drawBorder === true){
+        this.drawBorder();
+ //   }
+this.drawShape();    
 }
+////-------------------------------------------
+/**every element atleast has 2 componenets .// a border and the shape. we can keep their implementation chaging and adding HOOKS*/
+drawBorder(){
 
-drawWithoutBorder(){
-    
-}
-drawWithBorder(){
+} 
+drawShape(){} 
+////-------------------------------------------
 
-}
-editBasicData(itemName, itemValue=""){
-    this.basicData[itemName] = itemValue;
-}
 getBD(name){
 for (let idx = 0; idx < this.basicData.length; idx++) {
     if(this.basicData[idx].name === name){

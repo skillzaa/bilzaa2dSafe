@@ -6,24 +6,7 @@ constructor() {
     super();    
 }
 
-addRotate(speed,startTime,endTime){
-const moveSeq = {};
-moveSeq.rotateSpeed = speed;
-
-moveSeq.startTime = startTime;
-moveSeq.endTime = endTime;
-moveSeq.startFrame = startTime * 60;
-moveSeq.endFrame = endTime * 60 ;
-
-moveSeq.animationDuration  = endTime - startTime ; 
-moveSeq.animationDurationFrame  = moveSeq.endFrame - moveSeq.startFrame ; 
-
-
-this.sequences.push(moveSeq);    
-
-}
-
-drawWithoutBorder(){
+drawShape(){
     //set ctx to basic data
     this.ctx.fillStyle      = this.getBD("fillStyle").value;
     this.ctx.strokeStyle    = this.getBD("strokeStyle").value;
@@ -36,20 +19,8 @@ drawWithoutBorder(){
 //--the draw function
 }
 
-drawWithBorder(){
-const old = this.basicData.fillStyle;    
-this.basicData.fillStyle = this.basicData.borderColor;    
-this.drawWithoutBorder();
-this.basicData.fillStyle = old;
-this.basicData.x += 4;
-this.basicData.y += 4;
-this.basicData.width -= 8;
-this.basicData.height -= 8;
-this.basicData.shadowBlur = 0;
-this.basicData.shadowOffsetX = 0;
-this.basicData.shadowOffsetY = 0;
-        
-this.drawWithoutBorder();
+drawBorder(){
+this.drawRectangleBorder(this.getBD("x").value ,this.getBD("y").value ,this.getBD("width").value,this.getBD("height").value,this.getBD("borderColor").value,this.getBD("borderWidth").value );
 }   
 //////////////////////////classsss-----------------
 }
