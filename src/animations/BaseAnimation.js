@@ -16,6 +16,10 @@ this.bdReqForAni = [];//arg req from elem for animation manipulation
 
 animationManipulation(bdReqForAni,currentSecond){console.log("animationManipulation");}
 
-
+calculateDeltaPerMinute(fromValue,toValue,fromSecond,toSecond){
+    const timeDiff = (toSecond - fromSecond).toFixed(0);
+    const totalValueDiff = (toValue - fromValue).toFixed(0);
+    return totalValueDiff/timeDiff;
+}
 //...............................................    
 }

@@ -23,11 +23,7 @@ this.deltaYPerFrame = this.deltaYPerMinute/this.fps;
  this.comments = "This object once attached to an element will make that element move as per the given parameters.";
 
 }
-calculateDeltaPerMinute(fromValue,toValue,fromSecond,toSecond){
-    const timeDiff = (toSecond - fromSecond).toFixed(0);
-    const totalValueDiff = (toValue - fromValue).toFixed(0);
-    return totalValueDiff/timeDiff;
-}
+
 animationManipulation(bdReqForAni,currentSecond){
    
 bdReqForAni.forEach(element => {
