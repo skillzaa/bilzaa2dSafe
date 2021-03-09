@@ -14,10 +14,10 @@ constructor(fromWidth=10,toWidth=100,fromHeight=10,toHeight=100,fromSecond=1,toS
  this.fromSecond = fromSecond;
  this.toSecond = toSecond;
 
-this.deltaWidthPerSecond = this.calculateDeltaPerMinute(fromWidth,toWidth,fromSecond,toSecond);
+this.deltaWidthPerSecond = this.calculateDeltaPerSecond(fromWidth,toWidth,fromSecond,toSecond);
 this.deltaWidthPerFrame = this.deltaWidthPerSecond/this.fps;
 
-this.deltaHeightPerMinute = this.calculateDeltaPerMinute(fromHeight,toHeight,fromSecond,toSecond);
+this.deltaHeightPerMinute = this.calculateDeltaPerSecond(fromHeight,toHeight,fromSecond,toSecond);
 this.deltaHeightPerFrame = this.deltaHeightPerMinute/this.fps;
  
 this.bdReqForAni = [

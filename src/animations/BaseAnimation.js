@@ -11,12 +11,12 @@ this.bdReqForAni = [];//arg req from elem for animation manipulation
  this.comments = "";
  this.startSecond = 0;
  this.endSecond = 0;
- this.fps = 60;
+ this.fps = 60;//???????????????????????????????
 }
 
-animationManipulation(bdReqForAni,currentSecond){console.log("animationManipulation");}
+animationManipulation(bdReqForAni,currentSecond){}
 
-calculateDeltaPerMinute(fromValue,toValue,fromSecond,toSecond){
+calculateDeltaPerSecond(fromValue,toValue,fromSecond,toSecond){
     const timeDiff = (toSecond - fromSecond).toFixed(0);
     const totalValueDiff = (toValue - fromValue).toFixed(0);
     return totalValueDiff/timeDiff;
