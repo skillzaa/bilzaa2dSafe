@@ -7,7 +7,7 @@ constructor() {
 }
 
 drawShape(){
-if(this.getBD("rps").value > 0 ){console.log("Rotating...",this.getBD("rotateAngle").value);}
+//if(this.getBD("rps").value > 0 ){console.log("Rotating...",this.getBD("rotateAngle").value);}
 
     this.ctx.fillStyle      = this.getBD("fillStyle").value;
     this.ctx.strokeStyle    = this.getBD("strokeStyle").value;
@@ -28,7 +28,18 @@ if(this.getBD("rps").value > 0 ){console.log("Rotating...",this.getBD("rotateAng
 }
 
 drawBorder(){
-this.drawRectangleBorder(this.getBD("x").value ,this.getBD("y").value ,this.getBD("width").value,this.getBD("height").value,this.getBD("borderColor").value,this.getBD("borderWidth").value );
+  
+    this.ctx.save();
+    this.ctx.translate(this.getBD("x").value + (this.getBD("width").value/2), this.getBD("y").value + (this.getBD("height").value/2));
+    this.ctx.rotate((this.getBD("rotateAngle").value) * Math.PI / 180);
+    this.ctx.translate(-(this.getBD("x").value + (this.getBD("width").value/2)), -(this.getBD("y").value + (this.getBD("height").value/2)));
+
+    this.drawRectangleBorder(this.getBD("x").value ,this.getBD("y").value ,this.getBD("width").value,this.getBD("height").value,this.getBD("borderColor").value,this.getBD("borderWidth").value );
+
+    this.ctx.restore();
+
+//----------------------------    
+
 }   
 //////////////////////////classsss-----------------
 }

@@ -93,7 +93,16 @@ for (let idx = 0; idx < this.basicData.length; idx++) {
     if(this.basicData[idx].name === name){
         return this.basicData[idx];
     }
-}    
+} 
+return false;   
+}
+getBDVal(name){
+for (let idx = 0; idx < this.basicData.length; idx++) {
+    if(this.basicData[idx].name === name){
+        return this.basicData[idx].value;
+    }
+}
+return false;    
 }
 
 setBD(name,value){
