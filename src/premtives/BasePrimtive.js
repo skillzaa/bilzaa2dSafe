@@ -16,6 +16,9 @@ constructor(name="Not named",type="basic") {
     { name : "borderColor",  value  : "red", comments:""},
     { name : "borderWidth",  value  : 10, comments:""},
     { name : "height",  value : 50, comments:""},
+    { name : "rotateClockwise",  value : true, comments:"t/f"},
+    { name : "rotateAngle",  value : 0, comments:"the angle at which the obj is currently rotated"},
+    { name : "rps",  value : 10, comments:"stands for rotation per sec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle"},
     { name : "fillStyle",  value : "green", comments:""},
     { name : "strokeStyle",  value : "#F0000", comments:""},
     { name : "shadowColor",  value : "blue", comments:""},
@@ -44,7 +47,7 @@ absorbBDReqForAni(retData){
             }
         });
     });
-console.log(this.basicData);    
+//console.log(this.basicData);    
 return true;    
 }//..
 

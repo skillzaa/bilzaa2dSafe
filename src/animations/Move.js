@@ -11,8 +11,8 @@ constructor(fromX,fromY,toX,toY,fromSecond,toSecond){
  this.toY = toY;
  this.fromSecond = fromSecond;
  this.toSecond = toSecond;
-this.deltaXPerMinute = this.calculateDeltaPerMinute(fromX,toX,fromSecond,toSecond);
-this.deltaXPerFrame = this.deltaXPerMinute/this.fps;
+this.deltaXPerSecond = this.calculateDeltaPerMinute(fromX,toX,fromSecond,toSecond);
+this.deltaXPerFrame = this.deltaXPerSecond/this.fps;
 this.deltaYPerMinute = this.calculateDeltaPerMinute(fromY,toY,fromSecond,toSecond);
 this.deltaYPerFrame = this.deltaYPerMinute/this.fps;
  this.bdReqForAni = [
