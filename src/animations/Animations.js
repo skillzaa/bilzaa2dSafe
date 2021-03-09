@@ -10,11 +10,11 @@ constructor(){
 addMove(fromX,fromY,toX,toY,fromSecond,toSecond){
 return new Move(fromX,fromY,toX,toY,fromSecond,toSecond);
 }
-addRotate(){
-return new Rotate();
+addRotate(fps=6,valueName,from,to,fromSecond,toSecond){
+return new Rotate(fps=6,valueName,from,to,fromSecond,toSecond);
 }
-addScale(){
-return new Scale();
+addScale(fps=6,valueName,from,to,fromSecond,toSecond){
+return new Scale(fps=6,valueName,from,to,fromSecond,toSecond);
 }
 
 
