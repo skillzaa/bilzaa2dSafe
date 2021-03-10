@@ -49,36 +49,27 @@ if (this.clearCanvas === true){
     this.metal.clearCanvas(); 
     this.clearCanvas === false; //shd this be here?
 }    
-    this.animationSequences.forEach(animation => {
-const bdReqForAni = this.getbdReqForAni(animation.bdReqForAni);
-const retData = animation.animationManipulation(bdReqForAni);
-this.absorbBDReqForAni(retData);
+//========================================== 
+this.animationSequences.forEach(animation => {
+    const animationData = this.attributes.getAttributesByName(animation.animationData);
+    const retData = animation.animationManipulation(animationData);
+    this.attributes.saveAttributeValues(retData);
+    //========================================== 
     });
 return true;    
 }
-absorbBDReqForAni(retData){
-    this.attributes.data.forEach(bd => {
-        retData.forEach(ag => {
-            if(ag.name == bd.name){
-                bd.value = ag.value;
-            }
-        });
-    });
-  
-return true;    
-}//..
 
-getbdReqForAni(argumentsRequired=[]){
-const ret = [];    
-this.attributes.data.forEach(bd => {
-    argumentsRequired.forEach(ag => {
-        if(ag.name == bd.name){
-            ret.push(bd);
-        }
-    });
-});
-return ret;    
-}
+// getAttributesByName(argumentsRequired=[]){
+// const ret = [];    
+// this.attributes.data.forEach(bd => {
+//     argumentsRequired.forEach(ag => {
+//         if(ag.name == bd.name){
+//             ret.push(bd);
+//         }
+//     });
+// });
+// return ret;    
+// }
 
 getCurrentSequences(currentSecond){
 const seq = [];

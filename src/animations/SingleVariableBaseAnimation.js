@@ -9,7 +9,7 @@ this.from = incomming.from | 10;
 this.to = incomming.to | 300;
 //-----------------------------------
 this.fps = incomming.fps | 60 ;
-this.bdReqForAni = [{name : `${this.valueName}`}];
+this.animationData = [{name : `${this.valueName}`}];
 
 this.deltaPerSecond = this.calculateDeltaPerSecond(this.from,this.to,this.fromSecond,this.toSecond);
 this.deltaPerFrame = this.deltaPerSecond/this.fps;
