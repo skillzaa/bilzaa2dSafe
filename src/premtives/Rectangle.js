@@ -7,7 +7,7 @@ constructor() {
 }
 
 drawShape(){
-if(this.getBD("rps").value > 0 ){console.log("Rotating.shape..",this.getBD("rotateAngle").value);}
+
 
     this.ctx.fillStyle      = this.getBD("fillStyle").value;
     this.ctx.strokeStyle    = this.getBD("strokeStyle").value;

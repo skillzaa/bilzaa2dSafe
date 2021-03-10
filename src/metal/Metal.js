@@ -23,6 +23,11 @@ this.ctx.fillStyle = "#f5ecc3";
 //clear the canvas
 this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
 }//fn
+clearCanvas(){
+this.ctx.fillStyle = "#f5ecc3";
+//clear the canvas
+this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
+}//fn
 
 drawRectangle(x=10,y=10,width=100,height = 100){
     this.ctx.fillStyle = "red";

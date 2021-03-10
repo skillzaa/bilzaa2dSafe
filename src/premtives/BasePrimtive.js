@@ -8,6 +8,8 @@ constructor(name="Not named",type="basic") {
     this.type = type;
     this.animationSequences = [];
     this.elementData = {};
+    this.clearCanvas = false;
+    this.metal = new Metal();
     this.basicData = [
     { name : "x",  value : 100, comments:"The X location"},
     { name : "y",  value :100,comments:"The Y location"},
@@ -32,6 +34,10 @@ addAnimation(animationSequence){
     }
 
 setNextFrame(){
+if (this.clearCanvas === true){
+    this.metal.clearCanvas(); 
+    this.clearCanvas === false; //shd this be here?
+}    
     this.animationSequences.forEach(animation => {
 const bdReqForAni = this.getbdReqForAni(animation.bdReqForAni);
 const retData = animation.animationManipulation(bdReqForAni);
