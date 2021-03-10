@@ -1,5 +1,6 @@
 import Metal from "../metal/Metal.js";
 
+//import Aoo from "../Aoo/Aoo.js";
 export default class BasePrimtive  extends Metal{
 
 constructor(name="Not named",type="basic") {
