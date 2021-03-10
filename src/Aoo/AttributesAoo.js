@@ -1,12 +1,12 @@
+import AooBase from "./AooBase.js";
 
-export default class AOO{    
+export default class AttributesAoo extends AooBase{    
 constructor(){
-    this.data=[];
+super();
 }
 add(incomming = {}){
 this.data.push(incomming);
 return incomming;
-
 } 
 saveAttributeValues(retData){
     this.data.forEach(bd => {

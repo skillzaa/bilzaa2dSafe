@@ -1,6 +1,6 @@
 import Metal from "../metal/Metal.js";
 
-import Aoo from "../Aoo/Aoo.js";
+import AttributesAoo from "../Aoo/AttributesAoo.js";
 export default class BasePrimtive  extends Metal{
 
 constructor(name="Not named",type="basic") {
@@ -11,7 +11,7 @@ constructor(name="Not named",type="basic") {
     this.elementData = {};
     this.clearCanvas = false;
     this.metal = new Metal();
-    this.attributes = new Aoo();
+    this.attributes = new AttributesAoo();
     this.fillAttributes();
     
     
@@ -58,18 +58,6 @@ this.animationSequences.forEach(animation => {
     });
 return true;    
 }
-
-// getAttributesByName(argumentsRequired=[]){
-// const ret = [];    
-// this.attributes.data.forEach(bd => {
-//     argumentsRequired.forEach(ag => {
-//         if(ag.name == bd.name){
-//             ret.push(bd);
-//         }
-//     });
-// });
-// return ret;    
-// }
 
 getCurrentSequences(currentSecond){
 const seq = [];
