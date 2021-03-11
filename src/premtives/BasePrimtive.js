@@ -62,7 +62,7 @@ this.animationSequences.data.forEach(animation => {
     //----STEP 2 -- SAVE ATTRIBUTES
 
    // this.attributes.saveAttributeValues(retData);//retData is aoo
-    this.attributes.setSingleAttributeValue(retData[0].name,retData[0].value);//retData is aoo
+    this.attributes.setSingleValue(retData[0].name,retData[0].value);//retData is aoo
     //========================================== 
     });
 return true;    

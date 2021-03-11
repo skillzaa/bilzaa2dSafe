@@ -15,7 +15,9 @@ this.fps =  60 ;
 //This is a simple array not an aoo
 this.animationData = this.getAnimationData();
 //console.log("animation data",this.animationData);
-
+//-----change it next
+this.deltaPerSecond = this.deltaPerSecond();
+this.deltaPerFrame = this.deltaPerFrame = this.deltaPerSecond/this.fps;
 }
 getAnimationData(){
 //animation data [simple array] is the array of attributes that is sent to the element and that send back these attributes.
@@ -34,17 +36,13 @@ algorithem(animationData,currentSecond,){
     const ret = this[this.algo](animationData,currentSecond);
     return ret;
 }
-calculateDeltaPerSecond(fromValue,toValue,fromSecond,toSecond){
-    const timeDiff = (toSecond - fromSecond).toFixed(0);
-    const totalValueDiff = (toValue - fromValue).toFixed(0);
+
+deltaPerSecond(){
+    const timeDiff = parseInt((this.toSecond - this.fromSecond));
+    const totalValueDiff = (this.argsForAlgo.to - this.argsForAlgo.from).toFixed(0);
     return totalValueDiff/timeDiff;
 }
-deltaPerSecond(){
-    //this.deltaPerSecond = this.calculateDeltaPerSecond(this.from,this.to,this.fromSecond,this.toSecond);
-}
-deltaPerFrame(){
-    //this.deltaPerFrame = this.deltaPerSecond/this.fps;
-}
+
 //===============================================
 //===============================================
 //===============================================
@@ -53,7 +51,7 @@ deltaPerFrame(){
 linear(bdReqForAni,currentSecond){
     bdReqForAni.forEach(element => {
         if(element.name == this.valueName){
-            element.value += this.deltaPerFrame ;
+            element.value += this.deltaPerFrame;
         }
     });
 return bdReqForAni;;        
