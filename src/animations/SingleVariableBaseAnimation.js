@@ -1,18 +1,31 @@
 export default class SingleVariableBaseAnimation {
 
-constructor(valueName,fromSecond,toSecond, algo, opt={}){
- this.valueName = valueName ;
- this.fromSecond = fromSecond  ;
- this.toSecond = toSecond ;
- this.algo = algo ; 
+//constructor(valueName,fromSecond,toSecond, algo, opt={}){
+constructor(compulsary,dataFromElement=[],argsForAlgo={},future={}){
+ this.valueName = compulsary.valueName ;
+ this.fromSecond = compulsary.fromSecond  ;
+ this.toSecond = compulsary.toSecond ;
+ this.algo = compulsary.algo ; 
 //-----------------------------------
-this.optional = opt;
+this.dataFromElement = dataFromElement;
+this.future = future;
+this.argsForAlgo = argsForAlgo;
 //-----------------------------------
 this.fps =  60 ;
-this.animationData = [{name : `${this.valueName}`}];
+//this.animationData = [{name : `${this.valueName}`}];
+this.animationData = this.getAnimationData();
+console.log("animation data",this.animationData);
 
 }
-
+getAnimationData(){
+//animation data [simple array] is the array of attributes that is sent to the element and that send back these attributes.
+    const a = [];
+    a.push(this.valueName);
+    this.dataFromElement.forEach(d => {
+        a.push(d);
+    });
+return a;    
+}
 animate(animationData,currentSecond){
 const retArray = this.algorithem(animationData,currentSecond);   
 return retArray;

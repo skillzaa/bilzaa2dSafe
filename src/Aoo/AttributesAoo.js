@@ -21,10 +21,11 @@ return true;
 }//..
 
 getAttributesByName(argumentsRequired=[]){
+/**incooming is normal [] where as attributes is an obj wrapped around an aOO */    
 const ret = [];    
 this.data.forEach(bd => {
     argumentsRequired.forEach(ag => {
-        if(ag.name == bd.name){
+        if(ag == bd.name){
             ret.push(bd);
         }
     });
