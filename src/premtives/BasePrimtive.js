@@ -1,21 +1,23 @@
 import Metal from "../metal/Metal.js";
 
+import AnimationSequencesAoo from "../Aoo/AnimationSequencesAoo.js";
 import AttributesAoo from "../Aoo/AttributesAoo.js";
 export default class BasePrimtive  extends Metal{
 
 constructor(name="Not named",type="basic") {
-    super();
-    this.name=name;
-    this.type = type;
-    this.animationSequences = [];
-    this.elementData = {};
-    this.clearCanvas = false;
-    this.metal = new Metal();
-    this.attributes = new AttributesAoo();
-    this.fillAttributes();
-    
-    
+super();
+this.name=name;
+this.type = type;
+//====AOOs=============
+this.animationSequences = new AnimationSequencesAoo();
+
+this.attributes = new AttributesAoo();
+//==================================
+this.clearCanvas = false;
+this.metal = new Metal();
+this.fillAttributes();    
 }
+
 fillAttributes(){
 const basicData = [
         { name : "x",  value : 100, comments:"The X location"},
@@ -40,35 +42,36 @@ basicData.forEach(attr => {
 });       
 //console.log(this.attributes); 
 }
-addAnimation(animationSequence){
-    this.animationSequences.push(animationSequence);
-    }
+// addAnimation(animationSequence){
+//     this.animationSequences.push(animationSequence);
+//     }
 
-setNextFrame(){
+setNextFrame(currentSecond){
 if (this.clearCanvas === true){
     this.metal.clearCanvas(); 
     this.clearCanvas === false; //shd this be here?
 }    
 //========================================== 
-this.animationSequences.forEach(animation => {
+this.animationSequences.data.forEach(animation => {
     const animationData = this.attributes.getAttributesByName(animation.animationData);
-    const retData = animation.animationManipulation(animationData);
+    //filter out not relavant seq here
+    const retData = animation.animate(animationData,currentSecond);
     this.attributes.saveAttributeValues(retData);
     //========================================== 
     });
 return true;    
 }
-
-getCurrentSequences(currentSecond){
-const seq = [];
-    for (let x = 0; x < this.animationSequences.length; x++) {
+///not req just filter out in the setNextFrame;
+// getCurrentSequences(currentSecond){
+// const seq = [];
+//     for (let x = 0; x < this.animationSequences.length; x++) {
     
-    if(this.animationSequences[x].startTime < currentSecond && this.animationSequences[x].endTime > currentSecond ){
-        seq.push(this.animationSequences[x]);  
-    }
-}//for ends
- if (seq.length > 0){return seq;}else{ return false;}
-}//getCurrentSequence
+//     if(this.animationSequences.data[x].fromSecond < currentSecond && this.animationSequences.data[x].toSecond > currentSecond ){
+//         seq.push(this.animationSequences.data[x]);  
+//     }
+// }//for ends
+//  if (seq.length > 0){return seq;}else{ return false;}
+// }//getCurrentSequence
 
 draw(){
   //  if( === true){

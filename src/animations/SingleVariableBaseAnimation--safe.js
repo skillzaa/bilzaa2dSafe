@@ -1,18 +1,18 @@
 export default class SingleVariableBaseAnimation {
 
-constructor(compulsary,opt={}){
- this.valueName = compulsary.valueName ;
- this.algo = compulsary.algo ; 
-this.fromSecond = compulsary.fromSecond  ;
-this.toSecond = compulsary.toSecond ;
-//-----------------------------------
-this.optional = opt;
+constructor(incomming= {}){
+ this.valueName = incomming.valueName ;
+ this.algo = incomming.algo ; 
+this.fromSecond = incomming.fromSecond  ;
+this.toSecond = incomming.toSecond ;
+this.from = incomming.from;
+this.to = incomming.to;
 //-----------------------------------
 this.fps =  60 ;
 this.animationData = [{name : `${this.valueName}`}];
 
-//this.deltaPerSecond = this.calculateDeltaPerSecond(this.from,this.to,this.fromSecond,this.toSecond);
-//this.deltaPerFrame = this.deltaPerSecond/this.fps;
+this.deltaPerSecond = this.calculateDeltaPerSecond(this.from,this.to,this.fromSecond,this.toSecond);
+this.deltaPerFrame = this.deltaPerSecond/this.fps;
 }
 
 animate(animationData,currentSecond){
@@ -23,17 +23,6 @@ algorithem(animationData,currentSecond){
     const ret = this[this.algo](animationData,currentSecond);
     return ret;
 }
-calculateDeltaPerSecond(fromValue,toValue,fromSecond,toSecond){
-    const timeDiff = (toSecond - fromSecond).toFixed(0);
-    const totalValueDiff = (toValue - fromValue).toFixed(0);
-    return totalValueDiff/timeDiff;
-}
-deltaPerSecond(){}
-deltaPerFrame(){}
-//===============================================
-//===============================================
-//===============================================
-//===============================================
 
 linear(bdReqForAni,currentSecond){
     bdReqForAni.forEach(element => {
@@ -66,6 +55,11 @@ randomColor(bdReqForAni,currentSecond){
         }
     });
 return bdReqForAni;;        
+}
+calculateDeltaPerSecond(fromValue,toValue,fromSecond,toSecond){
+    const timeDiff = (toSecond - fromSecond).toFixed(0);
+    const totalValueDiff = (toValue - fromValue).toFixed(0);
+    return totalValueDiff/timeDiff;
 }
 
 //...............................................    

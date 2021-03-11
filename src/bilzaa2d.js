@@ -17,8 +17,9 @@ animationLoop(){
  this.element.shapes[0].clearCanvas = true;
 
 this.element.shapes.forEach(item => {
-            item.setNextFrame();
-            item.draw(this.playHead.currentSecond);
+    const curSec = this.playHead.currentSecond;
+            item.setNextFrame(curSec);
+            item.draw(curSec);
         });
 window.requestAnimationFrame(this.animationLoop.bind(this));  
 }//play
