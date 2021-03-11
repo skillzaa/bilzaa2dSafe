@@ -1,25 +1,23 @@
 export default class SingleVariableBaseAnimation {
 
-constructor(compulsary,opt={}){
- this.valueName = compulsary.valueName ;
- this.algo = compulsary.algo ; 
-this.fromSecond = compulsary.fromSecond  ;
-this.toSecond = compulsary.toSecond ;
+constructor(valueName,fromSecond,toSecond, algo, opt={}){
+ this.valueName = valueName ;
+ this.fromSecond = fromSecond  ;
+ this.toSecond = toSecond ;
+ this.algo = algo ; 
 //-----------------------------------
 this.optional = opt;
 //-----------------------------------
 this.fps =  60 ;
 this.animationData = [{name : `${this.valueName}`}];
 
-//this.deltaPerSecond = this.calculateDeltaPerSecond(this.from,this.to,this.fromSecond,this.toSecond);
-//this.deltaPerFrame = this.deltaPerSecond/this.fps;
 }
 
 animate(animationData,currentSecond){
 const retArray = this.algorithem(animationData,currentSecond);   
 return retArray;
 }
-algorithem(animationData,currentSecond){
+algorithem(animationData,currentSecond,){
     const ret = this[this.algo](animationData,currentSecond);
     return ret;
 }
@@ -28,8 +26,12 @@ calculateDeltaPerSecond(fromValue,toValue,fromSecond,toSecond){
     const totalValueDiff = (toValue - fromValue).toFixed(0);
     return totalValueDiff/timeDiff;
 }
-deltaPerSecond(){}
-deltaPerFrame(){}
+deltaPerSecond(){
+    //this.deltaPerSecond = this.calculateDeltaPerSecond(this.from,this.to,this.fromSecond,this.toSecond);
+}
+deltaPerFrame(){
+    //this.deltaPerFrame = this.deltaPerSecond/this.fps;
+}
 //===============================================
 //===============================================
 //===============================================
