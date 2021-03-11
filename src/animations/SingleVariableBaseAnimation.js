@@ -12,9 +12,9 @@ this.future = future;
 this.argsForAlgo = argsForAlgo;
 //-----------------------------------
 this.fps =  60 ;
-//this.animationData = [{name : `${this.valueName}`}];
+//This is a simple array not an aoo
 this.animationData = this.getAnimationData();
-console.log("animation data",this.animationData);
+//console.log("animation data",this.animationData);
 
 }
 getAnimationData(){

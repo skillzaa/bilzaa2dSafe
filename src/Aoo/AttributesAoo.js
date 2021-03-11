@@ -19,6 +19,15 @@ saveAttributeValues(retData){
   
 return true;    
 }//..
+setSingleAttributeValue(name,value){
+    this.data.forEach(bd => {
+            if(name === bd.name){
+                bd.value = value;
+            }
+    });
+  
+return true;    
+}//..
 
 getAttributesByName(argumentsRequired=[]){
 /**incooming is normal [] where as attributes is an obj wrapped around an aOO */    

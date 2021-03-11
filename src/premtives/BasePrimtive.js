@@ -47,16 +47,22 @@ basicData.forEach(attr => {
 //     }
 
 setNextFrame(currentSecond){
-if (this.clearCanvas === true){
-    this.metal.clearCanvas(); 
-    this.clearCanvas === false; //shd this be here?
-}    
-//========================================== 
+    if (this.clearCanvas === true){
+        this.metal.clearCanvas(); 
+        this.clearCanvas === false; //shd this be here?
+    }    
+//==================LLLLLOOOOPPPPP======================== 
 this.animationSequences.data.forEach(animation => {
-    const animationData = this.attributes.getAttributesByName(animation.animationData);
+    //----STEP 1 -- GET DATA FROM ATTRIBUTES COLLECTION
     //filter out not relavant seq here
-    const retData = animation.animate(animationData,currentSecond);
-    this.attributes.saveAttributeValues(retData);
+
+    //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
+    const elementDataBeingSentToAnimation = this.attributes.getAttributesByName(animation.animationData);
+    const retData = animation.animate(elementDataBeingSentToAnimation,currentSecond);
+    //----STEP 2 -- SAVE ATTRIBUTES
+
+   // this.attributes.saveAttributeValues(retData);//retData is aoo
+    this.attributes.setSingleAttributeValue(retData[0].name,retData[0].value);//retData is aoo
     //========================================== 
     });
 return true;    
@@ -86,6 +92,13 @@ drawBorder(){
 } 
 drawShape(){} 
 ////-------------------------------------------
+clearCanvas(){
+    if (this.clearCanvas === true){
+        this.metal.clearCanvas(); 
+        this.clearCanvas === false; //shd this be here?
+    }    
+}
+//.................
 
 getBD(name){
 for (let idx = 0; idx < this.attributes.data.length; idx++) {
@@ -113,6 +126,5 @@ for (let idx = 0; idx < this.attributes.data.length; idx++) {
 }        
    
 }//......
-
 //////////////////////////classsss-----------------
 }
