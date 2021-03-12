@@ -15,7 +15,10 @@ c.animationSequences.add({valueName: "borderColor",algo: "randomColor",fromSecon
 const d = bilzaa2d.element.addRectangle();
 d.attributes.setSingleValue("y",300);
 d.attributes.setSingleValue("x",300);
+d.attributes.setSingleValue("borderWidth",1);
 d.animationSequences.add({valueName: "width",algo: "linear",fromSecond:1 , toSecond:10},["width"],{valueName: "width","from":0, "to":300});
+
+d.animationSequences.add({valueName: "drawBorder",algo: "toggle",fromSecond:1 , toSecond:60},["drawBorder"],{valueName: "drawBorder"});
  
 
 

@@ -1,6 +1,7 @@
 import linear from "./linear.js";
 import randomNumber from "./randomNumber.js";
 import randomColor from "./randomColor.js";
+import toggle from "./toggle.js";
 
 export default class Algorithms {
 constructor(){
@@ -17,6 +18,9 @@ let a;
             break;
         case "randomColor":
             return randomColor;  
+            break;
+        case "toggle":
+            return toggle;  
             break;
     
         default:
