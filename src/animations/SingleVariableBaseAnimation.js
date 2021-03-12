@@ -1,9 +1,7 @@
 import Algorithms from "./algo/Algorithms.js";
 
 export default class SingleVariableBaseAnimation {
-
-//constructor(valueName,fromSecond,toSecond, algo, opt={}){
-constructor(compulsary,dataFromElement=[],argsForAlgo={}){
+constructor(compulsary,dataFromElement=[],argsForAlgo={},future={}){
 //--------------------ALGO FASADE---------------      
     this.algorithms = new Algorithms();
 //--------------------COMPULSARY ITEMS---------------    
@@ -13,20 +11,11 @@ constructor(compulsary,dataFromElement=[],argsForAlgo={}){
  this.algo = this.algorithms.getAlgo(compulsary.algo) ; 
  //-----------------------------------
  this.dataFromElement = dataFromElement;
+ this.future = future;
  this.argsForAlgo = argsForAlgo;
  //-----------------------------------
  this.fps =  60 ;
  
-}
-/**????????????????????????? */
-getAnimationData(){//????????
-//animation data [simple array] is the array of attributes that is sent to the element and that send back these attributes.
-    const a = [];
-   // a.push(this.valueName);
-    this.dataFromElement.forEach(d => {
-        a.push(d);
-    });
-return a;    
 }
 animate(animationData,currentSecond){
 const ret = this.algo(animationData,currentSecond);
