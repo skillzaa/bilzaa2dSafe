@@ -57,12 +57,12 @@ this.animationSequences.data.forEach(animation => {
     //filter out not relavant seq here
 
     //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
-    const elementDataBeingSentToAnimation = this.attributes.getAttributesByName(animation.animationData);
+    const elementDataBeingSentToAnimation = this.attributes.getAttributesByName(animation.dataFromElement);
     const retData = animation.animate(elementDataBeingSentToAnimation,currentSecond);
     //----STEP 2 -- SAVE ATTRIBUTES
 
-   // this.attributes.saveAttributeValues(retData);//retData is aoo
-    this.attributes.setSingleValue(retData[0].name,retData[0].value);//retData is aoo
+    this.attributes.saveAttributeValues(retData);//retData is aoo
+   // this.attributes.setSingleValue(retData[0].name,retData[0].value);//retData is aoo
     //========================================== 
     });
 return true;    
