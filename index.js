@@ -36,11 +36,14 @@ f.attributes.setValue("radius",50);
 f.animationSequences.add({valueName: "y",algo: "linear",fromSecond:10 , toSecond:12},["y"],{valueName: "y","from":200, "to":300});
 
 const g = bilzaa2d.element.addTriangle();
+g.attributes.setValue("fillStyle","orange");
 g.attributes.setValue("x",600);
 g.attributes.setValue("y",100);
 
 g.animationSequences.add({valueName: "x",algo: "linear",fromSecond:1 , toSecond:20},["x"],{valueName: "x","from":600, "to":100});
 
+const t = bilzaa2d.element.addText();
+t.animationSequences.add({valueName: "y",algo: "linear",fromSecond:1 , toSecond:20},["y"],{valueName: "y","from":50, "to":300});
 
 ////////////////////////////
 ////////////////////////////

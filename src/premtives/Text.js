@@ -1,9 +1,10 @@
 import BasePrimtive from "./BasePrimtive.js";
 
-export default class Triangle extends BasePrimtive {
+export default class Text extends BasePrimtive {
   constructor() {
-    const name = "Triangle";      
+    const name = "Text";      
     const attribData = [
+      { name: "title", value: "In the Name of Allah", comments: "" },
       { name: "x", value: 100, comments: "The X location" },
       { name: "y", value: 100, comments: "The Y location" },
       { name: "width", value: 100, comments: "" },
@@ -29,7 +30,8 @@ drawShape() {
     if(this.attributes.getItemValue("drawBorder") === true){
     this.drawBorder();
     }
-this.metal.drawTriangle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("width"),this.attributes.getItemValue("height"),this.attributes.getItemValue("fillStyle"));    
+    this.metal.drawText(this.attributes.getItemValue("title"),this.attributes.getItemValue("x"),this.attributes.getItemValue("y"));
+//this.metal.drawTriangle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("width"),this.attributes.getItemValue("height"),);    
 //this.metal.drawCircle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("radius"));    
 }
 

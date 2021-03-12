@@ -1,4 +1,4 @@
-const toggle = function(bdReqForAni,currentSecond){
+const blink = function(bdReqForAni,currentSecond){
     if(typeof this.future.counter == "undefined"){
         this.future.counter = 0 
     }else {
@@ -20,4 +20,4 @@ const toggle = function(bdReqForAni,currentSecond){
 return bdReqForAni;;        
 }
 
-export default toggle;
+export default blink;

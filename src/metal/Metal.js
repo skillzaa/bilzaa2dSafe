@@ -47,12 +47,19 @@ drawCircle(x,y,radius){
 this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
 this.ctx.stroke();
 }
-drawTriangle(x,y,width,height){
+drawTriangle(x,y,width,height,fillStyle){
+  this.ctx.fillStyle = fillStyle;
   this.ctx.beginPath();
   this.ctx.moveTo(x,y+height);
   this.ctx.lineTo(x+width,y+height);
   this.ctx.lineTo(x+width/2,y);
   this.ctx.fill();
+}
+
+drawText(title,x,y){
+this.ctx.fillStyle = "red";
+this.ctx.font = "20px Georgia";
+this.ctx.fillText(title, x, y);
 }
 //////////////////////////classsss-----------------
 }
