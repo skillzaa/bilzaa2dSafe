@@ -69,31 +69,8 @@ clearCanvas(){
 //.........................................................
 //.........................................................
 
-getBD(name){
-for (let idx = 0; idx < this.attributes.data.length; idx++) {
-    if(this.attributes.data[idx].name === name){
-        return this.attributes.data[idx];
-    }
-} 
-return false;   
-}
-getBDVal(name){
-for (let idx = 0; idx < this.attributes.data.length; idx++) {
-    if(this.attributes.data[idx].name === name){
-        return this.attributes.data[idx].value;
-    }
-}
-return false;    
-}
 
-setBD(name,value){
-for (let idx = 0; idx < this.attributes.data.length; idx++) {
-    if(this.attributes.data[idx].name === name){
-        this.attributes.data[idx].value = value;
-        return this.attributes.data[idx];
-    }
-}        
-   
-}//......
+
+
 //////////////////////////classsss-----------------
 }
