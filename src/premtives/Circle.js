@@ -1,13 +1,12 @@
 import BasePrimtive from "./BasePrimtive.js";
 
-export default class Triangle extends BasePrimtive {
+export default class Circle extends BasePrimtive {
   constructor() {
-    const name = "Triangle";      
+    const name = "Circle";      
     const attribData = [
       { name: "x", value: 100, comments: "The X location" },
       { name: "y", value: 100, comments: "The Y location" },
-      { name: "width", value: 100, comments: "" },
-      { name: "height", value: 100, comments: "" },
+      { name: "radius", value: 100, comments: "" },
       { name: "drawBorder", value: true, comments: "" },
       { name: "borderColor", value: "red", comments: "" },
       { name: "borderWidth", value: 10, comments: "" },
@@ -29,13 +28,12 @@ drawShape() {
     if(this.attributes.getItemValue("drawBorder") === true){
     this.drawBorder();
     }
-this.metal.drawTriangle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("width"),this.attributes.getItemValue("height"),);    
-//this.metal.drawCircle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("radius"));    
+this.metal.drawCircle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("radius"));    
 }
 
 //---------------------------------------  
   drawBorder() {
-   
+    this.metal.drawCircle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("radius")+10)  
     //----------------------------    
   }//--draw border   
   //////////////////////////classsss-----------------

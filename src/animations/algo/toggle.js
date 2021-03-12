@@ -8,7 +8,7 @@ const toggle = function(bdReqForAni,currentSecond){
 //-----------------------    
     bdReqForAni.forEach(element => {
 
-        if((element.name == this.valueName) && this.future.counter > 15){
+        if((element.name == this.valueName) && this.future.counter > this.argsForAlgo.speed){
             this.future.counter =0;
             if(element.value === true){
                 element.value = false;

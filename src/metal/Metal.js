@@ -41,5 +41,18 @@ drawRectangleBorder(x, y, width, height, fillStyle='#000',thickness = 1)
   this.ctx.fillRect(x - (thickness), y - (thickness), width + (thickness * 2), height + (thickness * 2));
   this.ctx.fillRect(x - (thickness), y - (thickness), width + (thickness * 2), height + (thickness * 2));
 }
+
+drawCircle(x,y,radius){
+  this.ctx.beginPath();
+this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
+this.ctx.stroke();
+}
+drawTriangle(x,y,width,height){
+  this.ctx.beginPath();
+  this.ctx.moveTo(x,y+height);
+  this.ctx.lineTo(x+width,y+height);
+  this.ctx.lineTo(x+width/2,y);
+  this.ctx.fill();
+}
 //////////////////////////classsss-----------------
 }
