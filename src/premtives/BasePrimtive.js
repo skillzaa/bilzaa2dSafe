@@ -4,44 +4,23 @@ import AnimationSequencesAoo from "../Aoo/AnimationSequencesAoo.js";
 import AttributesAoo from "../Aoo/AttributesAoo.js";
 export default class BasePrimtive  extends Metal{
 
-constructor(name="Not named",type="basic") {
+constructor(name,attribData) {
 super();
 this.name=name;
-this.type = type;
 //====AOOs=============
 this.animationSequences = new AnimationSequencesAoo();
 
 this.attributes = new AttributesAoo();
+attribData.forEach(attr => {
+    this.attributes.add(attr);
+});       
 //==================================
 this.clearCanvas = false; //first element of the frame has to clean
 this.metal = new Metal();
-this.fillAttributes();    
+//--get attrib data into attribute object
+ 
 }
 
-fillAttributes(){
-const basicData = [
-        { name : "x",  value : 100, comments:"The X location"},
-        { name : "y",  value :100,comments:"The Y location"},
-        { name : "width",  value : 100, comments:""},
-        { name : "drawBorder",  value  : true, comments:""},
-        { name : "borderColor",  value  : "red", comments:""},
-        { name : "borderWidth",  value  : 10, comments:""},
-        { name : "height",  value : 50, comments:""},
-        { name : "rotateClockwise",  value : true, comments:"t/f"},
-        { name : "rotateAngle",  value : 0, comments:"the angle at which the obj is currently rotated"},
-        { name : "rps",  value : 10, comments:"stands for rotation per sec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle"},
-        { name : "fillStyle",  value : "green", comments:""},
-        { name : "strokeStyle",  value : "#F0000", comments:""},
-        { name : "shadowColor",  value : "blue", comments:""},
-        { name : "shadowBlur",  value : 0, comments:""},
-        { name : "shadowOffsetX",  value : 0, comments:""},
-        { name : "shadowOffsetY",  value : 0, comments:""},
-        ];
-basicData.forEach(attr => {
-    this.attributes.add(attr);
-});       
-//console.log(this.attributes); 
-}
 setNextFrame(currentSecond){
     if (this.clearCanvas === true){
         this.metal.clearCanvas(); 
@@ -85,7 +64,10 @@ clearCanvas(){
         this.clearCanvas === false; //shd this be here?
     }    
 }
-//.................
+//.........................................................
+//.........................................................
+//.........................................................
+//.........................................................
 
 getBD(name){
 for (let idx = 0; idx < this.attributes.data.length; idx++) {
