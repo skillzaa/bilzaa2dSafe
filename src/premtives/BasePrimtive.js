@@ -46,9 +46,6 @@ this.animationSequences.data.forEach(animation => {
 return true;    
 }
 draw(){
-  //  if( === true){
-        this.drawBorder();
- //   }
 this.drawShape();    
 }
 ////-------------------------------------------
