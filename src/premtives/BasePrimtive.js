@@ -35,8 +35,9 @@ this.animationSequences.data.forEach(animation => {
      (currentSecond <= animation.toSecond)){
     //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
     const elementDataBeingSentToAnimation = this.attributes.getAttributesByName(animation.dataFromElement);
+    //----STEP 3 -- Animate the data
     const retData = animation.animate(elementDataBeingSentToAnimation,currentSecond);
-    //----STEP 2 -- SAVE ATTRIBUTES
+    //----STEP 4 -- SAVE ATTRIBUTES
 
     this.attributes.saveAttributeValues(retData);//retData is aoo
    // this.attributes.setSingleValue(retData[0].name,retData[0].value);//retData is aoo

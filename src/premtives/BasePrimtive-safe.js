@@ -44,7 +44,7 @@ basicData.forEach(attr => {
 }
 setNextFrame(currentSecond){
     if (this.clearCanvas === true){
-        this.metal.clearCanvas(); 
+        this.metal.clearCanvas(this.attributes.getItemValue("fillStyle")); 
         this.clearCanvas === false; //shd this be here?
     }    
 //==================LLLLLOOOOPPPPP======================== 

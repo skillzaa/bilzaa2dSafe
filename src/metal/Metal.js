@@ -23,8 +23,8 @@ this.ctx.fillStyle = "#f5ecc3";
 //clear the canvas
 this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
 }//fn
-clearCanvas(){
-this.ctx.fillStyle = "#f5ecc3";
+clearCanvas(fillStyle = "#e9f7f2"){
+this.ctx.fillStyle = fillStyle;
 //clear the canvas
 this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
 }//fn

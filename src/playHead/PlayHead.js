@@ -14,7 +14,7 @@ stop(){
     this.secBeginTime = null;
     window.clearInterval(this.gameLoopHandle);
 }
-start(){
+play(){
     this.playState = true;
     this.currentSecond = 0;
     this.secBeginTime = this.getTime();

@@ -1,15 +1,17 @@
 import PlayHead from "./playHead/PlayHead.js";
 import Element from './premtives/Element.js';
 import Animations from './animations/Animations.js';
+import Premades from './premade/Premades.js';
 
 export default class Bilzaa2d {
 constructor() {
+    this.premades = new Premades();
     this.playHead = new PlayHead();
    this.element = new Element();
    this.animations = new Animations();
 }
 play(){
-this.playHead.start(); 
+this.playHead.play(); 
 this.animationLoop();
 }
 animationLoop(){
