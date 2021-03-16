@@ -1,11 +1,15 @@
-/**it is better to have as less states to manage as possible. the first play state is just like paused at start or just paused. so we have 2 states paused and running. The stopped is just paused. for 2 states we can use one variable to control but for 3 states we need more  */
+/**The app can have 2 states wrt time. One is running state and other paused. both cases are to be dealt with seperately. during running the time is calculated by the difference between time now ans start time. on the other hand during pause the time is placed in side oldTime and can be managed from there. when resumend this old time is subtracted from the startTime (this oldTime is the time which the animation has run before resume to we need to add that).
+ * similarly for forward and rewind also we have to treat both states seperately.
+*/
 
 export default class PlayHead {
+//class PlayHead {
 constructor(duration=100000) {
 this.duration = duration; 
 this.oldTime = 0;
 this.paused = true;
 this.startTime = 0;  
+
 }
 
 runningTime(){  
@@ -25,7 +29,7 @@ play(){
 }
 pause(){
     if(this.paused === false){ // so playinh now will pause
-        this.oldTime = Date.now() - this.startTime;
+        this.oldTime = Date.now() - this.startTime;//store time
         this.startTime = 0;
         this.paused = true;
        }   
@@ -39,37 +43,27 @@ stop(){
 resume(){
     this.play();
   }
+forward(ms=5000){  // .
+    let oldPause = false;
+if(this.paused === true){oldPause = true;}    
+this.pause();
+if(this.oldTime + ms < this.duration){
+    this.oldTime = this.oldTime + ms;
+}  
 
-
-
-forward(ms=5000){  // 
-if(this.paused==true){
-    //if paused add to oldTime else subtract from startTime
-    const result = this.oldTime + ms;
-    if(result <= this.duration){
-        return this.oldTime += ms; //minus in forward
-    }
-}else{
-    const result = this.runningTime() - ms;
-    if(result <= this.duration){
-        return this.startTime -= ms; //minus in forward
-    }
-}      
-
+if (oldPause == false){this.play();}
 }
-rewind(ms=5000){// in rwd subtract from startTime    
-    if(this.paused==true){
-        const result = this.oldTime - ms;
-        if(result > 0){
-            return this.oldTime -= ms; //minus in forward
-        }
-    }else{
-        const result = this.runningTime() + ms;
-        if(result <= this.duration){
-            return this.startTime += ms; //minus in forward
-        }
-    }      
+
+rewind(ms=5000){// in rwd subtract from startTime
+    let oldPause = false;
+    if(this.paused === true){oldPause = true;}  
+this.pause();
+if(this.oldTime - ms > 0){
+    this.oldTime = this.oldTime - ms;
+}    
+if (oldPause == false){this.play();}
      
 }
+
 //////////////////////////classsss-----------------
 }
