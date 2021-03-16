@@ -1,4 +1,4 @@
-import PlayHead from "./playHead/PlayHead.js";
+import PlayHead from "./playHead/PlayHead-safe.js";
 import Element from './premtives/Element.js';
 import Animations from './animations/Animations.js';
 import Premades from './premade/Premades.js';

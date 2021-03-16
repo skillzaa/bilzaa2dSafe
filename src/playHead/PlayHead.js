@@ -1,91 +1,59 @@
+/**it is better to have as less states to manage as possible. the first play state is just like paused at start or just paused. so we have 2 states paused and running. The stopped is just paused. for 2 states we can use one variable to control but for 3 states we need more  */
+
 export default class PlayHead {
-constructor(animationDuration=300,fps=60) {
-    this.playState = false;
-    this.currentSecond = 0;//?? null ??
-    this.secBeginTime = 0;
-    this.fpsMs = fps/1000;//incomming fps is in seconds we converted it to mili seconds
-    this.animationDuration = animationDuration; 
-    this.gameLoopHandle = null;  
+constructor(duration=100000) {
+this.duration = duration; 
+this.oldTime = 0;
+this.paused = true;
+this.startTime = 0;  
 }
 
-stop(){
-    this.playState = false;
-    this.currentSecond = 0;
-    this.secBeginTime = null;
-    window.clearInterval(this.gameLoopHandle);
+runningTime(){  
+    if (this.paused === false){
+        return (Date.now() - this.startTime) + this.oldTime;
+     }else {
+        return this.oldTime;
+    }
 }
+
 play(){
-    this.playState = true;
-    this.currentSecond = 0;
-    this.secBeginTime = this.getTime();
-
-      this.gameLoopHandle = window.setInterval(() => {
-            this.gameLoop();
-        }, (this.fpsMs).toFixed(0));
-    
+    if(this.paused === true){//cant be repeated w/o stop
+        this.startTime = Date.now(); //or pause
+        this.paused = false;
+       }       
 }
-gameLoop(){  
-    if(this.playState === false){return false;}
-//............................................. 
-let calculations = this.currentSecond;    
-const timeNow = this.getTime();    
-    const diffBwNowAndSecBeginTime = timeNow -  this.secBeginTime;   
-        const factor = (diffBwNowAndSecBeginTime/1000).toFixed(2);
-        calculations = this.currentSecond += parseFloat(factor);
-        this.secBeginTime = timeNow;
-if(calculations > this.animationDuration){
-    calculations = this.animationDuration;
-    this.stop();
-}        
-//finally
-this.currentSecond = calculations;        
-return this.currentSecond;        
-//............................................. 
-    
-}
-
-
 pause(){
-    this.playState = false;
+    if(this.paused === false){ // so playinh now will pause
+        this.oldTime += Date.now() - this.startTime;
+        this.startTime = 0;
+        this.paused = true;
+       }   
 }
+stop(){ 
+        this.oldTime = 0; //since its start so old time is gone
+        this.startTime = 0;
+        this.paused = true;  
+}
+
 resume(){
-    this.playState = true;
-    this.secBeginTime = this.getTime();
-}
+    this.play();
+  }
 
-forward(min=0,sec=10){    
-const totalSec = (min * 60) + sec;
-const result = this.currentSecond + totalSec;
-if(result >= this.animationDuration){
-    return false;
-}else{
-this.secBeginTime = this.getTime();
-this.currentSecond += totalSec; //importantay
-return this.currentSecond;
+
+
+forward(ms=5000){  // in fwd add to lapsedBeforePause  
+const result = this.runningTime() + ms;
+if(result <= this.duration){
+    return this.startTime -= ms; //minus in forward
 }
 
 }
-rewind(min=0,sec=10){    
-const totalSec = (min * 60) + sec;
-const result = this.currentSecond - totalSec;
-if(result <= 0){
-    this.secBeginTime = this.getTime();
-    this.currentSecond = 0; //importantay
-    return this.currentSecond;
-}else{
-    this.secBeginTime = this.getTime();
-    this.currentSecond -= totalSec; //importantay
-    return this.currentSecond;
+rewind(ms=5000){// in rwd subtract from startTime    
+const result  = (this.runningTime() - ms);
+if(result > 0){
+    return this.startTime += ms; //minus in forward
 }
-
+ 
 }
-
-
-getTime(){
-    const d = new Date();
-    return d.getTime();
-}
-
-
 //////////////////////////classsss-----------------
 }
