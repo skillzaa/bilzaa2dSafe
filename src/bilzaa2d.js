@@ -1,4 +1,4 @@
-import PlayHead from "./playHead/PlayHead-safe.js";
+import PlayHead from "./playHead/PlayHead.js";
 import Element from './premtives/Element.js';
 import Animations from './animations/Animations.js';
 import Premades from './premade/Premades.js';
@@ -25,5 +25,6 @@ this.element.shapes.forEach(item => {
         });
 window.requestAnimationFrame(this.animationLoop.bind(this));  
 }//play
+ok(){return 6;}
 //////////////////////////////////////////////
 }//class
