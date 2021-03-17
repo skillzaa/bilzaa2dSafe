@@ -11,6 +11,7 @@ this.duration = duration;
 this.oldTime = 0;
 this.paused = true;
 this.startTime = 0;  
+
 }
 
 runningTime(){  
@@ -30,7 +31,7 @@ play(){
 }
 pause(){
     if(this.paused === false){ // so playinh now will pause
-        this.oldTime = Date.now() - this.startTime;
+        this.oldTime = Date.now() - this.startTime;//store time
         this.startTime = 0;
         this.paused = true;
        }   
@@ -44,35 +45,28 @@ stop(){
 resume(){
     this.play();
   }
-forward(ms=5000){  // 
-if(this.paused==true){
-    //if paused add to oldTime else subtract from startTime
-    const result = this.oldTime + ms;
-    if(result <= this.duration){
-        return this.oldTime += ms; //minus in forward
-    }
-}else {
-    const result = this.runningTime() - ms;
-    if(result <= this.duration){
-        return this.startTime -= ms; //minus in forward
-    }
-}      
+forward(ms=5000){  // .
+    let oldPause = false;
+if(this.paused === true){oldPause = true;}    
+this.pause();
+if(this.oldTime + ms < this.duration){
+    this.oldTime = this.oldTime + ms;
+}  
 
+if (oldPause == false){this.play();}
 }
-rewind(ms=5000){// in rwd subtract from startTime    
-    if(this.paused==true){
-        const result = this.oldTime - ms;
-        if(result > 0){
-            return this.oldTime -= ms; //minus in forward
-        }
-    }else {
-        const result = this.runningTime() + ms;
-        if(result <= this.duration){
-            return this.startTime += ms; //minus in forward
-        }
-    }      
+
+rewind(ms=5000){// in rwd subtract from startTime
+    let oldPause = false;
+    if(this.paused === true){oldPause = true;}  
+this.pause();
+if(this.oldTime - ms > 0){
+    this.oldTime = this.oldTime - ms;
+}    
+if (oldPause == false){this.play();}
      
 }
+
 //////////////////////////classsss-----------------
 }
 
