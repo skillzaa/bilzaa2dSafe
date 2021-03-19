@@ -2,9 +2,8 @@
  * similarly for forward and rewind also we have to treat both states seperately.
 */
 export default class PlayHead {
-    //class PlayHead {
-    constructor(duration = 100000) {
-        this.duration = duration;
+    constructor() {
+        this.duration = 100000;
         this.oldTime = 0;
         this.paused = true;
         this.startTime = 0;

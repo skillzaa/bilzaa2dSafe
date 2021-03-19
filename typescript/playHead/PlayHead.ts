@@ -3,9 +3,13 @@
 */
 
 export default class PlayHead {
-//class PlayHead {
-constructor(duration=100000) {
-this.duration = duration; 
+public    duration:number; 
+protected    oldTime:number;
+protected    paused:boolean;
+protected    startTime:number;  
+
+constructor() {
+this.duration = 100000; 
 this.oldTime = 0;
 this.paused = true;
 this.startTime = 0;  

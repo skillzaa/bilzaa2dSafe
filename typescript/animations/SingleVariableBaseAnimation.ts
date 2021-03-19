@@ -6,8 +6,8 @@ constructor(compulsary,dataFromElement=[],argsForAlgo={},future={}){
     this.algorithms = new Algorithms();
 //--------------------COMPULSARY ITEMS---------------    
  this.valueName = compulsary.valueName ;
- this.fromSecond = compulsary.fromSecond  ;
- this.toSecond = compulsary.toSecond ;
+ this.fromSecond = compulsary.fromSecond  ; //must for every animation
+ this.toSecond = compulsary.toSecond ;//must for every animation
  this.algo = this.algorithms.getAlgo(compulsary.algo) ; 
  //-----------------------------------
  this.dataFromElement = dataFromElement;

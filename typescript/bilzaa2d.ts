@@ -4,6 +4,10 @@ import Animations from './animations/Animations.js';
 import Premades from './premade/Premades.js';
 
 export default class Bilzaa2d {
+    premades:Premades;
+private    playHead:PlayHead;
+   element:Element;
+   animations:Animations;    
 constructor() {
     this.premades = new Premades();
     this.playHead = new PlayHead();
@@ -12,19 +16,22 @@ constructor() {
 }
 play(){
 this.playHead.play(); 
-this.animationLoop();
+this.gameLoop();
 }
-animationLoop(){
+gameLoop(){
 //first element of the frame being drawn has to clear the canvas    
  this.element.shapes[0].clearCanvas = true;
-
+//----------the main loop
 this.element.shapes.forEach(item => {
-    const curSec = this.playHead.currentSecond;
+    const curSec = this.playHead.runningTime();
             item.setNextFrame(curSec);
             item.draw(curSec);
         });
-window.requestAnimationFrame(this.animationLoop.bind(this));  
+window.requestAnimationFrame(this.gameLoop.bind(this));  
 }//play
-ok(){return 6;}
+
+addElement(){
+    
+}
 //////////////////////////////////////////////
 }//class

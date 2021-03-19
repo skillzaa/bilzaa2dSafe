@@ -2,8 +2,12 @@
  * similarly for forward and rewind also we have to treat both states seperately.
 */
 export default class PlayHead {
-    constructor(duration?: number);
-    runningTime(): any;
+    duration: number;
+    protected oldTime: number;
+    protected paused: boolean;
+    protected startTime: number;
+    constructor();
+    runningTime(): number;
     play(): void;
     pause(): void;
     stop(): void;
