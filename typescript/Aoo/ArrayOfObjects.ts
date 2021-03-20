@@ -10,30 +10,31 @@ public data:{}[];
 constructor(){
     this.data=[];
 }
-add(){
-const a = {};
-//a.name =     
-        return this.data.push(a);
-    
-} 
-insert(a:{}){
-if(typeof a.name === "undefined"){return false;}
+add(name:string){
+if (this.isUnique(name) === true){
+    const a = {};
+    a.name = name; 
+    this.data.push(a);
+    return a;    
+} else {
+    return {success: false, message : "Please Provide a unique and valid string name for the object", errorMessage: "nonUniqueName" }
+}   
 
-const isUnique = this.isUnique(a.name);
-        return this.data.push(a);
-    
 } 
+
 isUnique(name:string){
-const ret = this.data.forEach(element => {
-    if(element.name === name){
-        return false;
+if(typeof name == "undefined"){return false;}    
+let uniqueOrNot = true;
+    for (let idx = 0; idx < this.data.length; idx++) {
+        const element = this.data[idx];
+        if(element.name === name){
+            uniqueOrNot =  false;
+        }       
     }
-});
-return ret;
+
+return uniqueOrNot;
 }
-push(a:{}){
-this.add(a);
-}
+
 get length(){
 return this.data.length;
 }
@@ -47,7 +48,7 @@ for (let idx = 0; idx < this.data.length; idx++) {
 return false;   
 }//.....................
 
-getProperty(name:string,propertyName:string){
+getItemProperty(name:string,propertyName:string){
 for (let idx = 0; idx < this.data.length; idx++) {
     if(this.data[idx].name === name){
         return this.data[idx].value;
@@ -56,7 +57,7 @@ for (let idx = 0; idx < this.data.length; idx++) {
 return false;    
 }
 
-setProperty(name:string,value:string|number){
+setItemProperty(name:string,value:string|number){
     for (let idx = 0; idx < this.data.length; idx++) {
         if(this.data[idx].name === name){
             this.data[idx].value = value;

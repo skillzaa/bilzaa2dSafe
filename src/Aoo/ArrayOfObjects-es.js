@@ -3,7 +3,8 @@
  * 2--every OBJECT MUST NNOOTT HAVE "value" field.--we can use any property
  * 3-- the data array is public since its just a helpful array dont make it more compelx.
  */
-export default class ArrayOfObjects {
+//export default class ArrayOfObjects {
+ class ArrayOfObjects {
     constructor() {
         this.data = [];
     }
@@ -19,9 +20,6 @@ export default class ArrayOfObjects {
         }
     }
     isUnique(name) {
-        if (typeof name == "undefined") {
-            return false;
-        }
         let uniqueOrNot = true;
         for (let idx = 0; idx < this.data.length; idx++) {
             const element = this.data[idx];
@@ -62,3 +60,5 @@ export default class ArrayOfObjects {
     setAllProperties(propertyName, newValue) {
     }
 }
+
+module.exports = ArrayOfObjects;

@@ -1,12 +1,12 @@
 import PlayHead from "./playHead/PlayHead.js";
-import Element from './premtives/Element.js';
+import Elements from './premtives/Elements.js';
 import Animations from './animations/Animations.js';
 import Premades from './premade/Premades.js';
 export default class Bilzaa2d {
     constructor() {
         this.premades = new Premades();
         this.playHead = new PlayHead();
-        this.element = new Element();
+        this.elements = new Elements();
         this.animations = new Animations();
     }
     play() {
@@ -15,9 +15,9 @@ export default class Bilzaa2d {
     }
     gameLoop() {
         //first element of the frame being drawn has to clear the canvas    
-        this.element.shapes[0].clearCanvas = true;
+        this.elements.shapes[0].clearCanvas = true;
         //----------the main loop
-        this.element.shapes.forEach(item => {
+        this.elements.shapes.forEach(item => {
             const curSec = this.playHead.runningTime();
             item.setNextFrame(curSec);
             item.draw(curSec);

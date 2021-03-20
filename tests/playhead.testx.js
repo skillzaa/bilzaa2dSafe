@@ -33,5 +33,5 @@ test('rewind', () => {
 });
 test('stop', () => {
   let n = ph.runningTime();
-  expect(n).toEqual(0); //add 300 and subtract 3000
+  expect(n).toEqual(0); //add 3000 and subtract 3000
 });

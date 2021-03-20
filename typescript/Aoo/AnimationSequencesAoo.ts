@@ -1,5 +1,5 @@
 
-import SingleVariableBaseAnimation from "../animations/SingleVariableBaseAnimation.js";
+import SingleVariableBaseAnimation from "../animations/SingleVariableBaseAnimation.js"; 
 import AooBase from "./AooBase.js";
 
 export default class animationSequencesAoo extends AooBase{    

@@ -4,7 +4,7 @@ import Circle from './Circle.js';
 import Triangle from './Triangle.js';
 import Text from './Text.js';
 import Complex from './Complex.js';
-export default class Element {
+export default class Elements {
     constructor();
     addRectangle(): Rectangle;
     addComplex(): Complex;
@@ -13,4 +13,4 @@ export default class Element {
     addTriangle(): Triangle;
     addSimpleRectangle(): SimpleRectangle;
 }
-//# sourceMappingURL=Element.d.ts.map
+//# sourceMappingURL=Elements.d.ts.map

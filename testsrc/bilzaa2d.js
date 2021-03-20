@@ -12,10 +12,11 @@ class PlayHead {
     }
     runningTime() {
         if (this.paused === false) {
-            return (Date.now() - this.startTime);
+            const t = (Date.now() - this.startTime);
+            return t / 1000;
         }
         else {
-            return this.oldTime;
+            return this.oldTime / 1000;
         }
     }
     play() {
@@ -125,6 +126,71 @@ class Metal {
     }
 }
 
+/** WHAT INTERFACE THE STORED OBJECT SHOULD HAVE:
+ * 1--every objects must have a unique string "name"  field
+ * 2--every OBJECT MUST NNOOTT HAVE "value" field.--we can use any property
+ * 3-- the data array is public since its just a helpful array dont make it more compelx.
+ */
+class ArrayOfObjects {
+    constructor() {
+        this.data = [];
+    }
+    add(name) {
+        if (this.isUnique(name) === true) {
+            const a = {};
+            a.name = name;
+            this.data.push(a);
+            return a;
+        }
+        else {
+            return { success: false, message: "Please Provide a unique and valid string name for the object", errorMessage: "nonUniqueName" };
+        }
+    }
+    isUnique(name) {
+        if (typeof name == "undefined") {
+            return false;
+        }
+        let uniqueOrNot = true;
+        for (let idx = 0; idx < this.data.length; idx++) {
+            const element = this.data[idx];
+            if (element.name === name) {
+                uniqueOrNot = false;
+            }
+        }
+        return uniqueOrNot;
+    }
+    get length() {
+        return this.data.length;
+    }
+    getItem(name) {
+        for (let idx = 0; idx < this.data.length; idx++) {
+            if (this.data[idx].name === name) {
+                return this.data[idx];
+            }
+        }
+        return false;
+    } //.....................
+    getItemProperty(name, propertyName) {
+        for (let idx = 0; idx < this.data.length; idx++) {
+            if (this.data[idx].name === name) {
+                return this.data[idx].value;
+            }
+        }
+        return false;
+    }
+    setItemProperty(name, value) {
+        for (let idx = 0; idx < this.data.length; idx++) {
+            if (this.data[idx].name === name) {
+                this.data[idx].value = value;
+                return this.data[idx];
+            }
+        }
+        return true;
+    } //......
+    setAllProperties(propertyName, newValue) {
+    }
+}
+
 const linear = function (bdReqForAni, currentSecond) {
     const timeDiff = parseInt((this.toSecond - this.fromSecond));
     const totalValueDiff = parseInt((this.argsForAlgo.to - this.argsForAlgo.from));
@@ -206,16 +272,16 @@ class Algorithms {
 }
 
 class SingleVariableBaseAnimation {
-    constructor(compulsary, dataFromElement = [], argsForAlgo = {}, future = {}) {
+    constructor(compulsary, dataRequired = [], argsForAlgo = {}, future = {}) {
         //--------------------ALGO FASADE---------------      
         this.algorithms = new Algorithms();
         //--------------------COMPULSARY ITEMS---------------    
         this.valueName = compulsary.valueName;
-        this.fromSecond = compulsary.fromSecond;
-        this.toSecond = compulsary.toSecond;
+        this.fromSecond = compulsary.fromSecond; //must for every animation
+        this.toSecond = compulsary.toSecond; //must for every animation
         this.algo = this.algorithms.getAlgo(compulsary.algo);
         //-----------------------------------
-        this.dataFromElement = dataFromElement;
+        this.dataRequired = dataRequired;
         this.future = future;
         this.argsForAlgo = argsForAlgo;
         //-----------------------------------
@@ -324,7 +390,8 @@ class BasePrimtive extends Metal {
         super();
         this.name = name;
         //====AOOs=============
-        this.animationSequences = new animationSequencesAoo();
+        this.animations = new animationSequencesAoo();
+        this.aoo = new ArrayOfObjects();
         this.attributes = new AttributesAoo();
         attribData.forEach(attr => {
             this.attributes.add(attr);
@@ -334,25 +401,26 @@ class BasePrimtive extends Metal {
         this.metal = new Metal();
         //--get attrib data into attribute object
     }
+    addAttribure() {
+    }
     setNextFrame(currentSecond) {
         if (this.clearCanvas === true) {
             this.metal.clearCanvas();
             this.clearCanvas === false; //shd this be here?
         }
         //==================LLLLLOOOOPPPPP======================== 
-        this.animationSequences.data.forEach(animation => {
+        this.animations.data.forEach(animation => {
             //----STEP 1 -- GET DATA FROM ATTRIBUTES COLLECTION
             //filter out not relavant seq here
             if ((currentSecond > animation.fromSecond)
                 &&
                     (currentSecond <= animation.toSecond)) {
                 //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
-                const elementDataBeingSentToAnimation = this.attributes.getAttributesByName(animation.dataFromElement);
+                const elementDataBeingSentToAnimation = this.attributes.getAttributesByName(animation.dataRequired);
                 //----STEP 3 -- Animate the data
                 const retData = animation.animate(elementDataBeingSentToAnimation, currentSecond);
                 //----STEP 4 -- SAVE ATTRIBUTES
                 this.attributes.saveAttributeValues(retData); //retData is aoo
-                // this.attributes.setSingleValue(retData[0].name,retData[0].value);//retData is aoo
             } /////--filter no relevant animations
             //========================================== 
         });
@@ -366,13 +434,6 @@ class BasePrimtive extends Metal {
     drawBorder() {
     }
     drawShape() { }
-    ////-------------------------------------------
-    clearCanvas() {
-        if (this.clearCanvas === true) {
-            this.metal.clearCanvas();
-            this.clearCanvas === false; //shd this be here?
-        }
-    }
 }
 
 class Rectangle extends BasePrimtive {
@@ -588,7 +649,49 @@ class Text extends BasePrimtive {
     } //--draw border   
 }
 
-class Element {
+class Complex extends BasePrimtive {
+    constructor() {
+        const name = "Complex";
+        const attribData = [
+            { name: "x", value: 100, comments: "The X location" },
+            { name: "y", value: 100, comments: "The Y location" },
+            { name: "radius", value: 100, comments: "" },
+            { name: "drawBorder", value: true, comments: "" },
+            { name: "borderColor", value: "red", comments: "" },
+            { name: "borderWidth", value: 10, comments: "" },
+            { name: "rotateClockwise", value: true, comments: "t/f" },
+            { name: "rotateAngle", value: 0, comments: "the angle at which the obj is currently rotated" },
+            { name: "rps", value: 10, comments: "stands for rotation per sec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" },
+            { name: "fillStyle", value: "green", comments: "" },
+            { name: "strokeStyle", value: "#F0000", comments: "" },
+            { name: "shadowColor", value: "blue", comments: "" },
+            { name: "shadowBlur", value: 0, comments: "" },
+            { name: "shadowOffsetX", value: 0, comments: "" },
+            { name: "shadowOffsetY", value: 0, comments: "" },
+        ];
+        super(name, attribData);
+        this.circle = new Circle();
+    }
+    drawShape() {
+        this.circle.attributes.setValue("x", 600);
+        this.circle.attributes.setValue("y", 200);
+        this.circle.attributes.setValue("radius", 150);
+        this.circle.draw();
+        this.circle.attributes.setValue("radius", 100);
+        this.circle.draw();
+        this.circle.attributes.setValue("radius", 50);
+        this.circle.draw();
+        this.circle.attributes.setValue("radius", 25);
+        this.circle.draw();
+    }
+    //---------------------------------------  
+    drawBorder() {
+        this.metal.drawCircle(this.attributes.getItemValue("x"), this.attributes.getItemValue("y"), this.attributes.getItemValue("radius") + 10);
+        //----------------------------    
+    } //--draw border   
+}
+
+class Elements {
     constructor() {
         this.shapes = [];
     }
@@ -596,6 +699,11 @@ class Element {
         const rectangle = new Rectangle();
         this.shapes.push(rectangle);
         return rectangle;
+    }
+    addComplex() {
+        const complex = new Complex();
+        this.shapes.push(complex);
+        return complex;
     }
     addCircle() {
         const circle = new Circle();
@@ -674,24 +782,24 @@ class Bilzaa2d {
     constructor() {
         this.premades = new Premades();
         this.playHead = new PlayHead();
-        this.element = new Element();
+        this.elements = new Elements();
         this.animations = new Animations();
     }
     play() {
         this.playHead.play();
-        this.animationLoop();
+        this.gameLoop();
     }
-    animationLoop() {
+    gameLoop() {
         //first element of the frame being drawn has to clear the canvas    
-        this.element.shapes[0].clearCanvas = true;
-        this.element.shapes.forEach(item => {
-            const curSec = this.playHead.currentSecond;
+        this.elements.shapes[0].clearCanvas = true;
+        //----------the main loop
+        this.elements.shapes.forEach(item => {
+            const curSec = this.playHead.runningTime();
             item.setNextFrame(curSec);
             item.draw(curSec);
         });
-        window.requestAnimationFrame(this.animationLoop.bind(this));
+        window.requestAnimationFrame(this.gameLoop.bind(this));
     } //play
-    ok() { return 6; }
 } //class
 
 module.exports = Bilzaa2d;

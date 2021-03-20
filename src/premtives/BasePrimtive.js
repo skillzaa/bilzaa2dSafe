@@ -1,4 +1,5 @@
 import Metal from "../metal/Metal.js";
+import ArrayOfObjects from "../Aoo/ArrayOfObjects.js";
 import AnimationSequencesAoo from "../Aoo/AnimationSequencesAoo.js";
 import AttributesAoo from "../Aoo/AttributesAoo.js";
 export default class BasePrimtive extends Metal {
@@ -6,7 +7,8 @@ export default class BasePrimtive extends Metal {
         super();
         this.name = name;
         //====AOOs=============
-        this.animationSequences = new AnimationSequencesAoo();
+        this.animations = new AnimationSequencesAoo();
+        this.aoo = new ArrayOfObjects();
         this.attributes = new AttributesAoo();
         attribData.forEach(attr => {
             this.attributes.add(attr);
@@ -24,7 +26,7 @@ export default class BasePrimtive extends Metal {
             this.clearCanvas === false; //shd this be here?
         }
         //==================LLLLLOOOOPPPPP======================== 
-        this.animationSequences.data.forEach(animation => {
+        this.animations.data.forEach(animation => {
             //----STEP 1 -- GET DATA FROM ATTRIBUTES COLLECTION
             //filter out not relavant seq here
             if ((currentSecond > animation.fromSecond)

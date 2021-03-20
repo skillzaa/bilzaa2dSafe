@@ -1,10 +1,10 @@
-import Element from './premtives/Element.js';
+import Elements from './premtives/Elements.js';
 import Animations from './animations/Animations.js';
 import Premades from './premade/Premades.js';
 export default class Bilzaa2d {
-    premades: Premades;
     private playHead;
-    element: Element;
+    premades: Premades;
+    elements: Elements;
     animations: Animations;
     constructor();
     play(): void;
