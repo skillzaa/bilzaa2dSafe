@@ -24,6 +24,4 @@ export default class Bilzaa2d {
         });
         window.requestAnimationFrame(this.gameLoop.bind(this));
     } //play
-    addElement() {
-    }
 } //class

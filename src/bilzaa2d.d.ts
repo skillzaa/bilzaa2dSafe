@@ -9,6 +9,5 @@ export default class Bilzaa2d {
     constructor();
     play(): void;
     gameLoop(): void;
-    addElement(): void;
 }
 //# sourceMappingURL=bilzaa2d.d.ts.map

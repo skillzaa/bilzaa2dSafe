@@ -30,8 +30,5 @@ this.element.shapes.forEach(item => {
 window.requestAnimationFrame(this.gameLoop.bind(this));  
 }//play
 
-addElement(){
-    
-}
 //////////////////////////////////////////////
 }//class
