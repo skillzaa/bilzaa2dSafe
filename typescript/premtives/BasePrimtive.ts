@@ -20,7 +20,9 @@ this.metal = new Metal();
 //--get attrib data into attribute object
  
 }
-
+addAttribure(){
+    
+}
 setNextFrame(currentSecond){
     if (this.clearCanvas === true){
         this.metal.clearCanvas(); 
