@@ -29,11 +29,11 @@ e.attributes.setSingleValue("x",450);
 
 
 
-const f = bilzaa2d.element.addCircle();
-f.attributes.setValue("x",600);
-f.attributes.setValue("y",200);
-f.attributes.setValue("radius",50);
-f.animationSequences.add({valueName: "y",algo: "linear",fromSecond:10 , toSecond:12},["y"],{valueName: "y","from":200, "to":300});
+// const f = bilzaa2d.element.addCircle();
+// f.attributes.setValue("x",600);
+// f.attributes.setValue("y",200);
+// f.attributes.setValue("radius",50);
+// f.animationSequences.add({valueName: "y",algo: "linear",fromSecond:10 , toSecond:12},["y"],{valueName: "y","from":200, "to":300});
 
 const g = bilzaa2d.element.addTriangle();
 g.attributes.setValue("fillStyle","orange");
@@ -46,6 +46,7 @@ const t = bilzaa2d.element.addText();
 t.animationSequences.add({valueName: "y",algo: "linear",fromSecond:1 , toSecond:20},["y"],{valueName: "y","from":50, "to":300});
 
 ////////////////////////////
+const complex = bilzaa2d.element.addComplex();
 ////////////////////////////
 ////////////////////////////
 bilzaa2d.play();

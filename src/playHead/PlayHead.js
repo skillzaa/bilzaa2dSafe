@@ -10,10 +10,11 @@ export default class PlayHead {
     }
     runningTime() {
         if (this.paused === false) {
-            return (Date.now() - this.startTime);
+            const t = (Date.now() - this.startTime);
+            return t / 1000;
         }
         else {
-            return this.oldTime;
+            return this.oldTime / 1000;
         }
     }
     play() {

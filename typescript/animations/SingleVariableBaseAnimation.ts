@@ -1,7 +1,7 @@
 import Algorithms from "./algo/Algorithms.js";
 
 export default class SingleVariableBaseAnimation {
-constructor(compulsary,dataFromElement=[],argsForAlgo={},future={}){
+constructor(compulsary,dataRequired=[],argsForAlgo={},future={}){
 //--------------------ALGO FASADE---------------      
     this.algorithms = new Algorithms();
 //--------------------COMPULSARY ITEMS---------------    
@@ -10,7 +10,7 @@ constructor(compulsary,dataFromElement=[],argsForAlgo={},future={}){
  this.toSecond = compulsary.toSecond ;//must for every animation
  this.algo = this.algorithms.getAlgo(compulsary.algo) ; 
  //-----------------------------------
- this.dataFromElement = dataFromElement;
+ this.dataRequired = dataRequired;
  this.future = future;
  this.argsForAlgo = argsForAlgo;
  //-----------------------------------

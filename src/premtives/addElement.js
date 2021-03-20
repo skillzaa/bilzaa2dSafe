@@ -3,7 +3,8 @@ import SimpleRectangle from './SimpleRectangle.js';
 import Circle from './Circle.js';
 import Triangle from './Triangle.js';
 import Text from './Text.js';
-import Complex from './Complex.js';
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
 export default class Element {
     constructor() {
         this.shapes = [];
@@ -12,11 +13,6 @@ export default class Element {
         const rectangle = new Rectangle();
         this.shapes.push(rectangle);
         return rectangle;
-    }
-    addComplex() {
-        const complex = new Complex();
-        this.shapes.push(complex);
-        return complex;
     }
     addCircle() {
         const circle = new Circle();

@@ -6,6 +6,5 @@ export default class BasePrimtive extends Metal {
     /**every element atleast has 2 componenets .// a border and the shape. we can keep their implementation chaging and adding HOOKS*/
     drawBorder(): void;
     drawShape(): void;
-    clearCanvas(): void;
 }
 //# sourceMappingURL=BasePrimtive.d.ts.map

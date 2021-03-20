@@ -8,7 +8,7 @@ export default class Bilzaa2d {
     animations: Animations;
     constructor();
     play(): void;
-    animationLoop(): void;
-    ok(): number;
+    gameLoop(): void;
+    addElement(): void;
 }
 //# sourceMappingURL=bilzaa2d.d.ts.map
