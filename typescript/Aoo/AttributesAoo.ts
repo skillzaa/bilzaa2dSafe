@@ -20,7 +20,7 @@ saveAttributeValues(retData){
 return true;    
 }//..
 
-getAttributesByName(argumentsRequired=[]){
+getAllByNames(argumentsRequired=[]){
 /**incooming is normal [] where as attributes is an obj wrapped around an aOO */    
 const ret = [];         
 this.data.forEach(bd => {

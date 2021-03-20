@@ -5,6 +5,8 @@ import Triangle from './Triangle.js';
 import Text from './Text.js';
 import Complex from './Complex.js';
 export default class Elements{
+
+public shapes:[];    
 constructor(){
 this.shapes = [];
 }

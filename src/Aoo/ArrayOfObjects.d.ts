@@ -13,5 +13,6 @@ export default class ArrayOfObjects {
     getItemProperty(name: string, propertyName: string): any;
     setItemProperty(name: string, value: string | number): {};
     setAllProperties(propertyName: string, newValue: string | number): void;
+    getAllByNames(argumentsRequired?: never[]): any[];
 }
 //# sourceMappingURL=ArrayOfObjects.d.ts.map

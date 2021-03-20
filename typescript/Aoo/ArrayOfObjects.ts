@@ -70,5 +70,19 @@ return true;
 setAllProperties(propertyName:string , newValue:string|number){
 
 }
+
+getAllByNames(argumentsRequired=[]){
+/**incooming is normal []  */    
+const ret = [];         
+this.data.forEach(bd => {
+    argumentsRequired.forEach(ag => {
+        if(ag == bd.name){
+            ret.push(bd);
+        }
+    });
+});
+return ret;    
+}
+    
 ///////////////////
 }

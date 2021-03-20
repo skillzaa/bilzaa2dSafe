@@ -39,7 +39,7 @@ setValue(name,value){
         }
     }        
        
-    }//......
+}//......
 
 setSingleValue(name,value){
     this.data.forEach(bd => {
