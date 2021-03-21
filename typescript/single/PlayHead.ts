@@ -3,10 +3,10 @@
 */
 
 export default class PlayHead {
-public    duration:number; 
-protected    oldTime:number;
-protected    paused:boolean;
-protected    startTime:number;  
+private    duration:number; 
+private    oldTime:number;
+private    paused:boolean;
+private    startTime:number;  
 
 constructor() {
 this.duration = 100000; 
@@ -16,7 +16,7 @@ this.startTime = 0;
 
 }   
 
-runningTime(){  
+public runningTime(){  
     if (this.paused === false){
         const t =  (Date.now() - this.startTime);
         return Number((t/1000).toFixed(2));
@@ -25,30 +25,31 @@ runningTime(){
     }
 }
 
-play(){
+public play(){
     if(this.paused === true){//cant be repeated w/o stop
         this.startTime = (Date.now() - this.oldTime);
         this.oldTime = 0;
         this.paused = false;
        }       
 }
-pause(){
+public pause(){
     if(this.paused === false){ // so playinh now will pause
         this.oldTime = Date.now() - this.startTime;//store time
         this.startTime = 0;
         this.paused = true;
        }   
 }
-stop(){ 
+public stop(){ 
         this.oldTime = 0; //since its start so old time is gone
         this.startTime = 0;
         this.paused = true;  
 }
 
-resume(){
+public resume(){
     this.play();
-  }
-forward(ms=5000){  // .
+}
+
+public forward(ms=5000){ 
     let oldPause = false;
 if(this.paused === true){oldPause = true;}    
 this.pause();
@@ -59,7 +60,7 @@ if(this.oldTime + ms < this.duration){
 if (oldPause == false){this.play();}
 }
 
-rewind(ms=5000){// in rwd subtract from startTime
+public rewind(ms=5000){// in rwd subtract from startTime
     let oldPause = false;
     if(this.paused === true){oldPause = true;}  
 this.pause();

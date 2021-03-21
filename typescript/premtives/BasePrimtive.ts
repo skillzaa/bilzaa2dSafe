@@ -1,6 +1,6 @@
 import Metal from "../metal/Metal.js";
-import ArrayOfObjects from "../Aoo/ArrayOfObjects.js";
-import Animations from "../animations/Animations.js";
+import ArrayOfObjects from "../single/ArrayOfObjects.js";
+import Animations from "../fasades/Animations.js";
 
 export default class BasePrimtive  extends Metal{
 
@@ -74,13 +74,8 @@ this.animations.data.forEach(animation => {
 return true;    
 }
 draw(){
-this.drawShape();    
+   
 }
-
-drawBorder(){
-
-} 
-drawShape(){} 
 
 //.........................................................
 //.........................................................

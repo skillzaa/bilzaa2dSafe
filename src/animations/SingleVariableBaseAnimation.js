@@ -1,4 +1,4 @@
-import Algorithms from "./algo/Algorithms.js";
+import Algorithms from "../algo/Algorithms.js";
 export default class SingleVariableBaseAnimation {
     constructor(compulsary, dataRequired = [], argsForAlgo = {}, future = {}) {
         //--------------------ALGO FASADE---------------      

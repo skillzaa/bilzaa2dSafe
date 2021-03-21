@@ -1,6 +1,6 @@
 import Metal from "../metal/Metal.js";
-import ArrayOfObjects from "../Aoo/ArrayOfObjects.js";
-import Animations from "../animations/Animations.js";
+import ArrayOfObjects from "../single/ArrayOfObjects.js";
+import Animations from "../fasades/Animations.js";
 export default class BasePrimtive extends Metal {
     protected attributes: ArrayOfObjects;
     name: string;
@@ -10,7 +10,5 @@ export default class BasePrimtive extends Metal {
     constructor(name?: string);
     setNextFrame(currentSecond: number): boolean;
     draw(): void;
-    drawBorder(): void;
-    drawShape(): void;
 }
 //# sourceMappingURL=BasePrimtive.d.ts.map
