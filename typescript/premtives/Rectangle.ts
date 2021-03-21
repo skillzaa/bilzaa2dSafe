@@ -5,7 +5,7 @@ export default class Rectangle extends BasePrimtive {
   super("rectangle");
   }
 
-  drawShape() {
+  draw() {
 if(this.attributes.getProperty("drawBorder") === true){
   this.drawBorder();
 }

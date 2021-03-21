@@ -8,7 +8,8 @@ protected attributes:ArrayOfObjects;
 public name:string;
 protected animations:Animations; 
 protected metal:Metal;
-protected clearCanvasFlag:boolean;
+public clearCanvasFlag:boolean;
+
 
 constructor(name="Element") {          
 super();   
@@ -47,7 +48,7 @@ this.metal = new Metal();
  
 }
 
-setNextFrame(currentSecond:number){
+public setNextFrame(currentSecond:number){
     if (this.clearCanvasFlag === true){
         this.metal.clearCanvas(); 
         this.clearCanvasFlag === false; //shd this be here?

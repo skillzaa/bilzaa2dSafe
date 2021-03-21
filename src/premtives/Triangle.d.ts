@@ -1,7 +1,6 @@
 import BasePrimtive from "./BasePrimtive.js";
 export default class Triangle extends BasePrimtive {
     constructor();
-    drawShape(): void;
-    drawBorder(): void;
+    draw(): void;
 }
 //# sourceMappingURL=Triangle.d.ts.map

@@ -5,7 +5,7 @@ export default class Triangle extends BasePrimtive {
   super("triangle");
   }
 
-drawShape() {
+draw() {
     if(this.attributes.getProperty("drawBorder") === true){
     this.drawBorder();
     }
@@ -14,9 +14,6 @@ this.metal.drawTriangle(this.attributes.getProperty("x"),this.attributes.getProp
 }
 
 //---------------------------------------  
-  drawBorder() {
-   
-    //----------------------------    
-  }//--draw border   
+ 
   //////////////////////////classsss-----------------
 }

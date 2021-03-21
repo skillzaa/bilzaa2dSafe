@@ -1,1 +1,1 @@
-{"version":3,"file":"SimpleRectangle.d.ts","sourceRoot":"","sources":["../../typescript/premtives/SimpleRectangle.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,mBAAmB,CAAC;AAE7C,MAAM,CAAC,OAAO,OAAO,eAAgB,SAAQ,YAAY;;IAMvD,SAAS;IAyBT,UAAU;CAGX"}
+{"version":3,"file":"SimpleRectangle.d.ts","sourceRoot":"","sources":["../../typescript/premtives/SimpleRectangle.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,mBAAmB,CAAC;AAE7C,MAAM,CAAC,OAAO,OAAO,eAAgB,SAAQ,YAAY;;IAMvD,IAAI;CAwBL"}

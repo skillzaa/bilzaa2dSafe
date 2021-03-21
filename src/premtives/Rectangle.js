@@ -3,7 +3,7 @@ export default class Rectangle extends BasePrimtive {
     constructor() {
         super("rectangle");
     }
-    drawShape() {
+    draw() {
         if (this.attributes.getProperty("drawBorder") === true) {
             this.drawBorder();
         }

@@ -3,7 +3,7 @@ export default class SimpleRectangle extends BasePrimtive {
     constructor() {
         super("simpleRectangle");
     }
-    drawShape() {
+    draw() {
         this.ctx.fillStyle = this.attributes.getItem("fillStyle").value;
         this.ctx.strokeStyle = this.attributes.getItem("strokeStyle").value;
         this.ctx.shadowColor = this.attributes.getItem("shadowColor").value;
@@ -22,6 +22,4 @@ export default class SimpleRectangle extends BasePrimtive {
         }
         //--the draw function
     }
-    drawBorder() {
-    } //--draw border   
 }
