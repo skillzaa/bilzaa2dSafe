@@ -1,1 +1,1 @@
-{"version":3,"file":"Animations.d.ts","sourceRoot":"","sources":["../../typescript/animations/Animations.ts"],"names":[],"mappings":"AACA,OAAO,2BAA2B,MAAM,kCAAkC,CAAC;AAE3E,MAAM,CAAC,OAAO,OAAO,UAAU;;IAG/B,MAAM,CAAC,SAAS,KAAG;CAIlB"}
+{"version":3,"file":"Animations.d.ts","sourceRoot":"","sources":["../../typescript/animations/Animations.ts"],"names":[],"mappings":"AAGA,MAAM,CAAC,OAAO,OAAO,UAAU;;IAI/B,GAAG,CAAC,UAAU,KAAA,EAAC,eAAe,UAAG,EAAC,WAAW,KAAG,EAAC,MAAM,KAAG;CAOzD"}

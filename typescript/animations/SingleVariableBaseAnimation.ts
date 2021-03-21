@@ -5,7 +5,7 @@ constructor(compulsary,dataRequired=[],argsForAlgo={},future={}){
 //--------------------ALGO FASADE---------------      
     this.algorithms = new Algorithms();
 //--------------------COMPULSARY ITEMS---------------    
- this.valueName = compulsary.valueName ;
+ this.attribute = compulsary.attribute ;
  this.fromSecond = compulsary.fromSecond  ; //must for every animation
  this.toSecond = compulsary.toSecond ;//must for every animation
  this.algo = this.algorithms.getAlgo(compulsary.algo) ; 

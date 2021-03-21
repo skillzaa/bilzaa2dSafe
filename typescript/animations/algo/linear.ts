@@ -5,9 +5,12 @@ const linear = function(bdReqForAni,currentSecond){
    this.deltaPerFrame = this.deltaPerFrame = this.deltaPerSecond/this.fps;
    
    //------------    
-   bdReqForAni.forEach(attributre => {
-    if(attributre.name == this.valueName){
-        attributre.value += this.deltaPerFrame ;
+   bdReqForAni.forEach(attribute => {
+    if(attribute.name == this.attribute){
+      //here its just ++ wo time, note the +=  
+        attribute.value += this.deltaPerFrame ;
+      //now am using current second
+     // attribute.value = this.from + (this.deltaPerSecond * currentSecond)  ;
     }
 });
    return bdReqForAni;;        

@@ -1,11 +1,15 @@
 
-import SingleVariableBaseAnimation from "./SingleVariableBaseAnimation.js";
+import SingleVariableBaseAnimation from "../animations/SingleVariableBaseAnimation.js"; 
 
-export default class Animations {
+export default class Animations{    
 constructor(){
-}
-addNew(incomming={}){
-return new SingleVariableBaseAnimation(incomming);
-}
-//...............................................    
+this.data=[];
+}   
+add(compulsary,dataFromElement=[],argsForAlgo={},future={}){
+const aniSeq = new SingleVariableBaseAnimation(compulsary,dataFromElement,argsForAlgo,future);
+this.data.push(aniSeq);    
+return true;
+} 
+
+//---------------------------------
 }

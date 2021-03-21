@@ -7,7 +7,7 @@ const blink = function (bdReqForAni, currentSecond) {
     }
     //-----------------------    
     bdReqForAni.forEach(element => {
-        if ((element.name == this.valueName) && this.future.counter > this.argsForAlgo.speed) {
+        if ((element.name == this.attribute) && this.future.counter > this.argsForAlgo.speed) {
             this.future.counter = 0;
             if (element.value === true) {
                 element.value = false;

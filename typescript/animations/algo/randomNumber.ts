@@ -1,6 +1,6 @@
 const randomNumber = function(bdReqForAni,currentSecond){
     bdReqForAni.forEach(attributre => {
-        if(attributre.name == this.valueName){
+        if(attributre.name == this.attribute){
             attributre.value = getRandomInt() ;
         }
     });

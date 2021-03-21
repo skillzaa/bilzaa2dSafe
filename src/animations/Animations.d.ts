@@ -1,6 +1,5 @@
-import SingleVariableBaseAnimation from "./SingleVariableBaseAnimation.js";
 export default class Animations {
     constructor();
-    addNew(incomming?: {}): SingleVariableBaseAnimation;
+    add(compulsary: any, dataFromElement?: never[], argsForAlgo?: {}, future?: {}): boolean;
 }
 //# sourceMappingURL=Animations.d.ts.map

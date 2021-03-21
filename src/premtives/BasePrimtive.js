@@ -1,12 +1,12 @@
 import Metal from "../metal/Metal.js";
 import ArrayOfObjects from "../Aoo/ArrayOfObjects.js";
-import AnimationSequencesAoo from "../Aoo/AnimationSequencesAoo.js";
+import Animations from "../animations/Animations.js";
 export default class BasePrimtive extends Metal {
     constructor(name, attribData) {
         super();
         this.name = name;
         //====AOOs=============
-        this.animations = new AnimationSequencesAoo();
+        this.animations = new Animations();
         this.attributes = new ArrayOfObjects();
         attribData.forEach(attr => {
             this.attributes.add(attr);
@@ -44,8 +44,6 @@ export default class BasePrimtive extends Metal {
     draw() {
         this.drawShape();
     }
-    ////-------------------------------------------
-    /**every element atleast has 2 componenets .// a border and the shape. we can keep their implementation chaging and adding HOOKS*/
     drawBorder() {
     }
     drawShape() { }

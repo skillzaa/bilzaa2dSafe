@@ -19,7 +19,7 @@ this.startTime = 0;
 runningTime(){  
     if (this.paused === false){
         const t =  (Date.now() - this.startTime);
-        return t/1000;
+        return Number((t/1000).toFixed(2));
      }else {
         return this.oldTime/1000;
     }

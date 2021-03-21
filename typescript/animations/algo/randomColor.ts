@@ -1,6 +1,6 @@
 const randomColor = function(bdReqForAni,currentSecond){
     bdReqForAni.forEach(element => {
-        if(element.name == this.valueName){
+        if(element.name == this.attribute){
             element.value = randomHexColorCode() ;
         }
     });
