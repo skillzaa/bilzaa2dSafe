@@ -45,7 +45,7 @@ export default class ArrayOfObjects {
         }
         return false;
     } //.....................
-    getItemProperty(name, propertyName = "value") {
+    getProperty(name, propertyName = "value") {
         for (let idx = 0; idx < this.data.length; idx++) {
             if (this.data[idx].name === name) {
                 return this.data[idx][propertyName];
@@ -53,7 +53,7 @@ export default class ArrayOfObjects {
         }
         return false;
     }
-    setItemProperty(name, value, propertyName = "value") {
+    setProperty(name, value, propertyName = "value") {
         for (let idx = 0; idx < this.data.length; idx++) {
             if (this.data[idx].name === name) {
                 this.data[idx][propertyName] = value;

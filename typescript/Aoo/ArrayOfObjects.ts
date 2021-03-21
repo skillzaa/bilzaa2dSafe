@@ -52,7 +52,7 @@ for (let idx = 0; idx < this.data.length; idx++) {
 return false;   
 }//.....................
 
-getItemProperty(name:string,propertyName= "value"){
+getProperty(name:string,propertyName= "value"){
 for (let idx = 0; idx < this.data.length; idx++) {
     if(this.data[idx].name === name){
         return this.data[idx][propertyName];
@@ -60,7 +60,7 @@ for (let idx = 0; idx < this.data.length; idx++) {
 }
 return false;    
 }
-setItemProperty(name:string,value:string|number,propertyName = "value"){
+setProperty(name:string,value:string|number,propertyName = "value"){
     for (let idx = 0; idx < this.data.length; idx++) {
         if(this.data[idx].name === name){
                 this.data[idx][propertyName] = value;

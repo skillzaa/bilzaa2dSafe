@@ -10,8 +10,8 @@ export default class ArrayOfObjects {
     isUnique(name: string): boolean;
     get length(): number;
     getItem(name: string): {};
-    getItemProperty(name: string, propertyName?: string): any;
-    setItemProperty(name: string, value: string | number, propertyName?: string): {};
+    getProperty(name: string, propertyName?: string): any;
+    setProperty(name: string, value: string | number, propertyName?: string): {};
     getAllByNames(argumentsRequired?: never[]): any[];
     insertPropertiesFromArray(retData: any): boolean;
     setAllProperties(propertyName: string, newValue: string | number): void;
