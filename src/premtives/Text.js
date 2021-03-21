@@ -24,12 +24,12 @@ export default class Text extends BasePrimtive {
         super(name, attribData);
     }
     drawShape() {
-        if (this.attributes.getItemValue("drawBorder") === true) {
+        if (this.attributes.getItemProperty("drawBorder") === true) {
             this.drawBorder();
         }
-        this.metal.drawText(this.attributes.getItemValue("title"), this.attributes.getItemValue("x"), this.attributes.getItemValue("y"));
-        //this.metal.drawTriangle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("width"),this.attributes.getItemValue("height"),);    
-        //this.metal.drawCircle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("radius"));    
+        this.metal.drawText(this.attributes.getItemProperty("title"), this.attributes.getItemProperty("x"), this.attributes.getItemProperty("y"));
+        //this.metal.drawTriangle(this.attributes.getItemProperty("x"),this.attributes.getItemProperty("y"),this.attributes.getItemProperty("width"),this.attributes.getItemProperty("height"),);    
+        //this.metal.drawCircle(this.attributes.getItemProperty("x"),this.attributes.getItemProperty("y"),this.attributes.getItemProperty("radius"));    
     }
     //---------------------------------------  
     drawBorder() {

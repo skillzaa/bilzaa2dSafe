@@ -1,5 +1,4 @@
 import Metal from "../metal/Metal.js";
-import ArrayOfObjects from "../Aoo/ArrayOfObjects.js";
 import AnimationSequencesAoo from "../Aoo/AnimationSequencesAoo.js";
 import AttributesAoo from "../Aoo/AttributesAoo.js";
 export default class BasePrimtive extends Metal {
@@ -8,7 +7,6 @@ export default class BasePrimtive extends Metal {
         this.name = name;
         //====AOOs=============
         this.animations = new AnimationSequencesAoo();
-        this.aoo = new ArrayOfObjects();
         this.attributes = new AttributesAoo();
         attribData.forEach(attr => {
             this.attributes.add(attr);
@@ -33,7 +31,7 @@ export default class BasePrimtive extends Metal {
                 &&
                     (currentSecond <= animation.toSecond)) {
                 //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
-                const elementDataBeingSentToAnimation = this.attributes.getAttributesByName(animation.dataRequired);
+                const elementDataBeingSentToAnimation = this.attributes.getItemsByNames(animation.dataRequired);
                 //----STEP 3 -- Animate the data
                 const retData = animation.animate(elementDataBeingSentToAnimation, currentSecond);
                 //----STEP 4 -- SAVE ATTRIBUTES

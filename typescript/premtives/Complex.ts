@@ -27,15 +27,15 @@ export default class Complex extends BasePrimtive {
   }
 
 drawShape() {
-this.circle.attributes.setValue("x",600);
-this.circle.attributes.setValue("y",200);
-this.circle.attributes.setValue("radius",150);  
+this.circle.attributes.setItemProperty("x",600);
+this.circle.attributes.setItemProperty("y",200);
+this.circle.attributes.setItemProperty("radius",150);  
 this.circle.draw();
-this.circle.attributes.setValue("radius",100);  
+this.circle.attributes.setItemProperty("radius",100);  
 this.circle.draw();
-this.circle.attributes.setValue("radius",50);  
+this.circle.attributes.setItemProperty("radius",50);  
 this.circle.draw();
-this.circle.attributes.setValue("radius",25);  
+this.circle.attributes.setItemProperty("radius",25);  
 this.circle.draw();
 }
 

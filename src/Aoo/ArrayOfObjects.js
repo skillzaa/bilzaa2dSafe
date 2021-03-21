@@ -7,17 +7,18 @@ export default class ArrayOfObjects {
     constructor() {
         this.data = [];
     }
-    add(name) {
-        if (this.isUnique(name) === true) {
-            const a = {};
-            a.name = name;
-            this.data.push(a);
-            return a;
-        }
-        else {
-            return { success: false, message: "Please Provide a unique and valid string name for the object", errorMessage: "nonUniqueName" };
-        }
+    add() {
     }
+    // add(name:string){
+    // if (this.isUnique(name) === true){
+    //     const a = {};
+    //     a.name = name; 
+    //     this.data.push(a);
+    //     return a;    
+    // } else {
+    //     return {success: false, message : "Please Provide a unique and valid string name for the object", errorMessage: "nonUniqueName" }
+    // }   
+    // } 
     isUnique(name) {
         if (typeof name == "undefined") {
             return false;
@@ -61,7 +62,7 @@ export default class ArrayOfObjects {
     } //......
     setAllProperties(propertyName, newValue) {
     }
-    getAllByNames(argumentsRequired = []) {
+    getItemsByNames(argumentsRequired = []) {
         /**incooming is normal []  */
         const ret = [];
         this.data.forEach(bd => {

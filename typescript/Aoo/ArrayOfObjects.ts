@@ -10,17 +10,20 @@ public data:{}[];
 constructor(){
     this.data=[];
 }
-add(name:string){
-if (this.isUnique(name) === true){
-    const a = {};
-    a.name = name; 
-    this.data.push(a);
-    return a;    
-} else {
-    return {success: false, message : "Please Provide a unique and valid string name for the object", errorMessage: "nonUniqueName" }
-}   
+add(){
+    
+}
+// add(name:string){
+// if (this.isUnique(name) === true){
+//     const a = {};
+//     a.name = name; 
+//     this.data.push(a);
+//     return a;    
+// } else {
+//     return {success: false, message : "Please Provide a unique and valid string name for the object", errorMessage: "nonUniqueName" }
+// }   
 
-} 
+// } 
 
 isUnique(name:string){
 if(typeof name == "undefined"){return false;}    
@@ -71,7 +74,7 @@ setAllProperties(propertyName:string , newValue:string|number){
 
 }
 
-getAllByNames(argumentsRequired=[]){
+getItemsByNames(argumentsRequired=[]){
 /**incooming is normal []  */    
 const ret = [];         
 this.data.forEach(bd => {

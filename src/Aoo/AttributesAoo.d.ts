@@ -1,5 +1,5 @@
-import AooBase from "./AooBase.js";
-export default class AttributesAoo extends AooBase {
+import ArrayOfObjects from "./ArrayOfObjects.js";
+export default class AttributesAoo extends ArrayOfObjects {
     constructor();
     add(incomming?: {}): {};
     saveAttributeValues(retData: any): boolean;

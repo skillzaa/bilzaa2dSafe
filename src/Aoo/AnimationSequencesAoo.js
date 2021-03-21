@@ -1,6 +1,6 @@
 import SingleVariableBaseAnimation from "../animations/SingleVariableBaseAnimation.js";
-import AooBase from "./AooBase.js";
-export default class animationSequencesAoo extends AooBase {
+import ArrayOfObjects from "./ArrayOfObjects.js";
+export default class AnimationSequencesAoo extends ArrayOfObjects {
     constructor() {
         super(); //the data array is in baseclass
     }

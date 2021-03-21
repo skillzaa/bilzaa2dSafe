@@ -25,7 +25,7 @@ export default class Rectangle extends BasePrimtive {
   }
 
   drawShape() {
-if(this.attributes.getItemValue("drawBorder") === true){
+if(this.attributes.getItemProperty("drawBorder") === true){
   this.drawBorder();
 }
 
@@ -35,7 +35,7 @@ if(this.attributes.getItemValue("drawBorder") === true){
     this.ctx.shadowBlur = this.attributes.getItem("shadowBlur").value;
     this.ctx.shadowOffsetX = this.attributes.getItem("shadowOffsetX").value;
     this.ctx.shadowOffsetY = this.attributes.getItem("shadowOffsetY").value;
-    if (this.attributes.getItemValue("rps") > 0) {
+    if (this.attributes.getItemProperty("rps") > 0) {
       this.ctx.save();
       this.ctx.translate(this.attributes.getItem("x").value + (this.attributes.getItem("width").value / 2), this.attributes.getItem("y").value + (this.attributes.getItem("height").value / 2));
       this.ctx.rotate((this.attributes.getItem("rotateAngle").value) * Math.PI / 180);
@@ -43,9 +43,9 @@ if(this.attributes.getItemValue("drawBorder") === true){
 
     }
 
-    this.ctx.fillRect(this.attributes.getItem("x").value, this.attributes.getItem("y").value, this.attributes.getItem("width").value, this.attributes.getItem("height").value);
+    this.ctx.fillRect(this.attributes.getItem("x").value, this.attributes.getItem("y").value, this.attributes.getItem("width").value, this.attributes.getItem("height").value);   
 
-    if (this.attributes.getItemValue("rps") > 0) {
+    if (this.attributes.getItemProperty("rps") > 0) {
       this.ctx.restore();
     }
     //--the draw function
@@ -53,7 +53,7 @@ if(this.attributes.getItemValue("drawBorder") === true){
 
   drawBorder() {
     //if(this.attributes.getItemValue("rps") > 0){console.log("totating border");}
-    if (this.attributes.getItemValue("rps") > 0) {
+    if (this.attributes.getItemProperty("rps") > 0) {
       this.ctx.save();
       this.ctx.translate(this.attributes.getItem("x").value + (this.attributes.getItem("width").value / 2), this.attributes.getItem("y").value + (this.attributes.getItem("height").value / 2));
       this.ctx.rotate((this.attributes.getItem("rotateAngle").value) * Math.PI / 180);
@@ -62,7 +62,7 @@ if(this.attributes.getItemValue("drawBorder") === true){
     }
 
     this.drawRectangleBorder(this.attributes.getItem("x").value, this.attributes.getItem("y").value, this.attributes.getItem("width").value, this.attributes.getItem("height").value, this.attributes.getItem("borderColor").value, this.attributes.getItem("borderWidth").value);
-    if (this.attributes.getItemValue("rps") > 0) {
+    if (this.attributes.getItemProperty("rps") > 0) {
       this.ctx.restore();
     }
 

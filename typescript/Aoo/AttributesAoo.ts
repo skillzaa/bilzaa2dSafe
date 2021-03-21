@@ -1,6 +1,6 @@
-import AooBase from "./AooBase.js";
+import ArrayOfObjects from "./ArrayOfObjects.js";
 
-export default class AttributesAoo extends AooBase{    
+export default class AttributesAoo extends ArrayOfObjects{    
 constructor(){
 super();
 }

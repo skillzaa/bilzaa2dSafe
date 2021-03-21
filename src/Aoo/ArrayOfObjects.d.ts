@@ -6,13 +6,13 @@
 export default class ArrayOfObjects {
     data: {}[];
     constructor();
-    add(name: string): {};
+    add(): void;
     isUnique(name: string): boolean;
     get length(): number;
     getItem(name: string): {};
     getItemProperty(name: string, propertyName: string): any;
     setItemProperty(name: string, value: string | number): {};
     setAllProperties(propertyName: string, newValue: string | number): void;
-    getAllByNames(argumentsRequired?: never[]): any[];
+    getItemsByNames(argumentsRequired?: never[]): any[];
 }
 //# sourceMappingURL=ArrayOfObjects.d.ts.map

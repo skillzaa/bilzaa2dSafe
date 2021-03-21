@@ -22,14 +22,14 @@ export default class Circle extends BasePrimtive {
         super(name, attribData);
     }
     drawShape() {
-        if (this.attributes.getItemValue("drawBorder") === true) {
+        if (this.attributes.getItemProperty("drawBorder") === true) {
             this.drawBorder();
         }
-        this.metal.drawCircle(this.attributes.getItemValue("x"), this.attributes.getItemValue("y"), this.attributes.getItemValue("radius"));
+        this.metal.drawCircle(this.attributes.getItemProperty("x"), this.attributes.getItemProperty("y"), this.attributes.getItemProperty("radius"));
     }
     //---------------------------------------  
     drawBorder() {
-        this.metal.drawCircle(this.attributes.getItemValue("x"), this.attributes.getItemValue("y"), this.attributes.getItemValue("radius") + 10);
+        this.metal.drawCircle(this.attributes.getItemProperty("x"), this.attributes.getItemProperty("y"), this.attributes.getItemProperty("radius") + 10);
         //----------------------------    
     } //--draw border   
 }

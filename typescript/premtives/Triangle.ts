@@ -26,11 +26,11 @@ export default class Triangle extends BasePrimtive {
   }
 
 drawShape() {
-    if(this.attributes.getItemValue("drawBorder") === true){
+    if(this.attributes.getItemProperty("drawBorder") === true){
     this.drawBorder();
     }
-this.metal.drawTriangle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("width"),this.attributes.getItemValue("height"),this.attributes.getItemValue("fillStyle"));    
-//this.metal.drawCircle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("radius"));    
+this.metal.drawTriangle(this.attributes.getItemProperty("x"),this.attributes.getItemProperty("y"),this.attributes.getItemProperty("width"),this.attributes.getItemProperty("height"),this.attributes.getItemProperty("fillStyle"));    
+//this.metal.drawCircle(this.attributes.getItemProperty("x"),this.attributes.getItemProperty("y"),this.attributes.getItemProperty("radius"));    
 }
 
 //---------------------------------------  
