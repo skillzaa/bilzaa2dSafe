@@ -31,14 +31,14 @@ export default class BasePrimtive extends Metal {
         //====Animations=============
         this.animations = new Animations();
         //==================================
-        this.clearCanvas = false; //first element of the frame has to clean
+        this.clearCanvasFlag = false; //first element of the frame has to clean
         this.metal = new Metal();
         //--get attrib data into attribute object
     }
     setNextFrame(currentSecond) {
-        if (this.clearCanvas === true) {
+        if (this.clearCanvasFlag === true) {
             this.metal.clearCanvas();
-            this.clearCanvas === false; //shd this be here?
+            this.clearCanvasFlag === false; //shd this be here?
         }
         //==================LLLLLOOOOPPPPP======================== 
         this.animations.data.forEach(animation => {

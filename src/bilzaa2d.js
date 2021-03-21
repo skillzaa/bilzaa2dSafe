@@ -15,7 +15,7 @@ export default class Bilzaa2d {
     }
     gameLoop() {
         //first element of the frame being drawn has to clear the canvas    
-        this.elements.shapes[0].clearCanvas = true;
+        this.elements.shapes[0].clearCanvasFlag = true;
         //----------the main loop
         this.elements.shapes.forEach(item => {
             const curSec = this.playHead.runningTime();

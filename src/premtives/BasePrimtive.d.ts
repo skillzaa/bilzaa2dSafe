@@ -6,6 +6,7 @@ export default class BasePrimtive extends Metal {
     name: string;
     protected animations: Animations;
     protected metal: Metal;
+    protected clearCanvasFlag: boolean;
     constructor(name?: string);
     setNextFrame(currentSecond: number): boolean;
     draw(): void;

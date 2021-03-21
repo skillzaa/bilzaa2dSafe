@@ -8,6 +8,8 @@ protected attributes:ArrayOfObjects;
 public name:string;
 protected animations:Animations; 
 protected metal:Metal;
+protected clearCanvasFlag:boolean;
+
 constructor(name="Element") {          
 super();   
 this.name=name;
@@ -39,16 +41,16 @@ this.attributes.add({ name: "shadowOffsetY", value: 0, comments: "" });
 this.animations = new Animations();
 
 //==================================
-this.clearCanvas = false; //first element of the frame has to clean
+this.clearCanvasFlag = false; //first element of the frame has to clean
 this.metal = new Metal();   
 //--get attrib data into attribute object
  
 }
 
 setNextFrame(currentSecond:number){
-    if (this.clearCanvas === true){
+    if (this.clearCanvasFlag === true){
         this.metal.clearCanvas(); 
-        this.clearCanvas === false; //shd this be here?
+        this.clearCanvasFlag === false; //shd this be here?
     }    
 //==================LLLLLOOOOPPPPP======================== 
 this.animations.data.forEach(animation => {
