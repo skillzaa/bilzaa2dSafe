@@ -1,6 +1,6 @@
 import Algorithms from "../algo/Algorithms.js";
 export default class SingleVariableBaseAnimation {
-    constructor(compulsary, dataRequired = [], argsForAlgo = {}, future = {}) {
+    constructor(compulsary, dataRequired = [], argsForAlgo = {}, future) {
         //--------------------ALGO FASADE---------------      
         this.algorithms = new Algorithms();
         //--------------------COMPULSARY ITEMS---------------    
@@ -13,13 +13,10 @@ export default class SingleVariableBaseAnimation {
         this.future = future;
         this.argsForAlgo = argsForAlgo;
         //-----------------------------------
-        this.fps = 60;
+        this.fps = future.fps;
     }
     animate(animationData, currentSecond) {
         const ret = this.algo(animationData, currentSecond);
-        //    const ret = this[this.algo](animationData,currentSecond);
         return ret;
-        // const retArray = this.algorithem(animationData,currentSecond);   
-        // return retArray;
     }
 }

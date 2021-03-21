@@ -1,5 +1,6 @@
 import Bilzaa2d from "./src/bilzaa2d.js";
 
+
 const bilzaa2d = new Bilzaa2d();
 const a = bilzaa2d.elements.addRectangle();
 a.animations.add({attribute: "rotateAngle",algo: "randomNumber",fromSecond:10 , toSecond:20},["x","rotateAngle"]);

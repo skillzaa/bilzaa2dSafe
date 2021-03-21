@@ -6,7 +6,6 @@ export default class Algorithms {
     constructor() {
     }
     getAlgo(name) {
-        let a;
         switch (name) {
             case "linear":
                 return linear;
@@ -21,8 +20,9 @@ export default class Algorithms {
                 return blink;
                 break;
             default:
+                return linear;
                 break;
         }
-        return a;
+        //return "ok";//just to shut typescript off    
     }
 }

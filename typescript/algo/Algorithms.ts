@@ -7,8 +7,7 @@ export default class Algorithms {
 constructor(){
 
 }
-getAlgo(name){
-let a;    
+getAlgo(name:string){
     switch (name) {
         case "linear":
             return linear;  
@@ -24,8 +23,9 @@ let a;
             break;
     
         default:
+            return linear; 
             break;
     }
-    return a;    
+    //return "ok";//just to shut typescript off    
 }
 }

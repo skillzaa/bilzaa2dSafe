@@ -1,5 +1,5 @@
 export default class Algorithms {
     constructor();
-    getAlgo(name: any): ((bdReqForAni: any, currentSecond: any) => any) | undefined;
+    getAlgo(name: string): (bdReqForAni: any, currentSecond: any) => any;
 }
 //# sourceMappingURL=Algorithms.d.ts.map
