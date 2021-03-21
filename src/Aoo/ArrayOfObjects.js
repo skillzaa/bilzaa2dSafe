@@ -7,7 +7,9 @@ export default class ArrayOfObjects {
     constructor() {
         this.data = [];
     }
-    add() {
+    add(incomming = {}) {
+        this.data.push(incomming);
+        return incomming;
     }
     // add(name:string){
     // if (this.isUnique(name) === true){
@@ -51,6 +53,28 @@ export default class ArrayOfObjects {
         }
         return false;
     }
+    getAllByNames(argumentsRequired = []) {
+        /**incooming is normal [] where as attributes is an obj wrapped around an aOO */
+        const ret = [];
+        this.data.forEach(bd => {
+            argumentsRequired.forEach(ag => {
+                if (ag == bd.name) {
+                    ret.push(bd);
+                }
+            });
+        });
+        return ret;
+    }
+    insertPropertiesFromArray(retData) {
+        this.data.forEach(bd => {
+            retData.forEach(ag => {
+                if (ag.name == bd.name) {
+                    bd.value = ag.value;
+                }
+            });
+        });
+        return true;
+    } //..
     setItemProperty(name, value) {
         for (let idx = 0; idx < this.data.length; idx++) {
             if (this.data[idx].name === name) {

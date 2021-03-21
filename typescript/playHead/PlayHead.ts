@@ -14,7 +14,7 @@ this.oldTime = 0;
 this.paused = true;
 this.startTime = 0;  
 
-}
+}   
 
 runningTime(){  
     if (this.paused === false){

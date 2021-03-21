@@ -6,11 +6,13 @@
 export default class ArrayOfObjects {
     data: {}[];
     constructor();
-    add(): void;
+    add(incomming?: {}): {};
     isUnique(name: string): boolean;
     get length(): number;
     getItem(name: string): {};
     getItemProperty(name: string, propertyName: string): any;
+    getAllByNames(argumentsRequired?: never[]): any[];
+    insertPropertiesFromArray(retData: any): boolean;
     setItemProperty(name: string, value: string | number): {};
     setAllProperties(propertyName: string, newValue: string | number): void;
     getItemsByNames(argumentsRequired?: never[]): any[];

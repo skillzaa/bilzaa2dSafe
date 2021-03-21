@@ -1,15 +1,15 @@
 import Metal from "../metal/Metal.js";
 import ArrayOfObjects from "../Aoo/ArrayOfObjects.js";
 import AnimationSequencesAoo from "../Aoo/AnimationSequencesAoo.js";
-import AttributesAoo from "../Aoo/AttributesAoo.js";
-export default class BasePrimtive  extends Metal{
 
-constructor(name,attribData) {  
-super();
-this.name=name;
+export default class BasePrimtive  extends Metal{
+  
+constructor(name,attribData) {          
+super();   
+this.name=name;    
 //====AOOs=============
 this.animations = new AnimationSequencesAoo();
-this.attributes = new AttributesAoo();
+this.attributes = new ArrayOfObjects();
 attribData.forEach(attr => {
     this.attributes.add(attr);
 });       
@@ -40,7 +40,7 @@ this.animations.data.forEach(animation => {
     const retData = animation.animate(elementDataBeingSentToAnimation,currentSecond);
     //----STEP 4 -- SAVE ATTRIBUTES
 
-    this.attributes.saveAttributeValues(retData);//retData is aoo
+    this.attributes.insertPropertiesFromArray(retData);//retData is aoo
    
      }/////--filter no relevant animations
     //========================================== 
