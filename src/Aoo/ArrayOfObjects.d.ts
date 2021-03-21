@@ -10,10 +10,10 @@ export default class ArrayOfObjects {
     isUnique(name: string): boolean;
     get length(): number;
     getItem(name: string): {};
-    getItemProperty(name: string, propertyName: string): any;
+    getItemProperty(name: string, propertyName?: string): any;
+    setItemProperty(name: string, value: string | number, propertyName?: string): {};
     getAllByNames(argumentsRequired?: never[]): any[];
     insertPropertiesFromArray(retData: any): boolean;
-    setItemProperty(name: string, value: string | number): {};
     setAllProperties(propertyName: string, newValue: string | number): void;
     getItemsByNames(argumentsRequired?: never[]): any[];
 }

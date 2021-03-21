@@ -52,15 +52,23 @@ for (let idx = 0; idx < this.data.length; idx++) {
 return false;   
 }//.....................
 
-getItemProperty(name:string,propertyName:string){
+getItemProperty(name:string,propertyName= "value"){
 for (let idx = 0; idx < this.data.length; idx++) {
     if(this.data[idx].name === name){
-        return this.data[idx].value;
+        return this.data[idx][propertyName];
     }
 }
 return false;    
 }
-
+setItemProperty(name:string,value:string|number,propertyName = "value"){
+    for (let idx = 0; idx < this.data.length; idx++) {
+        if(this.data[idx].name === name){
+                this.data[idx][propertyName] = value;
+                return this.data[idx];
+        }
+    }        
+return true;       
+    }//......
 getAllByNames(argumentsRequired=[]){
     /**incooming is normal [] where as attributes is an obj wrapped around an aOO */    
     const ret = [];         
@@ -81,20 +89,10 @@ insertPropertiesFromArray(retData){
             }
         });
     });
-  
+    
 return true;    
 }//..
-
-setItemProperty(name:string,value:string|number){
-    for (let idx = 0; idx < this.data.length; idx++) {
-        if(this.data[idx].name === name){
-            this.data[idx].value = value;
-            return this.data[idx];
-        }
-    }        
-return true;       
-    }//......
-
+    
 setAllProperties(propertyName:string , newValue:string|number){
 
 }

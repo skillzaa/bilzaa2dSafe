@@ -21,7 +21,6 @@ d.animations.add({attribute: "width",algo: "linear",fromSecond:1 , toSecond:10},
 d.animations.add({attribute: "drawBorder",algo: "toggle",fromSecond:1 , toSecond:60},["drawBorder"],{attribute: "drawBorder",speed:15});
  
 
-
 const e = bilzaa2d.elements.addSimpleRectangle();
 e.attributes.setItemProperty("y",100);
 e.attributes.setItemProperty("fillStyle","blue");

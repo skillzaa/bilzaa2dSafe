@@ -45,14 +45,23 @@ export default class ArrayOfObjects {
         }
         return false;
     } //.....................
-    getItemProperty(name, propertyName) {
+    getItemProperty(name, propertyName = "value") {
         for (let idx = 0; idx < this.data.length; idx++) {
             if (this.data[idx].name === name) {
-                return this.data[idx].value;
+                return this.data[idx][propertyName];
             }
         }
         return false;
     }
+    setItemProperty(name, value, propertyName = "value") {
+        for (let idx = 0; idx < this.data.length; idx++) {
+            if (this.data[idx].name === name) {
+                this.data[idx][propertyName] = value;
+                return this.data[idx];
+            }
+        }
+        return true;
+    } //......
     getAllByNames(argumentsRequired = []) {
         /**incooming is normal [] where as attributes is an obj wrapped around an aOO */
         const ret = [];
@@ -75,15 +84,6 @@ export default class ArrayOfObjects {
         });
         return true;
     } //..
-    setItemProperty(name, value) {
-        for (let idx = 0; idx < this.data.length; idx++) {
-            if (this.data[idx].name === name) {
-                this.data[idx].value = value;
-                return this.data[idx];
-            }
-        }
-        return true;
-    } //......
     setAllProperties(propertyName, newValue) {
     }
     getItemsByNames(argumentsRequired = []) {
