@@ -1,3 +1,4 @@
+"use strict";
 const linear = function (incomming, currentSecond) {
     const timeDiff = parseInt((this.toSecond - this.fromSecond));
     const totalValueDiff = parseInt((this.argsForAlgo.to - this.argsForAlgo.from));
@@ -15,4 +16,4 @@ const linear = function (incomming, currentSecond) {
     return incomming;
     ;
 };
-export default linear;
+exports["default"] = linear;

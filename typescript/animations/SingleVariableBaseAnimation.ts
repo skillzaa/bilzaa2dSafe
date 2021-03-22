@@ -28,14 +28,10 @@ this.algorithms = new Algorithms();
  this.argsForAlgo = argsForAlgo;
  //-----------------------------------
  this.fps =  future.fps ;
- 
 }
 animate(animationData:[],currentSecond:number){
 const ret = this.algo(animationData,currentSecond);
     return ret;
-
 }
-//===============================================
-
-//...............................................    
+//===============================================  
 }

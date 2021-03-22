@@ -1,1 +1,0 @@
-//# sourceMappingURL=IBasePrimitive.d.ts.map

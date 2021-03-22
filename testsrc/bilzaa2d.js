@@ -13,7 +13,7 @@ class PlayHead {
     runningTime() {
         if (this.paused === false) {
             const t = (Date.now() - this.startTime);
-            return t / 1000;
+            return Number((t / 1000).toFixed(2));
         }
         else {
             return this.oldTime / 1000;
@@ -135,17 +135,20 @@ class ArrayOfObjects {
     constructor() {
         this.data = [];
     }
-    add(name) {
-        if (this.isUnique(name) === true) {
-            const a = {};
-            a.name = name;
-            this.data.push(a);
-            return a;
-        }
-        else {
-            return { success: false, message: "Please Provide a unique and valid string name for the object", errorMessage: "nonUniqueName" };
-        }
+    add(incomming = {}) {
+        this.data.push(incomming);
+        return incomming;
     }
+    // add(name:string){
+    // if (this.isUnique(name) === true){
+    //     const a = {};
+    //     a.name = name; 
+    //     this.data.push(a);
+    //     return a;    
+    // } else {
+    //     return {success: false, message : "Please Provide a unique and valid string name for the object", errorMessage: "nonUniqueName" }
+    // }   
+    // } 
     isUnique(name) {
         if (typeof name == "undefined") {
             return false;
@@ -170,44 +173,81 @@ class ArrayOfObjects {
         }
         return false;
     } //.....................
-    getItemProperty(name, propertyName) {
+    getProperty(name, propertyName = "value") {
         for (let idx = 0; idx < this.data.length; idx++) {
             if (this.data[idx].name === name) {
-                return this.data[idx].value;
+                return this.data[idx][propertyName];
             }
         }
         return false;
     }
-    setItemProperty(name, value) {
+    setProperty(name, value, propertyName = "value") {
         for (let idx = 0; idx < this.data.length; idx++) {
             if (this.data[idx].name === name) {
-                this.data[idx].value = value;
+                this.data[idx][propertyName] = value;
                 return this.data[idx];
             }
         }
         return true;
     } //......
+    getAllByNames(argumentsRequired = []) {
+        /**incooming is normal [] where as attributes is an obj wrapped around an aOO */
+        const ret = [];
+        this.data.forEach(bd => {
+            argumentsRequired.forEach(ag => {
+                if (ag == bd.name) {
+                    ret.push(bd);
+                }
+            });
+        });
+        return ret;
+    }
+    insertPropertiesFromArray(retData) {
+        this.data.forEach(bd => {
+            retData.forEach(ag => {
+                if (ag.name == bd.name) {
+                    bd.value = ag.value;
+                }
+            });
+        });
+        return true;
+    } //..
     setAllProperties(propertyName, newValue) {
+    }
+    getItemsByNames(argumentsRequired = []) {
+        /**incooming is normal []  */
+        const ret = [];
+        this.data.forEach(bd => {
+            argumentsRequired.forEach(ag => {
+                if (ag == bd.name) {
+                    ret.push(bd);
+                }
+            });
+        });
+        return ret;
     }
 }
 
-const linear = function (bdReqForAni, currentSecond) {
+const linear = function (incomming, currentSecond) {
     const timeDiff = parseInt((this.toSecond - this.fromSecond));
     const totalValueDiff = parseInt((this.argsForAlgo.to - this.argsForAlgo.from));
     this.deltaPerSecond = totalValueDiff / timeDiff;
     this.deltaPerFrame = this.deltaPerFrame = this.deltaPerSecond / this.fps;
     //------------    
-    bdReqForAni.forEach(attributre => {
-        if (attributre.name == this.valueName) {
-            attributre.value += this.deltaPerFrame;
+    incomming.forEach(attribute => {
+        if (attribute.name == this.attribute) {
+            //here its just ++ wo time, note the +=  
+            attribute.value += this.deltaPerFrame;
+            //now am using current second
+            // attribute.value = this.from + (this.deltaPerSecond * currentSecond)  ;
         }
     });
-    return bdReqForAni;
+    return incomming;
 };
 
 const randomNumber = function (bdReqForAni, currentSecond) {
     bdReqForAni.forEach(attributre => {
-        if (attributre.name == this.valueName) {
+        if (attributre.name == this.attribute) {
             attributre.value = getRandomInt();
         }
     });
@@ -219,7 +259,7 @@ function getRandomInt(max = 15) {
 
 const randomColor = function (bdReqForAni, currentSecond) {
     bdReqForAni.forEach(element => {
-        if (element.name == this.valueName) {
+        if (element.name == this.attribute) {
             element.value = randomHexColorCode();
         }
     });
@@ -239,7 +279,7 @@ const blink = function (bdReqForAni, currentSecond) {
     }
     //-----------------------    
     bdReqForAni.forEach(element => {
-        if ((element.name == this.valueName) && this.future.counter > this.argsForAlgo.speed) {
+        if ((element.name == this.attribute) && this.future.counter > this.argsForAlgo.speed) {
             this.future.counter = 0;
             if (element.value === true) {
                 element.value = false;
@@ -256,7 +296,6 @@ class Algorithms {
     constructor() {
     }
     getAlgo(name) {
-        let a;
         switch (name) {
             case "linear":
                 return linear;
@@ -266,17 +305,19 @@ class Algorithms {
                 return randomColor;
             case "toggle":
                 return blink;
+            default:
+                return linear;
         }
-        return a;
+        //return "ok";//just to shut typescript off    
     }
 }
 
 class SingleVariableBaseAnimation {
-    constructor(compulsary, dataRequired = [], argsForAlgo = {}, future = {}) {
+    constructor(compulsary, dataRequired = [], argsForAlgo = {}, future) {
         //--------------------ALGO FASADE---------------      
         this.algorithms = new Algorithms();
         //--------------------COMPULSARY ITEMS---------------    
-        this.valueName = compulsary.valueName;
+        this.attribute = compulsary.attribute;
         this.fromSecond = compulsary.fromSecond; //must for every animation
         this.toSecond = compulsary.toSecond; //must for every animation
         this.algo = this.algorithms.getAlgo(compulsary.algo);
@@ -285,66 +326,17 @@ class SingleVariableBaseAnimation {
         this.future = future;
         this.argsForAlgo = argsForAlgo;
         //-----------------------------------
-        this.fps = 60;
+        this.fps = future.fps;
     }
     animate(animationData, currentSecond) {
         const ret = this.algo(animationData, currentSecond);
-        //    const ret = this[this.algo](animationData,currentSecond);
         return ret;
-        // const retArray = this.algorithem(animationData,currentSecond);   
-        // return retArray;
     }
 }
 
-class AooBase {
+class Animations {
     constructor() {
         this.data = [];
-    }
-    add() {
-    }
-    push(a) {
-        return this.data.push(a);
-    }
-    get length() {
-        return this.data.length;
-    }
-    getItem(name) {
-        for (let idx = 0; idx < this.data.length; idx++) {
-            if (this.data[idx].name === name) {
-                return this.data[idx];
-            }
-        }
-        return false;
-    } //.....................
-    getItemValue(name) {
-        for (let idx = 0; idx < this.data.length; idx++) {
-            if (this.data[idx].name === name) {
-                return this.data[idx].value;
-            }
-        }
-        return false;
-    }
-    setValue(name, value) {
-        for (let idx = 0; idx < this.data.length; idx++) {
-            if (this.data[idx].name === name) {
-                this.data[idx].value = value;
-                return this.data[idx];
-            }
-        }
-    } //......
-    setSingleValue(name, value) {
-        this.data.forEach(bd => {
-            if (name === bd.name) {
-                bd.value = value;
-            }
-        });
-        return true;
-    } //..
-}
-
-class animationSequencesAoo extends AooBase {
-    constructor() {
-        super(); //the data array is in baseclass
     }
     add(compulsary, dataFromElement = [], argsForAlgo = {}, future = {}) {
         const aniSeq = new SingleVariableBaseAnimation(compulsary, dataFromElement, argsForAlgo, future);
@@ -353,60 +345,44 @@ class animationSequencesAoo extends AooBase {
     }
 }
 
-class AttributesAoo extends AooBase {
-    constructor() {
-        super();
-    }
-    add(incomming = {}) {
-        this.data.push(incomming);
-        return incomming;
-    }
-    saveAttributeValues(retData) {
-        this.data.forEach(bd => {
-            retData.forEach(ag => {
-                if (ag.name == bd.name) {
-                    bd.value = ag.value;
-                }
-            });
-        });
-        return true;
-    } //..
-    getAttributesByName(argumentsRequired = []) {
-        /**incooming is normal [] where as attributes is an obj wrapped around an aOO */
-        const ret = [];
-        this.data.forEach(bd => {
-            argumentsRequired.forEach(ag => {
-                if (ag == bd.name) {
-                    ret.push(bd);
-                }
-            });
-        });
-        return ret;
-    }
-}
-
 class BasePrimtive extends Metal {
-    constructor(name, attribData) {
+    constructor(name = "Element") {
         super();
         this.name = name;
-        //====AOOs=============
-        this.animations = new animationSequencesAoo();
-        this.aoo = new ArrayOfObjects();
-        this.attributes = new AttributesAoo();
-        attribData.forEach(attr => {
-            this.attributes.add(attr);
-        });
+        //=======================attributes
+        this.attributes = new ArrayOfObjects();
+        //--x,y,width,height--
+        this.attributes.add({ name: "x", value: 100, comments: "The X location" });
+        this.attributes.add({ name: "y", value: 100, comments: "The Y location" });
+        this.attributes.add({ name: "width", value: 100, comments: "" });
+        this.attributes.add({ name: "height", value: 50, comments: "" });
+        //--Border--
+        this.attributes.add({ name: "drawBorder", value: true, comments: "" });
+        this.attributes.add({ name: "borderColor", value: "red", comments: "" });
+        this.attributes.add({ name: "borderWidth", value: 10, comments: "" });
+        //--rotation--
+        this.attributes.add({ name: "rotateClockwise", value: true, comments: "t/f" });
+        this.attributes.add({ name: "rotateAngle", value: 0, comments: "the angle at which);the obj is currently rotated" });
+        this.attributes.add({ name: "rps", value: 10, comments: "rotation persec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" });
+        //--colors--
+        this.attributes.add({ name: "fillStyle", value: "green", comments: "" });
+        this.attributes.add({ name: "strokeStyle", value: "#F0000", comments: "" });
+        //--shadows--
+        this.attributes.add({ name: "shadowColor", value: "blue", comments: "" });
+        this.attributes.add({ name: "shadowBlur", value: 0, comments: "" });
+        this.attributes.add({ name: "shadowOffsetX", value: 0, comments: "" });
+        this.attributes.add({ name: "shadowOffsetY", value: 0, comments: "" });
+        //====Animations=============
+        this.animations = new Animations();
         //==================================
-        this.clearCanvas = false; //first element of the frame has to clean
+        this.clearCanvasFlag = false; //first element of the frame has to clean
         this.metal = new Metal();
         //--get attrib data into attribute object
     }
-    addAttribure() {
-    }
     setNextFrame(currentSecond) {
-        if (this.clearCanvas === true) {
+        if (this.clearCanvasFlag === true) {
             this.metal.clearCanvas();
-            this.clearCanvas === false; //shd this be here?
+            this.clearCanvasFlag === false; //shd this be here?
         }
         //==================LLLLLOOOOPPPPP======================== 
         this.animations.data.forEach(animation => {
@@ -416,51 +392,26 @@ class BasePrimtive extends Metal {
                 &&
                     (currentSecond <= animation.toSecond)) {
                 //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
-                const elementDataBeingSentToAnimation = this.attributes.getAttributesByName(animation.dataRequired);
+                const elementDataBeingSentToAnimation = this.attributes.getItemsByNames(animation.dataRequired);
                 //----STEP 3 -- Animate the data
                 const retData = animation.animate(elementDataBeingSentToAnimation, currentSecond);
                 //----STEP 4 -- SAVE ATTRIBUTES
-                this.attributes.saveAttributeValues(retData); //retData is aoo
+                this.attributes.insertPropertiesFromArray(retData); //retData is aoo
             } /////--filter no relevant animations
             //========================================== 
         });
         return true;
     }
     draw() {
-        this.drawShape();
     }
-    ////-------------------------------------------
-    /**every element atleast has 2 componenets .// a border and the shape. we can keep their implementation chaging and adding HOOKS*/
-    drawBorder() {
-    }
-    drawShape() { }
 }
 
 class Rectangle extends BasePrimtive {
     constructor() {
-        const attribData = [
-            { name: "x", value: 100, comments: "The X location" },
-            { name: "y", value: 100, comments: "The Y location" },
-            { name: "width", value: 100, comments: "" },
-            { name: "drawBorder", value: true, comments: "" },
-            { name: "borderColor", value: "red", comments: "" },
-            { name: "borderWidth", value: 10, comments: "" },
-            { name: "height", value: 50, comments: "" },
-            { name: "rotateClockwise", value: true, comments: "t/f" },
-            { name: "rotateAngle", value: 0, comments: "the angle at which the obj is currently rotated" },
-            { name: "rps", value: 10, comments: "stands for rotation per sec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" },
-            { name: "fillStyle", value: "green", comments: "" },
-            { name: "strokeStyle", value: "#F0000", comments: "" },
-            { name: "shadowColor", value: "blue", comments: "" },
-            { name: "shadowBlur", value: 0, comments: "" },
-            { name: "shadowOffsetX", value: 0, comments: "" },
-            { name: "shadowOffsetY", value: 0, comments: "" },
-        ];
-        const name = "Rectangle";
-        super(name, attribData);
+        super("rectangle");
     }
-    drawShape() {
-        if (this.attributes.getItemValue("drawBorder") === true) {
+    draw() {
+        if (this.attributes.getProperty("drawBorder") === true) {
             this.drawBorder();
         }
         this.ctx.fillStyle = this.attributes.getItem("fillStyle").value;
@@ -469,28 +420,28 @@ class Rectangle extends BasePrimtive {
         this.ctx.shadowBlur = this.attributes.getItem("shadowBlur").value;
         this.ctx.shadowOffsetX = this.attributes.getItem("shadowOffsetX").value;
         this.ctx.shadowOffsetY = this.attributes.getItem("shadowOffsetY").value;
-        if (this.attributes.getItemValue("rps") > 0) {
+        if (this.attributes.getProperty("rps") > 0) {
             this.ctx.save();
             this.ctx.translate(this.attributes.getItem("x").value + (this.attributes.getItem("width").value / 2), this.attributes.getItem("y").value + (this.attributes.getItem("height").value / 2));
             this.ctx.rotate((this.attributes.getItem("rotateAngle").value) * Math.PI / 180);
             this.ctx.translate(-(this.attributes.getItem("x").value + (this.attributes.getItem("width").value / 2)), -(this.attributes.getItem("y").value + (this.attributes.getItem("height").value / 2)));
         }
         this.ctx.fillRect(this.attributes.getItem("x").value, this.attributes.getItem("y").value, this.attributes.getItem("width").value, this.attributes.getItem("height").value);
-        if (this.attributes.getItemValue("rps") > 0) {
+        if (this.attributes.getProperty("rps") > 0) {
             this.ctx.restore();
         }
         //--the draw function
     }
     drawBorder() {
         //if(this.attributes.getItemValue("rps") > 0){console.log("totating border");}
-        if (this.attributes.getItemValue("rps") > 0) {
+        if (this.attributes.getProperty("rps") > 0) {
             this.ctx.save();
             this.ctx.translate(this.attributes.getItem("x").value + (this.attributes.getItem("width").value / 2), this.attributes.getItem("y").value + (this.attributes.getItem("height").value / 2));
             this.ctx.rotate((this.attributes.getItem("rotateAngle").value) * Math.PI / 180);
             this.ctx.translate(-(this.attributes.getItem("x").value + (this.attributes.getItem("width").value / 2)), -(this.attributes.getItem("y").value + (this.attributes.getItem("height").value / 2)));
         }
         this.drawRectangleBorder(this.attributes.getItem("x").value, this.attributes.getItem("y").value, this.attributes.getItem("width").value, this.attributes.getItem("height").value, this.attributes.getItem("borderColor").value, this.attributes.getItem("borderWidth").value);
-        if (this.attributes.getItemValue("rps") > 0) {
+        if (this.attributes.getProperty("rps") > 0) {
             this.ctx.restore();
         }
         //----------------------------    
@@ -499,196 +450,86 @@ class Rectangle extends BasePrimtive {
 
 class SimpleRectangle extends BasePrimtive {
     constructor() {
-        const attribData = [
-            { name: "x", value: 100, comments: "The X location" },
-            { name: "y", value: 100, comments: "The Y location" },
-            { name: "width", value: 100, comments: "" },
-            { name: "height", value: 50, comments: "" },
-            { name: "rotateClockwise", value: true, comments: "t/f" },
-            { name: "rotateAngle", value: 0, comments: "the angle at which the obj is currently rotated" },
-            { name: "rps", value: 10, comments: "stands for rotation per sec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" },
-            { name: "fillStyle", value: "green", comments: "" },
-            { name: "strokeStyle", value: "#F0000", comments: "" },
-            { name: "shadowColor", value: "blue", comments: "" },
-            { name: "shadowBlur", value: 0, comments: "" },
-            { name: "shadowOffsetX", value: 0, comments: "" },
-            { name: "shadowOffsetY", value: 0, comments: "" },
-        ];
-        const name = "Rectangle";
-        super(name, attribData);
+        super("simpleRectangle");
     }
-    drawShape() {
+    draw() {
         this.ctx.fillStyle = this.attributes.getItem("fillStyle").value;
         this.ctx.strokeStyle = this.attributes.getItem("strokeStyle").value;
         this.ctx.shadowColor = this.attributes.getItem("shadowColor").value;
         this.ctx.shadowBlur = this.attributes.getItem("shadowBlur").value;
         this.ctx.shadowOffsetX = this.attributes.getItem("shadowOffsetX").value;
         this.ctx.shadowOffsetY = this.attributes.getItem("shadowOffsetY").value;
-        if (this.attributes.getItemValue("rps") > 0) {
+        if (this.attributes.getProperty("rps") > 0) {
             this.ctx.save();
             this.ctx.translate(this.attributes.getItem("x").value + (this.attributes.getItem("width").value / 2), this.attributes.getItem("y").value + (this.attributes.getItem("height").value / 2));
             this.ctx.rotate((this.attributes.getItem("rotateAngle").value) * Math.PI / 180);
             this.ctx.translate(-(this.attributes.getItem("x").value + (this.attributes.getItem("width").value / 2)), -(this.attributes.getItem("y").value + (this.attributes.getItem("height").value / 2)));
         }
         this.ctx.fillRect(this.attributes.getItem("x").value, this.attributes.getItem("y").value, this.attributes.getItem("width").value, this.attributes.getItem("height").value);
-        if (this.attributes.getItemValue("rps") > 0) {
+        if (this.attributes.getProperty("rps") > 0) {
             this.ctx.restore();
         }
         //--the draw function
     }
-    drawBorder() {
-    } //--draw border   
 }
 
 class Circle extends BasePrimtive {
     constructor() {
-        const name = "Circle";
-        const attribData = [
-            { name: "x", value: 100, comments: "The X location" },
-            { name: "y", value: 100, comments: "The Y location" },
-            { name: "radius", value: 100, comments: "" },
-            { name: "drawBorder", value: true, comments: "" },
-            { name: "borderColor", value: "red", comments: "" },
-            { name: "borderWidth", value: 10, comments: "" },
-            { name: "rotateClockwise", value: true, comments: "t/f" },
-            { name: "rotateAngle", value: 0, comments: "the angle at which the obj is currently rotated" },
-            { name: "rps", value: 10, comments: "stands for rotation per sec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" },
-            { name: "fillStyle", value: "green", comments: "" },
-            { name: "strokeStyle", value: "#F0000", comments: "" },
-            { name: "shadowColor", value: "blue", comments: "" },
-            { name: "shadowBlur", value: 0, comments: "" },
-            { name: "shadowOffsetX", value: 0, comments: "" },
-            { name: "shadowOffsetY", value: 0, comments: "" },
-        ];
-        super(name, attribData);
+        super("circle");
+        this.attributes.add({ name: "radius", value: 100, comments: "" });
     }
-    drawShape() {
-        if (this.attributes.getItemValue("drawBorder") === true) {
+    draw() {
+        if (this.attributes.getProperty("drawBorder") === true) {
             this.drawBorder();
         }
-        this.metal.drawCircle(this.attributes.getItemValue("x"), this.attributes.getItemValue("y"), this.attributes.getItemValue("radius"));
+        this.metal.drawCircle(this.attributes.getProperty("x"), this.attributes.getProperty("y"), this.attributes.getProperty("radius"));
+        this.drawBorder();
     }
     //---------------------------------------  
     drawBorder() {
-        this.metal.drawCircle(this.attributes.getItemValue("x"), this.attributes.getItemValue("y"), this.attributes.getItemValue("radius") + 10);
+        this.metal.drawCircle(this.attributes.getProperty("x"), this.attributes.getProperty("y"), this.attributes.getProperty("radius") + 10);
         //----------------------------    
     } //--draw border   
 }
 
 class Triangle extends BasePrimtive {
     constructor() {
-        const name = "Triangle";
-        const attribData = [
-            { name: "x", value: 100, comments: "The X location" },
-            { name: "y", value: 100, comments: "The Y location" },
-            { name: "width", value: 100, comments: "" },
-            { name: "height", value: 100, comments: "" },
-            { name: "drawBorder", value: true, comments: "" },
-            { name: "borderColor", value: "red", comments: "" },
-            { name: "borderWidth", value: 10, comments: "" },
-            { name: "rotateClockwise", value: true, comments: "t/f" },
-            { name: "rotateAngle", value: 0, comments: "the angle at which the obj is currently rotated" },
-            { name: "rps", value: 10, comments: "stands for rotation per sec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" },
-            { name: "fillStyle", value: "green", comments: "" },
-            { name: "strokeStyle", value: "#F0000", comments: "" },
-            { name: "shadowColor", value: "blue", comments: "" },
-            { name: "shadowBlur", value: 0, comments: "" },
-            { name: "shadowOffsetX", value: 0, comments: "" },
-            { name: "shadowOffsetY", value: 0, comments: "" },
-        ];
-        super(name, attribData);
+        super("triangle");
     }
-    drawShape() {
-        if (this.attributes.getItemValue("drawBorder") === true) {
-            this.drawBorder();
-        }
-        this.metal.drawTriangle(this.attributes.getItemValue("x"), this.attributes.getItemValue("y"), this.attributes.getItemValue("width"), this.attributes.getItemValue("height"), this.attributes.getItemValue("fillStyle"));
-        //this.metal.drawCircle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("radius"));    
+    draw() {
+        this.metal.drawTriangle(this.attributes.getProperty("x"), this.attributes.getProperty("y"), this.attributes.getProperty("width"), this.attributes.getProperty("height"), this.attributes.getProperty("fillStyle"));
+        //this.metal.drawCircle(this.attributes.getProperty("x"),this.attributes.getProperty("y"),this.attributes.getProperty("radius"));    
     }
-    //---------------------------------------  
-    drawBorder() {
-        //----------------------------    
-    } //--draw border   
 }
 
 class Text extends BasePrimtive {
     constructor() {
-        const name = "Text";
-        const attribData = [
-            { name: "title", value: "In the Name of Allah", comments: "" },
-            { name: "x", value: 100, comments: "The X location" },
-            { name: "y", value: 100, comments: "The Y location" },
-            { name: "width", value: 100, comments: "" },
-            { name: "height", value: 100, comments: "" },
-            { name: "drawBorder", value: true, comments: "" },
-            { name: "borderColor", value: "red", comments: "" },
-            { name: "borderWidth", value: 10, comments: "" },
-            { name: "rotateClockwise", value: true, comments: "t/f" },
-            { name: "rotateAngle", value: 0, comments: "the angle at which the obj is currently rotated" },
-            { name: "rps", value: 10, comments: "stands for rotation per sec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" },
-            { name: "fillStyle", value: "green", comments: "" },
-            { name: "strokeStyle", value: "#F0000", comments: "" },
-            { name: "shadowColor", value: "blue", comments: "" },
-            { name: "shadowBlur", value: 0, comments: "" },
-            { name: "shadowOffsetX", value: 0, comments: "" },
-            { name: "shadowOffsetY", value: 0, comments: "" },
-        ];
-        super(name, attribData);
+        super("text");
+        this.attributes.add({ name: "title", value: "Text" });
     }
-    drawShape() {
-        if (this.attributes.getItemValue("drawBorder") === true) {
-            this.drawBorder();
-        }
-        this.metal.drawText(this.attributes.getItemValue("title"), this.attributes.getItemValue("x"), this.attributes.getItemValue("y"));
-        //this.metal.drawTriangle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("width"),this.attributes.getItemValue("height"),);    
-        //this.metal.drawCircle(this.attributes.getItemValue("x"),this.attributes.getItemValue("y"),this.attributes.getItemValue("radius"));    
+    draw() {
+        if (this.attributes.getProperty("drawBorder") === true) ;
+        this.metal.drawText(this.attributes.getProperty("title"), this.attributes.getProperty("x"), this.attributes.getProperty("y"));
     }
-    //---------------------------------------  
-    drawBorder() {
-        //----------------------------    
-    } //--draw border   
 }
 
 class Complex extends BasePrimtive {
     constructor() {
-        const name = "Complex";
-        const attribData = [
-            { name: "x", value: 100, comments: "The X location" },
-            { name: "y", value: 100, comments: "The Y location" },
-            { name: "radius", value: 100, comments: "" },
-            { name: "drawBorder", value: true, comments: "" },
-            { name: "borderColor", value: "red", comments: "" },
-            { name: "borderWidth", value: 10, comments: "" },
-            { name: "rotateClockwise", value: true, comments: "t/f" },
-            { name: "rotateAngle", value: 0, comments: "the angle at which the obj is currently rotated" },
-            { name: "rps", value: 10, comments: "stands for rotation per sec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" },
-            { name: "fillStyle", value: "green", comments: "" },
-            { name: "strokeStyle", value: "#F0000", comments: "" },
-            { name: "shadowColor", value: "blue", comments: "" },
-            { name: "shadowBlur", value: 0, comments: "" },
-            { name: "shadowOffsetX", value: 0, comments: "" },
-            { name: "shadowOffsetY", value: 0, comments: "" },
-        ];
-        super(name, attribData);
+        super("complex");
         this.circle = new Circle();
     }
-    drawShape() {
-        this.circle.attributes.setValue("x", 600);
-        this.circle.attributes.setValue("y", 200);
-        this.circle.attributes.setValue("radius", 150);
+    draw() {
+        this.circle.attributes.setProperty("x", 600);
+        this.circle.attributes.setProperty("y", 200);
+        this.circle.attributes.setProperty("radius", 150);
         this.circle.draw();
-        this.circle.attributes.setValue("radius", 100);
+        this.circle.attributes.setProperty("radius", 100);
         this.circle.draw();
-        this.circle.attributes.setValue("radius", 50);
+        this.circle.attributes.setProperty("radius", 50);
         this.circle.draw();
-        this.circle.attributes.setValue("radius", 25);
+        this.circle.attributes.setProperty("radius", 25);
         this.circle.draw();
     }
-    //---------------------------------------  
-    drawBorder() {
-        this.metal.drawCircle(this.attributes.getItemValue("x"), this.attributes.getItemValue("y"), this.attributes.getItemValue("radius") + 10);
-        //----------------------------    
-    } //--draw border   
 }
 
 class Elements {
@@ -724,14 +565,6 @@ class Elements {
         const simpleRectangle = new SimpleRectangle();
         this.shapes.push(simpleRectangle);
         return simpleRectangle;
-    }
-}
-
-class Animations {
-    constructor() {
-    }
-    addNew(incomming = {}) {
-        return new SingleVariableBaseAnimation(incomming);
     }
 }
 
@@ -791,7 +624,7 @@ class Bilzaa2d {
     }
     gameLoop() {
         //first element of the frame being drawn has to clear the canvas    
-        this.elements.shapes[0].clearCanvas = true;
+        this.elements.shapes[0].clearCanvasFlag = true;
         //----------the main loop
         this.elements.shapes.forEach(item => {
             const curSec = this.playHead.runningTime();

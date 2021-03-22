@@ -1,1 +1,0 @@
-{"version":3,"file":"addElement.d.ts","sourceRoot":"","sources":["../../typescript/premtives/addElement.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AACvC,OAAO,eAAe,MAAM,sBAAsB,CAAC;AACnD,OAAO,MAAM,MAAM,aAAa,CAAC;AACjC,OAAO,QAAQ,MAAM,eAAe,CAAC;AACrC,OAAO,IAAI,MAAM,WAAW,CAAC;AAK7B,MAAM,CAAC,OAAO,OAAO,OAAO;;IAI5B,YAAY;IAKZ,SAAS;IAKT,OAAO;IAKP,WAAW;IAKX,kBAAkB;CAOjB"}

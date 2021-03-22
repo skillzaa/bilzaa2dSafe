@@ -1,11 +1,11 @@
-const linear = function(bdReqForAni,currentSecond){
+const linear = function(incomming,currentSecond){
     const timeDiff = parseInt((this.toSecond - this.fromSecond));
    const totalValueDiff = parseInt((this.argsForAlgo.to - this.argsForAlgo.from));
    this.deltaPerSecond = totalValueDiff / timeDiff;  
    this.deltaPerFrame = this.deltaPerFrame = this.deltaPerSecond/this.fps;
    
    //------------    
-   bdReqForAni.forEach(attribute => {
+   incomming.forEach(attribute => {
     if(attribute.name == this.attribute){
       //here its just ++ wo time, note the +=  
         attribute.value += this.deltaPerFrame ;
@@ -13,7 +13,7 @@ const linear = function(bdReqForAni,currentSecond){
      // attribute.value = this.from + (this.deltaPerSecond * currentSecond)  ;
     }
 });
-   return bdReqForAni;;        
+   return incomming;;        
    }
 
    export default  linear;

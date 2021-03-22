@@ -14,7 +14,7 @@ public clearCanvasFlag:boolean;
 constructor(name="Element") {          
 super();   
 this.name=name;
-//=======================attributes
+//=============================attributes
 this.attributes = new ArrayOfObjects();
 //--x,y,width,height--
 this.attributes.add({name: "x", value: 100, comments: "The X location" });
@@ -76,14 +76,6 @@ return true;
 draw(){
    
 }
-
-//.........................................................
-//.........................................................
-//.........................................................
-//.........................................................
-
-
-
 
 //////////////////////////classsss-----------------
 }
