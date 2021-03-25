@@ -1,5 +1,5 @@
 import PlayHead from "./single/PlayHead.js";
-import Elements from './premtives/Elements.js';
+import Elements from './fasades/Elements.js';
 import Animations from './fasades/Animations.js';
 import Premades from './premade/Premades.js';
 export default class Bilzaa2d {

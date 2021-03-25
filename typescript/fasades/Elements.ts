@@ -1,9 +1,9 @@
-import Rectangle from './Rectangle.js';
-import SimpleRectangle from './SimpleRectangle.js';
-import Circle from './Circle.js';
-import Triangle from './Triangle.js';
-import Text from './Text.js';
-import Complex from './Complex.js';
+import Rectangle from '../premtives/Rectangle.js';
+import SimpleRectangle from '../premtives/SimpleRectangle.js';
+import Circle from '../premtives/Circle.js';
+import Triangle from '../premtives/Triangle.js';
+import Text from '../premtives/Text.js';
+import Complex from '../premtives/Complex.js';
 
 export default class Elements{
 
