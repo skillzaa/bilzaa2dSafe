@@ -1,0 +1,1 @@
+{"version":3,"file":"IBasePrimitive.d.ts","sourceRoot":"","sources":["../../typescript/interfaces/IBasePrimitive.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,0BAA0B,CAAC;AAEtD,MAAM,CAAC,OAAO,WAAW,cAAc;IACnC,eAAe,EAAC,OAAO,CAAC;IACxB,UAAU,EAAG,cAAc,CAAC;IAC5B,YAAY,CAAC,CAAC,EAAC,MAAM,GAAG,OAAO,CAAC;IAChC,IAAI,IAAG,IAAI,CAAC;CACf"}

@@ -10,10 +10,17 @@ export default class Bilzaa2d {
         this.animations = new Animations();
     }
     play() {
+        // try{
         this.playHead.play();
         this.gameLoop();
-    }
+        //   } catch (err) {
+        //       return "some error occured";
+        //   } 
+    } //play
     gameLoop() {
+        if (this.elements.shapes.length < 1) {
+            return;
+        }
         //first element of the frame being drawn has to clear the canvas    
         this.elements.shapes[0].clearCanvasFlag = true;
         //----------the main loop

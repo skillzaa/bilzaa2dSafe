@@ -52,4 +52,5 @@ t.animations.add({attribute: "y",algo: "linear",fromSecond:1 , toSecond:20},["y"
 const complex = bilzaa2d.elements.addComplex();
 ////////////////////////////
 ////////////////////////////
-bilzaa2d.play();
+const ret = bilzaa2d.play();
+console.log(ret);

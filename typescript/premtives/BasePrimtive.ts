@@ -1,21 +1,23 @@
 import Metal from "../metal/Metal.js";
 import ArrayOfObjects from "../single/ArrayOfObjects.js";
 import Animations from "../fasades/Animations.js";
+import IBasePrimtives from "../interfaces/IBasePrimitive.js";
 
-export default class BasePrimtive  extends Metal{
-
-protected attributes:ArrayOfObjects; 
-public name:string;
+export default class BasePrimtive  implements IBasePrimtives{
+//attributes is instance of class AOO it itsself is not an array. it containssss an array of objects.
+public attributes:ArrayOfObjects; 
+//public name:string;
 protected animations:Animations; 
 protected metal:Metal;
 public clearCanvasFlag:boolean;
 
 
 constructor(name="Element") {          
-super();   
-this.name=name;
+   
 //=============================attributes
 this.attributes = new ArrayOfObjects();
+//--The name--
+this.attributes.add({name: "name", value: 0, comments: "BasePrimtive" });
 //--x,y,width,height--
 this.attributes.add({name: "x", value: 100, comments: "The X location" });
 this.attributes.add({ name: "y", value: 100, comments: "The Y location" });
@@ -49,10 +51,7 @@ this.metal = new Metal();
 }
 
 public setNextFrame(currentSecond:number){
-    if (this.clearCanvasFlag === true){
-        this.metal.clearCanvas(); 
-        this.clearCanvasFlag === false; //shd this be here?
-    }    
+this.clearCanvas();   
 //==================LLLLLOOOOPPPPP======================== 
 this.animations.data.forEach(animation => {
     //----STEP 1 -- GET DATA FROM ATTRIBUTES COLLECTION
@@ -77,5 +76,11 @@ draw(){
    
 }
 
+private clearCanvas(){
+    if (this.clearCanvasFlag === true){
+        this.metal.clearCanvas(); 
+        this.clearCanvasFlag === false; //shd this be here?
+    }    
+}
 //////////////////////////classsss-----------------
 }

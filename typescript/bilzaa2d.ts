@@ -14,11 +14,17 @@ constructor() {
    this.elements = new Elements();
    this.animations = new Animations();
 }
-play(){
-this.playHead.play(); 
-this.gameLoop();
-}
+play(){ // this method has the main try catch block
+  // try{
+        this.playHead.play(); 
+        this.gameLoop();
+ //   } catch (err) {
+ //       return "some error occured";
+ //   } 
+}//play
+
 gameLoop(){    
+if (this.elements.shapes.length < 1) {return;}    
 //first element of the frame being drawn has to clear the canvas    
  this.elements.shapes[0].clearCanvasFlag = true;
 //----------the main loop
