@@ -29,18 +29,41 @@ this.ctx.fillStyle = fillStyle;
 this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
 }//fn
 
-drawRectangle(x=10,y=10,width=100,height = 100){
-    this.ctx.fillStyle = "red";
-this.ctx.fillRect(x, y, width, height)
-const diff = 150
-this.ctx.strokeRect(x+50, y+50, width, height)
+drawRectangle(attributes){
+  this.ctx.fillStyle = attributes.getItem("fillStyle").value;
+  this.ctx.strokeStyle = attributes.getItem("strokeStyle").value;
+  this.ctx.shadowColor = attributes.getItem("shadowColor").value;
+  this.ctx.shadowBlur = attributes.getItem("shadowBlur").value;
+  this.ctx.shadowOffsetX = attributes.getItem("shadowOffsetX").value;
+  this.ctx.shadowOffsetY = attributes.getItem("shadowOffsetY").value;
+  if (attributes.getProperty("rps") > 0) {
+    this.ctx.save();
+    this.ctx.translate(attributes.getItem("x").value + (attributes.getItem("width").value / 2), attributes.getItem("y").value + (attributes.getItem("height").value / 2));
+    this.ctx.rotate((attributes.getItem("rotateAngle").value) * Math.PI / 180);
+    this.ctx.translate(-(attributes.getItem("x").value + (attributes.getItem("width").value / 2)), -(attributes.getItem("y").value + (attributes.getItem("height").value / 2)));
+
+  }
+
+  this.ctx.fillRect(attributes.getItem("x").value, attributes.getItem("y").value, attributes.getItem("width").value, attributes.getItem("height").value);
+
+  if (attributes.getProperty("rps") > 0) {
+    this.ctx.restore();
+  }
 }
-drawRectangleBorder(x, y, width, height, fillStyle='#000',thickness = 1)
+drawRectangleBorder(attributes)
 {
-  this.ctx.fillStyle= fillStyle;
-  this.ctx.fillRect(x - (thickness), y - (thickness), width + (thickness * 2), height + (thickness * 2));
-  this.ctx.fillRect(x - (thickness), y - (thickness), width + (thickness * 2), height + (thickness * 2));
+  // this.ctx.save();
+  // this.ctx.translate(attributes.getItem("x").value + (attributes.getItem("width").value / 2), attributes.getItem("y").value + (attributes.getItem("height").value / 2));
+  // this.ctx.rotate((attributes.getItem("rotateAngle").value) * Math.PI / 180);
+  // this.ctx.translate(-(attributes.getItem("x").value + (attributes.getItem("width").value / 2)), -(attributes.getItem("y").value + (attributes.getItem("height").value / 2)));
+  // this.ctx.restore();
+
+  // //----------------------------------------------------
+  // this.ctx.fillStyle= fillStyle;
+  // this.ctx.fillRect(x - (thickness), y - (thickness), width + (thickness * 2), height + (thickness * 2));
+  // this.ctx.fillRect(x - (thickness), y - (thickness), width + (thickness * 2), height + (thickness * 2));
 }
+
 
 drawCircle(x,y,radius){
   this.ctx.beginPath();
