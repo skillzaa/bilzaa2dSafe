@@ -32,22 +32,32 @@ this.ctx.fillStyle = fillStyle;
 this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
 }//fn  
 
-drawRectangle(attributes){
-  console.log("ok");
-  this.ctx.save();  
-this.getCtxValues(attributes);
+// drawRectangle(attributes){
+// this.saveCtx();  
+// this.getCtxValues(attributes);
 
-if (attributes.getProperty("rps") > 0) {
+// if (attributes.getProperty("rps") > 0) {
     
-  this.ctx.translate(attributes.getItem("x").value + (attributes.getItem("width").value / 2), attributes.getItem("y").value + (attributes.getItem("height").value / 2));
-  this.ctx.rotate((attributes.getItem("rotateAngle").value) * Math.PI / 180);
-  this.ctx.translate(-(attributes.getItem("x").value + (attributes.getItem("width").value / 2)), -(attributes.getItem("y").value + (attributes.getItem("height").value / 2)));
+//  this.translateCanvas(attributes);
+ 
+//  this.rotateCanvas(attributes);
 
-}   
+//  this.unTranslateCanvas(attributes);
+// }   
+// this.drawFilledRectangle(attributes);
+// //------------------------------
+// this.restoreCtx();
+// }
 
-this.ctx.fillRect(attributes.getItem("x").value, attributes.getItem("y").value, attributes.getItem("width").value, attributes.getItem("height").value);  
-//------------------------------
-this.ctx.restore();
+saveCtx(){ ///this fn is doing 2 things??? is it ok???
+  this.ctx.save();  
+}
+restoreCtx(){
+  this.ctx.restore();
+}
+drawFilledRectangle(attributes){
+  this.ctx.fillRect(attributes.getItem("x").value, attributes.getItem("y").value, attributes.getItem("width").value, attributes.getItem("height").value);  
+
 }
 
 drawCircle(attributes){
@@ -79,7 +89,7 @@ this.ctx.fillText(attributes.getProperty("title"),attributes.getProperty("x"),at
 this.ctx.restore();
 }
 
-private getCtxValues(attributes){
+ getCtxValues(attributes){
 
 //fillstyle is for internal use dont show it to users
   this.ctx.fillStyle = attributes.getItem("backgroundColor").value;
@@ -90,5 +100,16 @@ private getCtxValues(attributes){
   this.ctx.shadowOffsetY = attributes.getItem("shadowOffsetY").value;
 
 }//getAttributes
+
+ translateCanvas(attributes){
+  this.ctx.translate(attributes.getItem("x").value + (attributes.getItem("width").value / 2), attributes.getItem("y").value + (attributes.getItem("height").value / 2));
+}   
+
+ unTranslateCanvas(attributes){
+  this.ctx.translate(-(attributes.getItem("x").value + (attributes.getItem("width").value / 2)), -(attributes.getItem("y").value + (attributes.getItem("height").value / 2)));
+}
+ rotateCanvas(attributes){
+  this.ctx.rotate((attributes.getItem("rotateAngle").value) * Math.PI / 180);
+}
 //////////////////////////classsss-----------------
 }

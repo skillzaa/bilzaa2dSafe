@@ -25,6 +25,9 @@ this.attributes.add({ name: "width", value: 100, comments: "" });
 this.attributes.add({ name: "height", value: 50, comments: "" });
 //--Border--
 this.attributes.add({ name: "drawBorder", value: true, comments: "" });
+// this.attributes.add({ name: "dashedBorder", value: false, comments: "" });
+// this.attributes.add({ name: "dashSize", value: false, comments: "" });
+// this.attributes.add({ name: "gapBetweenDashes", value: false, comments: "" });
 this.attributes.add({ name: "borderColor", value: "red", comments: "" });
 this.attributes.add({ name: "borderWidth", value: 10, comments: "" });
 //--rotation--

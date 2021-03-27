@@ -28,18 +28,26 @@ export default class Metal {
         //clear the canvas
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     } //fn  
-    drawRectangle(attributes) {
-        console.log("ok");
+    // drawRectangle(attributes){
+    // this.saveCtx();  
+    // this.getCtxValues(attributes);
+    // if (attributes.getProperty("rps") > 0) {
+    //  this.translateCanvas(attributes);
+    //  this.rotateCanvas(attributes);
+    //  this.unTranslateCanvas(attributes);
+    // }   
+    // this.drawFilledRectangle(attributes);
+    // //------------------------------
+    // this.restoreCtx();
+    // }
+    saveCtx() {
         this.ctx.save();
-        this.getCtxValues(attributes);
-        if (attributes.getProperty("rps") > 0) {
-            this.ctx.translate(attributes.getItem("x").value + (attributes.getItem("width").value / 2), attributes.getItem("y").value + (attributes.getItem("height").value / 2));
-            this.ctx.rotate((attributes.getItem("rotateAngle").value) * Math.PI / 180);
-            this.ctx.translate(-(attributes.getItem("x").value + (attributes.getItem("width").value / 2)), -(attributes.getItem("y").value + (attributes.getItem("height").value / 2)));
-        }
-        this.ctx.fillRect(attributes.getItem("x").value, attributes.getItem("y").value, attributes.getItem("width").value, attributes.getItem("height").value);
-        //------------------------------
+    }
+    restoreCtx() {
         this.ctx.restore();
+    }
+    drawFilledRectangle(attributes) {
+        this.ctx.fillRect(attributes.getItem("x").value, attributes.getItem("y").value, attributes.getItem("width").value, attributes.getItem("height").value);
     }
     drawCircle(attributes) {
         this.ctx.beginPath();
@@ -72,4 +80,13 @@ export default class Metal {
         this.ctx.shadowOffsetX = attributes.getItem("shadowOffsetX").value;
         this.ctx.shadowOffsetY = attributes.getItem("shadowOffsetY").value;
     } //getAttributes
+    translateCanvas(attributes) {
+        this.ctx.translate(attributes.getItem("x").value + (attributes.getItem("width").value / 2), attributes.getItem("y").value + (attributes.getItem("height").value / 2));
+    }
+    unTranslateCanvas(attributes) {
+        this.ctx.translate(-(attributes.getItem("x").value + (attributes.getItem("width").value / 2)), -(attributes.getItem("y").value + (attributes.getItem("height").value / 2)));
+    }
+    rotateCanvas(attributes) {
+        this.ctx.rotate((attributes.getItem("rotateAngle").value) * Math.PI / 180);
+    }
 }
