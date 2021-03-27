@@ -1,5 +1,4 @@
 import Rectangle from '../premtives/Rectangle.js';
-import SimpleRectangle from '../premtives/SimpleRectangle.js';
 import Circle from '../premtives/Circle.js';
 import Triangle from '../premtives/Triangle.js';
 import Text from '../premtives/Text.js';

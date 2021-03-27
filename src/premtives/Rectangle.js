@@ -1,7 +1,7 @@
 import BasePrimtive from "./BasePrimtive.js";
-export default class SimpleRectangle extends BasePrimtive {
+export default class Rectangle extends BasePrimtive {
     constructor() {
-        super("simpleRectangle");
+        super("rectangle");
     }
     draw() {
         this.metal.drawRectangle(this.attributes);

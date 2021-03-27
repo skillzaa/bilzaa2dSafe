@@ -21,7 +21,7 @@ export default class BasePrimtive {
         this.attributes.add({ name: "rotateAngle", value: 0, comments: "the angle at which);the obj is currently rotated" });
         this.attributes.add({ name: "rps", value: 10, comments: "rotation persec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" });
         //--colors--
-        this.attributes.add({ name: "fillStyle", value: "green", comments: "" });
+        this.attributes.add({ name: "backgroundColor", value: "green", comments: "" });
         this.attributes.add({ name: "strokeStyle", value: "#F0000", comments: "" });
         //--shadows--
         this.attributes.add({ name: "shadowColor", value: "blue", comments: "" });

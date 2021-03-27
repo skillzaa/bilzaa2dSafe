@@ -7,5 +7,6 @@ export default class Metal {
     drawCircle(attributes: any): void;
     drawTriangle(attributes: any): void;
     drawText(attributes: any): void;
+    private getCtxValues;
 }
 //# sourceMappingURL=Metal.d.ts.map

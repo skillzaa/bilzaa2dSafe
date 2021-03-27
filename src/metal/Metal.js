@@ -1,4 +1,7 @@
 export default class Metal {
+    // ctx:Object;
+    // canvas:object;
+    // drawRectangle:object;
     constructor() {
         this.load();
     }
@@ -24,21 +27,18 @@ export default class Metal {
         this.ctx.fillStyle = fillStyle;
         //clear the canvas
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-    } //fn
+    } //fn  
     drawRectangle(attributes) {
+        console.log("ok");
         this.ctx.save();
-        this.ctx.fillStyle = attributes.getItem("fillStyle").value;
-        this.ctx.strokeStyle = attributes.getItem("strokeStyle").value;
-        this.ctx.shadowColor = attributes.getItem("shadowColor").value;
-        this.ctx.shadowBlur = attributes.getItem("shadowBlur").value;
-        this.ctx.shadowOffsetX = attributes.getItem("shadowOffsetX").value;
-        this.ctx.shadowOffsetY = attributes.getItem("shadowOffsetY").value;
+        this.getCtxValues(attributes);
         if (attributes.getProperty("rps") > 0) {
             this.ctx.translate(attributes.getItem("x").value + (attributes.getItem("width").value / 2), attributes.getItem("y").value + (attributes.getItem("height").value / 2));
             this.ctx.rotate((attributes.getItem("rotateAngle").value) * Math.PI / 180);
             this.ctx.translate(-(attributes.getItem("x").value + (attributes.getItem("width").value / 2)), -(attributes.getItem("y").value + (attributes.getItem("height").value / 2)));
         }
         this.ctx.fillRect(attributes.getItem("x").value, attributes.getItem("y").value, attributes.getItem("width").value, attributes.getItem("height").value);
+        //------------------------------
         this.ctx.restore();
     }
     drawCircle(attributes) {
@@ -48,7 +48,7 @@ export default class Metal {
     }
     drawTriangle(attributes) {
         this.ctx.save();
-        this.ctx.fillStyle = attributes.getProperty("fillStyle");
+        this.ctx.fillStyle = attributes.getProperty("backgroundColor");
         this.ctx.beginPath();
         this.ctx.moveTo(attributes.getProperty("x"), attributes.getProperty("y") + attributes.getProperty("height"));
         this.ctx.lineTo(attributes.getProperty("x") + attributes.getProperty("width"), attributes.getProperty("y") + attributes.getProperty("height"));
@@ -58,9 +58,18 @@ export default class Metal {
     }
     drawText(attributes) {
         this.ctx.save();
-        this.ctx.fillStyle = attributes.getProperty("fillStyle");
+        this.ctx.fillStyle = attributes.getProperty("backgroundColor");
         this.ctx.font = attributes.getProperty("font");
         this.ctx.fillText(attributes.getProperty("title"), attributes.getProperty("x"), attributes.getProperty("y"));
         this.ctx.restore();
     }
+    getCtxValues(attributes) {
+        //fillstyle is for internal use dont show it to users
+        this.ctx.fillStyle = attributes.getItem("backgroundColor").value;
+        this.ctx.strokeStyle = attributes.getItem("strokeStyle").value;
+        this.ctx.shadowColor = attributes.getItem("shadowColor").value;
+        this.ctx.shadowBlur = attributes.getItem("shadowBlur").value;
+        this.ctx.shadowOffsetX = attributes.getItem("shadowOffsetX").value;
+        this.ctx.shadowOffsetY = attributes.getItem("shadowOffsetY").value;
+    } //getAttributes
 }

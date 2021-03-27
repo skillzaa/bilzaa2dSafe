@@ -10,7 +10,7 @@ export default class Bilzaa2d {
         this.animations = new Animations();
     }
     play() {
-        // try{
+        // try{   
         this.playHead.play();
         this.gameLoop();
         //   } catch (err) {

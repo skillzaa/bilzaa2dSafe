@@ -1,10 +1,8 @@
 import Bilzaa2d from "./src/bilzaa2d.js";
 
-const bilzaa2d = new Bilzaa2d();
 
-//===================================================
+const bilzaa2d = new Bilzaa2d();
 const a = bilzaa2d.elements.addRectangle();
-a.attributes.setProperty("backgroundColor" , "red");
 a.animations.add({attribute: "rotateAngle",algo: "randomNumber",fromSecond:10 , toSecond:20},["x","rotateAngle"],{}, {fps:60});
 //===================================================
 const b = bilzaa2d.elements.addRectangle();
@@ -40,7 +38,6 @@ g.animations.add({attribute: "x",algo: "linear",fromSecond:1 , toSecond:20},["x"
     
 const t = bilzaa2d.elements.addText();
 t.attributes.setProperty("title", "Some thing New");
-t.attributes.setProperty("fillStyle", "red");
 
 t.animations.add({attribute: "y",algo: "linear",fromSecond:1 , toSecond:20},["y"],{attribute: "y","from":50, "to":300},{fps:60});
 

@@ -15,7 +15,7 @@ constructor() {
    this.animations = new Animations();
 }
 play(){ // this method has the main try catch block
-  // try{
+  // try{   
         this.playHead.play(); 
         this.gameLoop();
  //   } catch (err) {
