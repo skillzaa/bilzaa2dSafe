@@ -18,6 +18,7 @@ c.animations.add({attribute: "borderColor",algo: "randomColor",fromSecond:1 , to
 const d = bilzaa2d.elements.addRectangle();
 d.attributes.setProperty("y",300);
 d.attributes.setProperty("x",300);
+d.attributes.setProperty("dashedBorder",false);
 d.attributes.setProperty("borderWidth",1);
 
 d.animations.add({attribute: "width",algo: "linear",fromSecond:1 , toSecond:10},["width"],{attribute: "width",from:0, to:300}  ,{fps:60});

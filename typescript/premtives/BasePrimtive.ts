@@ -25,11 +25,11 @@ this.attributes.add({ name: "width", value: 100, comments: "" });
 this.attributes.add({ name: "height", value: 50, comments: "" });
 //--Border--
 this.attributes.add({ name: "drawBorder", value: true, comments: "" });
-// this.attributes.add({ name: "dashedBorder", value: false, comments: "" });
-// this.attributes.add({ name: "dashSize", value: false, comments: "" });
-// this.attributes.add({ name: "gapBetweenDashes", value: false, comments: "" });
-this.attributes.add({ name: "borderColor", value: "red", comments: "" });
-this.attributes.add({ name: "borderWidth", value: 10, comments: "" });
+this.attributes.add({ name: "dashedBorder", value: true, comments: "" });
+this.attributes.add({ name: "dashSize", value: 1, comments: "" });
+this.attributes.add({ name: "gapBetweenDashes", value: 1, comments: "" });
+this.attributes.add({ name: "borderColor", value: "black", comments: "" });
+this.attributes.add({ name: "borderWidth", value: 2, comments: "" });
 //--rotation--
 this.attributes.add({ name: "rotateClockwise", value: true, comments: "t/f" });
 this.attributes.add({ name: "rotateAngle", value: 0, comments: "the angle at which);the obj is currently rotated" });

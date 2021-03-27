@@ -32,22 +32,26 @@ this.ctx.fillStyle = fillStyle;
 this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
 }//fn  
 
-// drawRectangle(attributes){
-// this.saveCtx();  
-// this.getCtxValues(attributes);
-
-// if (attributes.getProperty("rps") > 0) {
-    
-//  this.translateCanvas(attributes);
- 
-//  this.rotateCanvas(attributes);
-
-//  this.unTranslateCanvas(attributes);
-// }   
-// this.drawFilledRectangle(attributes);
-// //------------------------------
-// this.restoreCtx();
-// }
+drawRectangleBorder(attributes){
+this.ctx.save();  
+this.ctx.beginPath();
+this.ctx.lineWidth = attributes.getProperty("borderWidth");
+this.ctx.strokeStyle = attributes.getProperty("borderColor");
+      if(attributes.getProperty("dashedBorder") === true){
+        this.ctx.setLineDash([
+          attributes.getProperty("dashSize"),
+          attributes.getProperty("gapBetweenDashes")
+        ]);
+      }
+this.ctx.rect(
+  (attributes.getProperty("x")- (attributes.getProperty("borderWidth")/2) ), 
+  attributes.getProperty("y") - (attributes.getProperty("borderWidth")/2), 
+  attributes.getProperty("width") + (attributes.getProperty("borderWidth")),
+  attributes.getProperty("height") + (attributes.getProperty("borderWidth"))
+  );
+  this.ctx.stroke();
+  this.ctx.restore();
+}
 
 saveCtx(){ ///this fn is doing 2 things??? is it ok???
   this.ctx.save();  
@@ -56,7 +60,7 @@ restoreCtx(){
   this.ctx.restore();
 }
 drawFilledRectangle(attributes){
-  this.ctx.fillRect(attributes.getItem("x").value, attributes.getItem("y").value, attributes.getItem("width").value, attributes.getItem("height").value);  
+  this.ctx.fillRect(attributes.getProperty("x"), attributes.getProperty("y"), attributes.getProperty("width"), attributes.getProperty("height"));  
 
 }
 

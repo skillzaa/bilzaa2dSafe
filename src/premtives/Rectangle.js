@@ -13,6 +13,11 @@ export default class Rectangle extends BasePrimtive {
             this.metal.rotateCanvas(this.attributes);
             this.metal.unTranslateCanvas(this.attributes);
         }
+        /////////////////////////////////////////////
+        if (this.attributes.getProperty("drawBorder") === true) {
+            this.metal.drawRectangleBorder(this.attributes);
+        }
+        /////////////////////////////////////////////
         this.metal.drawFilledRectangle(this.attributes);
         //------------------------------
         this.metal.restoreCtx();

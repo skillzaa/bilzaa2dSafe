@@ -3,6 +3,7 @@ export default class Metal {
     load(canvasName?: string): false | undefined;
     clear(): void;
     clearCanvas(fillStyle?: string): void;
+    drawRectangleBorder(attributes: any): void;
     saveCtx(): void;
     restoreCtx(): void;
     drawFilledRectangle(attributes: any): void;
