@@ -6,9 +6,10 @@ export default class Metal {
     drawRectangleBorder(attributes: any): void;
     saveCtx(): void;
     restoreCtx(): void;
-    drawFilledRectangle(attributes: any): void;
+    drawRectangle(attributes: any): void;
     drawCircle(attributes: any): void;
     drawTriangle(attributes: any): void;
+    drawRectangleTitle(attributes: any): void;
     drawText(attributes: any): void;
     getCtxValues(attributes: any): void;
     translateCanvas(attributes: any): void;

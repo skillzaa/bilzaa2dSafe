@@ -14,11 +14,17 @@ export default class Rectangle extends BasePrimtive {
             this.metal.unTranslateCanvas(this.attributes);
         }
         /////////////////////////////////////////////
-        if (this.attributes.getProperty("drawBorder") === true) {
+        if ((this.attributes.getProperty("drawBorder") === true) || (this.attributes.getProperty("transparent") === false)) {
             this.metal.drawRectangleBorder(this.attributes);
         }
-        /////////////////////////////////////////////
-        this.metal.drawFilledRectangle(this.attributes);
+        //--------------draw rect
+        if ((this.attributes.getProperty("transparent") === false)) {
+            this.metal.drawRectangle(this.attributes);
+        }
+        //--------------draw rect
+        if ((this.attributes.getProperty("title") != "")) {
+            this.metal.drawRectangleTitle(this.attributes);
+        }
         //------------------------------
         this.metal.restoreCtx();
         //--------------------------------------------

@@ -36,6 +36,7 @@ drawRectangleBorder(attributes){
 this.ctx.save();  
 this.ctx.beginPath();
 this.ctx.lineWidth = attributes.getProperty("borderWidth");
+this.ctx.lineJoin = "round"; //attributes.getProperty("borderWidth");
 this.ctx.strokeStyle = attributes.getProperty("borderColor");
       if(attributes.getProperty("dashedBorder") === true){
         this.ctx.setLineDash([
@@ -43,6 +44,7 @@ this.ctx.strokeStyle = attributes.getProperty("borderColor");
           attributes.getProperty("gapBetweenDashes")
         ]);
       }
+         
 this.ctx.rect(
   (attributes.getProperty("x")- (attributes.getProperty("borderWidth")/2) ), 
   attributes.getProperty("y") - (attributes.getProperty("borderWidth")/2), 
@@ -59,9 +61,11 @@ saveCtx(){ ///this fn is doing 2 things??? is it ok???
 restoreCtx(){
   this.ctx.restore();
 }
-drawFilledRectangle(attributes){
+drawRectangle(attributes){
+  this.ctx.save();
+  this.ctx.globalAlpha = attributes.getProperty("opacity");   
   this.ctx.fillRect(attributes.getProperty("x"), attributes.getProperty("y"), attributes.getProperty("width"), attributes.getProperty("height"));  
-
+  this.ctx.restore();
 }
 
 drawCircle(attributes){
@@ -80,6 +84,23 @@ this.ctx.save();
   this.ctx.fill();
 
 this.ctx.restore();  
+}
+
+drawRectangleTitle(attributes){
+this.ctx.save();  
+this.ctx.globalAlpha = attributes.getProperty("titleOpacity");  
+//this.ctx.globalAlpha = 0.5;
+this.ctx.fillStyle = attributes.getProperty("titleColor");
+this.ctx.font = `${attributes.getProperty("titleFontSize")}px ${attributes.getProperty("titleFontFamily")}`;
+
+const titleHeight = this.ctx.measureText('M').width;
+const titleWidth = this.ctx.measureText(attributes.getProperty("title")).width;
+const titleX = (attributes.getProperty("x") + (attributes.getProperty("width")/2)) - (titleWidth/2);
+const titleY = (attributes.getProperty("y") + (attributes.getProperty("height")/2)) + (titleHeight/2);
+
+this.ctx.fillText(attributes.getProperty("title"),titleX, titleY);
+
+this.ctx.restore();
 }
 
 drawText(attributes){
