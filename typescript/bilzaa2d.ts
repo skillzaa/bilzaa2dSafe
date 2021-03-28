@@ -4,7 +4,7 @@ import Animations from './fasades/Animations.js';
 import Premades from './premade/Premades.js';
 
 export default class Bilzaa2d {
-    private    playHead:PlayHead;
+private    playHead:PlayHead;
 public     premades:Premades;
 public    elements:Elements;
 public    animations:Animations;    

@@ -22,6 +22,8 @@ module.exports = function(grunt) {
         },
       },
 
+      clean: ['src' , 'build' , 'testsrc' , 'dist'],
+
       transpile: {
         main: {
           type: "cjs", // or  "cjs" "amd" or "yui"
@@ -33,8 +35,7 @@ module.exports = function(grunt) {
           }]
         }
       },
-
-     
+    
 ////////////////////////////////////////////////////////////////////////
     });
   
@@ -42,7 +43,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-es6-module-transpiler');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    
+    grunt.loadNpmTasks('grunt-contrib-clean');
     // Default task(s).
     grunt.registerTask('default', ['uglify']);
   

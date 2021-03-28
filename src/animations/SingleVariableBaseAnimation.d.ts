@@ -6,11 +6,12 @@ export default class SingleVariableBaseAnimation implements IBaseAnimation {
     fromSecond: number;
     toSecond: number;
     algo: string;
-    dataRequired: string[] | [];
+    lastExecutionTime: number;
+    dataRequiredFromElement: string[] | [];
     argsForAlgo: {};
     fps: number;
     algorithms: Algorithms;
-    constructor(compulsary: Icompulsary, dataRequired?: string[] | [], argsForAlgo?: {});
+    constructor(compulsary: Icompulsary, dataRequiredFromElement?: string[] | [], argsForAlgo?: {});
     animate(animationData: [], currentSecond: number): any;
 }
 //# sourceMappingURL=SingleVariableBaseAnimation.d.ts.map

@@ -7,12 +7,13 @@ export default class SingleVariableBaseAnimation implements IBaseAnimation{
     fromSecond: number; 
     toSecond: number;
     algo: string;
-    dataRequired:string[]|[];
+    lastExecutionTime:number;
+    dataRequiredFromElement:string[]|[];
     argsForAlgo : {};
     fps:number;
     algorithms:Algorithms;
     
-constructor(compulsary:Icompulsary,dataRequired:string[]|[]=[],argsForAlgo={}){
+constructor(compulsary:Icompulsary,dataRequiredFromElement:string[]|[]=[],argsForAlgo={}){
 //--------------------ALGO FASADE---------------      
 this.algorithms = new Algorithms();
 //--------------------COMPULSARY ITEMS---------------    
@@ -21,13 +22,20 @@ this.algorithms = new Algorithms();
  this.toSecond = compulsary.toSecond ;//must for every animation
  this.algo = this.algorithms.getAlgo(compulsary.algo) ; 
  //-----------------------------------
- this.dataRequired = dataRequired;   
+ this.dataRequiredFromElement = dataRequiredFromElement;   
  this.argsForAlgo = argsForAlgo;
  //-----------------------------------
  this.fps =  60 ; /// this has to be settled
+ //--------------------------------------------
+ //this.lastExecutionTime;
 }
 animate(animationData:[],currentSecond:number){
-const ret = this.algo(animationData,currentSecond);
+
+//this.argsForAlgo.lastExecutionTime = this.lastExecutionTime    
+
+const ret = this.algo(animationData,this.argsForAlgo,currentSecond);
+//after running the animation reset the lastExecutionTime;
+this.argsForAlgo.lastExecutionTime = Date.now()
     return ret;
 }
 //===============================================  

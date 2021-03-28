@@ -1,4 +1,3 @@
-
 import SingleVariableBaseAnimation from "../animations/SingleVariableBaseAnimation.js"; 
 import Icompulsary from "../interfaces/Icompulsary.js";
 

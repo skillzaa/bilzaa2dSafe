@@ -73,7 +73,7 @@ this.animations.data.forEach(animation => {
      && 
      (currentSecond <= animation.toSecond)){
     //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
-    const elementDataBeingSentToAnimation = this.attributes.getItemsByNames(animation.dataRequired);
+    const elementDataBeingSentToAnimation = this.attributes.getItemsByNames(animation.dataRequiredFromElement);
     //----STEP 3 -- Animate the data
     const retData = animation.animate(elementDataBeingSentToAnimation,currentSecond);
     //----STEP 4 -- SAVE ATTRIBUTES

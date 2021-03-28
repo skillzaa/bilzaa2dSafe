@@ -1,5 +1,5 @@
 "use strict";
-const linear = function (incomming, currentSecond) {
+const linear = function (incomming, argsForAlgo, currentSecond) {
     const timeDiff = parseInt((this.toSecond - this.fromSecond));
     const totalValueDiff = parseInt((this.argsForAlgo.to - this.argsForAlgo.from));
     this.deltaPerSecond = totalValueDiff / timeDiff;

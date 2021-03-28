@@ -1,8 +1,8 @@
-const blink = function(bdReqForAni,currentSecond){
+const blink = function(bdReqForAni,argsForAlgo,currentSecond){
     if(typeof this.future.counter == "undefined"){
         this.future.counter = 0 
     }else {
-        this.future.counter++;
+        this.future.counter++;    
     }
 //-----------------------    
     bdReqForAni.forEach(element => {

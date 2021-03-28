@@ -2,7 +2,7 @@
 var Algorithms = require("../algo/Algorithms.js")["default"];
 
 exports["default"] = class SingleVariableBaseAnimation {
-    constructor(compulsary, dataRequired = [], argsForAlgo = {}, future) {
+    constructor(compulsary, dataRequiredFromElement = [], argsForAlgo = {}) {
         //--------------------ALGO FASADE---------------      
         this.algorithms = new Algorithms();
         //--------------------COMPULSARY ITEMS---------------    
@@ -11,14 +11,18 @@ exports["default"] = class SingleVariableBaseAnimation {
         this.toSecond = compulsary.toSecond; //must for every animation
         this.algo = this.algorithms.getAlgo(compulsary.algo);
         //-----------------------------------
-        this.dataRequired = dataRequired;
-        this.future = future;
+        this.dataRequiredFromElement = dataRequiredFromElement;
         this.argsForAlgo = argsForAlgo;
         //-----------------------------------
-        this.fps = future.fps;
+        this.fps = 60; /// this has to be settled
+        //--------------------------------------------
+        //this.lastExecutionTime;
     }
     animate(animationData, currentSecond) {
-        const ret = this.algo(animationData, currentSecond);
+        //this.argsForAlgo.lastExecutionTime = this.lastExecutionTime    
+        const ret = this.algo(animationData, this.argsForAlgo, currentSecond);
+        //after running the animation reset the lastExecutionTime;
+        this.argsForAlgo.lastExecutionTime = Date.now();
         return ret;
     }
 }
