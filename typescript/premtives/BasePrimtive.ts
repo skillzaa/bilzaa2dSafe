@@ -35,7 +35,7 @@ this.attributes.add({ name: "borderWidth", value: 1 });
 //--rotation--
 this.attributes.add({ name: "rotateClockwise", value: true, comments: "t/f" });
 //---the angle at which);the obj is currently rotated
-this.attributes.add({ name: "rotateAngle", value: 0});
+this.attributes.add({ name: "rotateAngle", value: 0});   
 this.attributes.add({ name: "rps", value: 10, comments: "rotation persec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" });
 //--colors--
 this.attributes.add({ name: "backgroundColor", value: "green" });
