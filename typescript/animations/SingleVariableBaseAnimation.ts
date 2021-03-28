@@ -1,7 +1,6 @@
 import Algorithms from "../algo/Algorithms.js";
 import IBaseAnimation from "../interfaces/IBaseAnimation.js";
 import Icompulsary from "../interfaces/Icompulsary.js";
-import Ifuture from "../interfaces/Ifuture.js";
 
 export default class SingleVariableBaseAnimation implements IBaseAnimation{
     attribute: string;
@@ -9,12 +8,11 @@ export default class SingleVariableBaseAnimation implements IBaseAnimation{
     toSecond: number;
     algo: string;
     dataRequired:string[]|[];
-    future: {};
     argsForAlgo : {};
     fps:number;
     algorithms:Algorithms;
     
-constructor(compulsary:Icompulsary,dataRequired:string[]|[]=[],argsForAlgo={},future:Ifuture){
+constructor(compulsary:Icompulsary,dataRequired:string[]|[]=[],argsForAlgo={}){
 //--------------------ALGO FASADE---------------      
 this.algorithms = new Algorithms();
 //--------------------COMPULSARY ITEMS---------------    
@@ -23,11 +21,10 @@ this.algorithms = new Algorithms();
  this.toSecond = compulsary.toSecond ;//must for every animation
  this.algo = this.algorithms.getAlgo(compulsary.algo) ; 
  //-----------------------------------
- this.dataRequired = dataRequired;
- this.future = future;
+ this.dataRequired = dataRequired;   
  this.argsForAlgo = argsForAlgo;
  //-----------------------------------
- this.fps =  future.fps ;
+ this.fps =  60 ; /// this has to be settled
 }
 animate(animationData:[],currentSecond:number){
 const ret = this.algo(animationData,currentSecond);
