@@ -1,5 +1,5 @@
 export default class Algorithms {
     constructor();
-    getAlgo(name: string): (incomming: any, argsForAlgo: any, currentSecond: any) => any;
+    getAlgo(name: string): (attributeToAnimate: [], readOnlyElementData: [] | undefined, currentSecond: number, argsForAlgo?: [], basicAnimationData?: {}, additionalData?: {}) => any;
 }
 //# sourceMappingURL=Algorithms.d.ts.map

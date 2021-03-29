@@ -1,4 +1,4 @@
-const randomNumber = function(attributes,argsForAlgo,currentSecond){
+const randomNumber = function(attributeToAnimate:[],readOnlyElementData:[]=[],currentSecond:number,argsForAlgo:[]=[]){
 
     if (okToRun(argsForAlgo) === false){
         return attributes;}//check delay

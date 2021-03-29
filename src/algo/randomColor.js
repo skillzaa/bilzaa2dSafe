@@ -1,4 +1,4 @@
-const randomColor = function (attributes, argsForAlgo, currentSecond) {
+const randomColor = function (attributeToAnimate, readOnlyElementData = [], currentSecond, argsForAlgo = []) {
     if (okToRun(argsForAlgo) === false) {
         return attributes;
     } //check delay

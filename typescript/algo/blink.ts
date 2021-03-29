@@ -1,4 +1,4 @@
-const blink = function(bdReqForAni,argsForAlgo,currentSecond){
+const blink = function(attributeToAnimate:[],readOnlyElementData:[]=[],currentSecond:number,argsForAlgo:[]=[]){
     if(typeof this.future.counter == "undefined"){
         this.future.counter = 0 
     }else {

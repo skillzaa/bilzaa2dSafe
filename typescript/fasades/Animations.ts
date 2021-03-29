@@ -14,7 +14,7 @@ return true;
 //---------------------------------
 moveHorizontal(fromSecond=1,toSecond=5,from=1,to=100){
 const ani = new SingleVariableBaseAnimation(
-    {attribute: "x",algo: "linear",fromSecond:fromSecond , toSecond:toSecond},
+    {attributeToAnimate: "x",algo: "linear",fromSecond:fromSecond , toSecond:toSecond},
     ["x"],
     {attribute: "x" , from : from , to:to}
     );

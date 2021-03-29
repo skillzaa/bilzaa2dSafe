@@ -1,4 +1,4 @@
-const linear = function (incomming, argsForAlgo, currentSecond) {
+const linear = function (attributeToAnimate, readOnlyElementData = [], currentSecond, argsForAlgo = [], basicAnimationData = {}, additionalData = {}) {
     const timeDiff = parseInt((this.toSecond - this.fromSecond));
     const totalValueDiff = parseInt((this.argsForAlgo.to - this.argsForAlgo.from));
     this.deltaPerSecond = totalValueDiff / timeDiff;

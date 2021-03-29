@@ -1,17 +1,13 @@
 import Algorithms from "../algo/Algorithms.js";
 import IBaseAnimation from "../interfaces/IBaseAnimation.js";
-import Icompulsary from "../interfaces/Icompulsary.js";
+import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
 export default class SingleVariableBaseAnimation implements IBaseAnimation {
-    attribute: string;
-    fromSecond: number;
-    toSecond: number;
-    algo: string;
-    lastExecutionTime: number;
-    dataRequiredFromElement: string[] | [];
+    basicAnimationData: IbasicAnimationData;
+    readOnlyElementData: string[] | [];
     argsForAlgo: {};
     fps: number;
     algorithms: Algorithms;
-    constructor(compulsary: Icompulsary, dataRequiredFromElement?: string[] | [], argsForAlgo?: {});
-    animate(animationData: [], currentSecond: number): any;
+    constructor(basicAnimationData: IbasicAnimationData, readOnlyElementData?: string[] | [], argsForAlgo?: {});
+    animate(attributeToAnimate: [], readOnlyElementData: [], currentSecond: number): any;
 }
 //# sourceMappingURL=SingleVariableBaseAnimation.d.ts.map

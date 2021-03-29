@@ -1,1 +1,1 @@
-{"version":3,"file":"randomNumber.d.ts","sourceRoot":"","sources":["../../typescript/algo/randomNumber.ts"],"names":[],"mappings":"AAAA,QAAA,MAAM,YAAY,gEAYjB,CAAA;AAqBD,eAAgB,YAAY,CAAC"}
+{"version":3,"file":"randomNumber.d.ts","sourceRoot":"","sources":["../../typescript/algo/randomNumber.ts"],"names":[],"mappings":"AAAA,QAAA,MAAM,YAAY,uBAA+B,EAAE,sDAAyC,MAAM,gBAAa,EAAE,QAYhH,CAAA;AAqBD,eAAgB,YAAY,CAAC"}
