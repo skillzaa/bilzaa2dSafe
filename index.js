@@ -12,12 +12,21 @@ a.attributes.setProperty("titleFontSize" , 100);
 a.attributes.setProperty("titleOpacity" , 0);
 
 //--------------------ANIMATIONS
-// a.animations.moveHorizontal(1,10,10,300);
-// a.animations.moveVerticle(10,20,10,300);
-//a.animations.moveDiagonal(3,10,10,200);
-//a.animations.custom({attributeToAnimate: "width",algo: "linear",fromSecond:1 , toSecond:300},["height"],{delay:100, from:10, to:400});
+// a.animations.moveHorizontal(1,4,10,300);
+// a.animations.moveVerticle(4,8,0,200);
+//a.animations.moveDiagonal(1,5,10,200);
 
-a.animations.testAnimation();
+//a.animations.linear({attributeToAnimate: "width",fromSecond:1 , toSecond:10},[],//{from:10,to:700});
+
+//a.animations.linear({attributeToAnimate: "height",fromSecond:1 , toSecond:10},[],{from:10,to:300});
+// a.attributes.setProperty("opacity",0);
+// a.animations.linear({attributeToAnimate: "opacity",fromSecond:3 , toSecond:9},[],{from:0,to:1});
+// a.attributes.setProperty("opacity",0);
+// a.animations.appear(1,2);
+//a.animations.disAappear(1,2);
+//a.animations.widen(1,4,10,600)
+//a.animations.heighten(1,4,10,300)
+a.animations.scale(1,4,10,300,10,300);
 //a.animations.custom({attributeToAnimate: "rotateAngle",algo: "randomNumber",fromSecond:1 , toSecond:10},["rotateAngle"],{attribute: "rotateAngle"} );
 
 
@@ -27,8 +36,11 @@ a.animations.testAnimation();
 
 
 ////////////////////////////
-////////////////////////////
-window.onload = ()=>{
+////////////////////////////.
+document.getElementById("play").addEventListener("click",()=>{
     const ret = bilzaa2d.play();
+});
+window.onload = ()=>{
+   
 }
 //console.log(ret);

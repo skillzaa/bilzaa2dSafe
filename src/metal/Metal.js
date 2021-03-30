@@ -31,6 +31,7 @@ export default class Metal {
     drawRectangleBorder(attributes) {
         this.ctx.save();
         this.ctx.beginPath();
+        this.ctx.globalAlpha = attributes.getProperty("opacity");
         this.ctx.lineWidth = attributes.getProperty("borderWidth");
         this.ctx.lineJoin = "round"; //attributes.getProperty("borderWidth");
         this.ctx.strokeStyle = attributes.getProperty("borderColor");

@@ -18,7 +18,7 @@ const deltaPerFrame = deltaPerSecond/this.fps;
 //attributeToAnimateData.value += deltaPerFrame ; 
  
 //now am using current second
- attributeToAnimateData.value = this.argsForAlgo.from + (deltaPerSecond * currentSecond)  ;
+ attributeToAnimateData.value = (this.argsForAlgo.from + (deltaPerSecond * currentSecond)) ;
    return attributeToAnimateData;
 
 //--------------------------------
