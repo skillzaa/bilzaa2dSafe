@@ -63,27 +63,28 @@ this.metal = new Metal();
  
 }
 
+
 public setNextFrame(currentSecond:number){
 this.clearCanvas();   
 //==================LLLLLOOOOPPPPP======================== 
 this.animations.data.forEach(animation => {
     //----STEP 1 -- GET DATA FROM ATTRIBUTES COLLECTION
     //filter out not relavant seq here
-    // if( (currentSecond > animation.fromSecond)
-    //  && 
-    //  (currentSecond <= animation.toSecond)){
+    if( (currentSecond >= animation.fromSecond)
+     && 
+     (currentSecond <= animation.toSecond)){
     //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
     //---get item by name since its one item --a string
-    const attributeToAnimateData = this.attributes.getItem(animation.basicAnimationData.attributeToAnimate);
+    const attributeToAnimateData = this.attributes.getItem(animation.attributeToAnimate);
 
     const readOnlyElementData = this.attributes.getItemsByNames(animation.readOnlyElementData);
     //----STEP 3 -- Animate the data
-    const retData = animation.animate(attributeToAnimateData,readOnlyElementData,currentSecond);
+    const retData = animation.animate(attributeToAnimateData,currentSecond,readOnlyElementData);
     //----STEP 4 -- SAVE ATTRIBUTES
 
-    this.attributes.insertPropertiesFromArray(retData);//retData is aoo
+    this.attributes.setProperty(retData.name,retData.value);//retData is aoo
    
-//     }/////--filter no relevant animations
+     }/////--filter no relevant animations
     //========================================== 
     });
 return true;    
