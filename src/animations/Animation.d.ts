@@ -1,6 +1,6 @@
 import IBaseAnimation from "../interfaces/IBaseAnimation.js";
 import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
-export default class Animation implements IBaseAnimation {
+export default abstract class Animation implements IBaseAnimation {
     basicAnimationData: IbasicAnimationData;
     readOnlyElementData: string[] | [];
     argsForAlgo: {};
@@ -8,6 +8,6 @@ export default class Animation implements IBaseAnimation {
     store: {};
     fps: number;
     constructor(basicAnimationData: IbasicAnimationData, readOnlyElementData?: string[] | [], argsForAlgo?: {});
-    animate(currentSecond: number): [];
+    animate(currentSecond: number): object[];
 }
 //# sourceMappingURL=Animation.d.ts.map

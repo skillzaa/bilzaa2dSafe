@@ -1,9 +1,8 @@
-import Algorithms from "../algo/Algorithms.js";
 import IBaseAnimation from "../interfaces/IBaseAnimation.js";
 import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
 
 
-export default class Animation implements IBaseAnimation{
+export default abstract class Animation implements IBaseAnimation{
     
     basicAnimationData:IbasicAnimationData;
     readOnlyElementData:string[]|[];
@@ -21,7 +20,7 @@ constructor(basicAnimationData:IbasicAnimationData,readOnlyElementData:string[]|
  this.store = {};
 }
 
-animate(currentSecond:number):[]{    
+animate(currentSecond:number):object[]{    
 return [];
 }
 //===============================================  

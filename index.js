@@ -15,9 +15,9 @@ a.attributes.setProperty("titleOpacity" , 0);
 // a.animations.moveHorizontal(1,10,10,300);
 // a.animations.moveVerticle(10,20,10,300);
 //a.animations.moveDiagonal(3,10,10,200);
-a.animations.custom({attributeToAnimate: "width",algo: "linear",fromSecond:1 , toSecond:300},["height"],{delay:100, from:10, to:400});
+//a.animations.custom({attributeToAnimate: "width",algo: "linear",fromSecond:1 , toSecond:300},["height"],{delay:100, from:10, to:400});
 
-
+a.animations.testAnimation();
 //a.animations.custom({attributeToAnimate: "rotateAngle",algo: "randomNumber",fromSecond:1 , toSecond:10},["rotateAngle"],{attribute: "rotateAngle"} );
 
 
