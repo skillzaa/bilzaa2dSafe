@@ -1,10 +1,11 @@
+import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
 export default interface IBaseAnimation {
-    attribute: string;
-    fromSecond: number;
-    toSecond: number;
-    dataRequired: string[];
-    future: {};
-    animate(a: [], b: number): string;
-    algo: string;
+    basicAnimationData: IbasicAnimationData;
+    readOnlyElementData: string[] | [];
+    argsForAlgo: {};
+    lastExecutionTime: number;
+    store: {};
+    fps: number;
+    animate(currentSecond: number): [];
 }
 //# sourceMappingURL=IBaseAnimation.d.ts.map

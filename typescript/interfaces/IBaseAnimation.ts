@@ -1,10 +1,12 @@
-export default interface IBaseAnimation {
-    attribute: string;
-    fromSecond: number; 
-    toSecond: number;
-    dataRequired: string[];
-    future: {};
+import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
 
-    animate(a:[] , b:number): string; 
-    algo:string;
+export default interface IBaseAnimation {
+
+    basicAnimationData:IbasicAnimationData;
+    readOnlyElementData:string[]|[];
+    argsForAlgo : {};
+    lastExecutionTime:number;
+    store:{};
+    fps:number;
+    animate(currentSecond:number):[]; 
 }

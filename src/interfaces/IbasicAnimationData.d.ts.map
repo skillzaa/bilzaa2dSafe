@@ -1,1 +1,1 @@
-{"version":3,"file":"IbasicAnimationData.d.ts","sourceRoot":"","sources":["../../typescript/interfaces/IbasicAnimationData.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,WAAW,mBAAmB;IACxC,kBAAkB,EAAC,MAAM,CAAC;IAC1B,UAAU,EAAC,MAAM,CAAC;IAClB,QAAQ,EAAC,MAAM,CAAC;IAChB,IAAI,EAAC,MAAM,CAAC;CACf"}
+{"version":3,"file":"IbasicAnimationData.d.ts","sourceRoot":"","sources":["../../typescript/interfaces/IbasicAnimationData.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,WAAW,mBAAmB;IACxC,kBAAkB,EAAC,MAAM,CAAC;IAC1B,UAAU,EAAC,MAAM,CAAC;IAClB,QAAQ,EAAC,MAAM,CAAC;CACnB"}

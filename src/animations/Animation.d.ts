@@ -10,4 +10,4 @@ export default class Animation implements IBaseAnimation {
     constructor(basicAnimationData: IbasicAnimationData, readOnlyElementData?: string[] | [], argsForAlgo?: {});
     animate(currentSecond: number): [];
 }
-//# sourceMappingURL=SingleVariableBaseAnimation.d.ts.map
+//# sourceMappingURL=Animation.d.ts.map
