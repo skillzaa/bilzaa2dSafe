@@ -9,7 +9,7 @@ export default class SingleVariableBaseAnimation {
         //  this.attributeToAnimate = basic.attributeToAnimate ;
         //  this.fromSecond = basic.fromSecond  ; //must for every animation
         //  this.toSecond = basic.toSecond ;//must for every animation
-        //  this.algo = this.algorithms.getAlgo(basic.algo) ; 
+        this.algo = this.algorithms.getAlgo(this.basicAnimationData.algo);
         //-----------------------------------
         this.readOnlyElementData = readOnlyElementData;
         this.argsForAlgo = argsForAlgo;
