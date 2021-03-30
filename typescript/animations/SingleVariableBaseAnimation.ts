@@ -35,12 +35,10 @@ animate(attributeToAnimate:[],readOnlyElementData:[],currentSecond:numbery,addit
 //this.argsForAlgo.lastExecutionTime = this.lastExecutionTime    
 
 const ret = this.algo(
-    attributeToAnimate,
-    readOnlyElementData,
-    currentSecond,
-    this.argsForAlgo,
     this.basicAnimationData,
-    additionalData,
+    currentSecond,
+    readOnlyElementData,
+    this.argsForAlgo,
     );
 //after running the animation reset the lastExecutionTime;
 //this.argsForAlgo.lastExecutionTime = Date.now()

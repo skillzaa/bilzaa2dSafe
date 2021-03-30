@@ -1,3 +1,3 @@
-declare const linear: (attributeToAnimate: [], readOnlyElementData: [] | undefined, currentSecond: number, argsForAlgo?: [], basicAnimationData?: {}, additionalData?: {}) => any;
+declare const linear: (basicAnimationData: {} | undefined, currentSecond: number, readOnlyElementData?: [], argsForAlgo?: []) => any;
 export default linear;
 //# sourceMappingURL=linear.d.ts.map

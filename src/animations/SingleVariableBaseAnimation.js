@@ -21,7 +21,7 @@ export default class SingleVariableBaseAnimation {
     // the attributeToAnimate and readOnlyElementData in the constructor are just the names of the attributes but here we are getting the attrribute array of objects for each from the primtive with latest values.
     animate(attributeToAnimate, readOnlyElementData, currentSecond, additionalData = {}) {
         //this.argsForAlgo.lastExecutionTime = this.lastExecutionTime    
-        const ret = this.algo(attributeToAnimate, readOnlyElementData, currentSecond, this.argsForAlgo, this.basicAnimationData, additionalData);
+        const ret = this.algo(this.basicAnimationData, currentSecond, readOnlyElementData, this.argsForAlgo);
         //after running the animation reset the lastExecutionTime;
         //this.argsForAlgo.lastExecutionTime = Date.now()
         return ret;
