@@ -1,5 +1,6 @@
 import Rectangle from '../premtives/Rectangle.js';
 import Circle from '../premtives/Circle.js';
+import Ellipse from '../premtives/Ellipse.js';
 import Triangle from '../premtives/Triangle.js';
 import Text from '../premtives/Text.js';
 import Complex from '../premtives/Complex.js';
@@ -25,6 +26,11 @@ addCircle(){
     const circle = new Circle();
     this.shapes.push(circle);
     return circle;
+}
+addEllipse(){
+    const ellipse = new Ellipse();
+    this.shapes.push(ellipse);
+    return ellipse;
 }
 addText(){
     const text = new Text();

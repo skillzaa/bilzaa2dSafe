@@ -1,10 +1,17 @@
-import Rectangle from '../premtives/Rectangle.js';
-import Circle from '../premtives/Circle.js';
-import Ellipse from '../premtives/Ellipse.js';
-import Triangle from '../premtives/Triangle.js';
-import Text from '../premtives/Text.js';
-import Complex from '../premtives/Complex.js';
-export default class Elements {
+"use strict";
+var Rectangle = require("../premtives/Rectangle.js")["default"];
+
+var Circle = require("../premtives/Circle.js")["default"];
+
+var Ellipse = require("../premtives/Ellipse.js")["default"];
+
+var Triangle = require("../premtives/Triangle.js")["default"];
+
+var Text = require("../premtives/Text.js")["default"];
+
+var Complex = require("../premtives/Complex.js")["default"];
+
+exports["default"] = class Elements {
     constructor() {
         this.shapes = [];
     }

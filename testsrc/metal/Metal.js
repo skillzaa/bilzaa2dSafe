@@ -1,4 +1,5 @@
-export default class Metal {
+"use strict";
+exports["default"] = class Metal {
     // ctx:Object;
     // canvas:object;
     // drawRectangle:object;

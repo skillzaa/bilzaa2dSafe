@@ -1,7 +1,9 @@
-import BasePrimtive from "./BasePrimtive.js";
-export default class Circle extends BasePrimtive {
+"use strict";
+var BasePrimtive = require("./BasePrimtive.js")["default"];
+
+exports["default"] = class Ellipse extends BasePrimtive {
     constructor() {
-        super("circle");
+        super("Ellipse");
         this.attributes.add({ name: "radius", value: 100, comments: "" });
     }
     draw() {

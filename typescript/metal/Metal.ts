@@ -137,5 +137,8 @@ this.ctx.restore();
  rotateCanvas(attributes){
   this.ctx.rotate((attributes.getItem("rotateAngle").value) * Math.PI / 180);
 }
+drawEllipse(){
+  this.ctx.ellipse(100, 100, 50, 75, 45 * Math.PI/180, 0, 2 * Math.PI);
+}
 //////////////////////////classsss-----------------
 }

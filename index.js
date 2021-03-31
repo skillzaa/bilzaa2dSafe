@@ -3,6 +3,7 @@ import Bilzaa2d from "./src/bilzaa2d.js";
 const bilzaa2d = new Bilzaa2d();
 
 //===================================================
+const e = bilzaa2d.elements.addEllipse();
 const a = bilzaa2d.elements.addRectangle();
 a.attributes.setProperty("width" , 400);
 a.attributes.setProperty("height" , 200);
