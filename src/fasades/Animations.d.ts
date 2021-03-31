@@ -6,10 +6,9 @@ export default class Animations {
     moveHorizontal(fromSecond?: number, toSecond?: number, from?: number, to?: number): boolean;
     moveVerticle(fromSecond?: number, toSecond?: number, from?: number, to?: number): boolean;
     moveDiagonal(fromSecond?: number, toSecond?: number, from?: number, to?: number): boolean;
-    appear(fromSecond: any, toSecond: any): void;
-    disAappear(fromSecond: any, toSecond: any): void;
     widen(fromSecond: any, toSecond: any, from: any, to: any): boolean;
     heighten(fromSecond: any, toSecond: any, from: any, to: any): boolean;
     scale(fromSecond: any, toSecond: any, fromWidth: any, toWidth: any, fromHeight: any, toHeight: any): boolean;
+    rotate(fromSecond: any, toSecond: any, from: any, to: any): boolean;
 }
 //# sourceMappingURL=Animations.d.ts.map

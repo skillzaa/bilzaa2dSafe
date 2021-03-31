@@ -39,16 +39,16 @@ moveDiagonal(fromSecond=1,toSecond=5,from=1,to=100){
     this.data.push(ly);    
     return true;    
 }
-appear(fromSecond,toSecond){
-    const l = new Linear(
-        {attributeToAnimate: "opacity",fromSecond:fromSecond, toSecond:toSecond},[],{from:0, to:1});
-    this.data.push(l);       
-}
-disAappear(fromSecond,toSecond){
-    const l = new Linear(
-        {attributeToAnimate: "opacity",fromSecond:fromSecond, toSecond:toSecond},[],{from:1, to:0});
-    this.data.push(l);       
-}
+// appear(fromSecond,toSecond){
+//     const l = new Linear(
+//         {attributeToAnimate: "opacity",fromSecond:fromSecond, toSecond:toSecond},[],{from:0, to:1});
+//     this.data.push(l);       
+// }
+// disAappear(fromSecond,toSecond){
+//     const l = new Linear(
+//         {attributeToAnimate: "opacity",fromSecond:fromSecond, toSecond:toSecond},[],{from:1, to:0});
+//     this.data.push(l);       
+// }
 widen(fromSecond,toSecond,from,to){
     const l = new Linear(
         {attributeToAnimate: "width",fromSecond:fromSecond, toSecond:toSecond},[],{from:from, to:to});
@@ -70,6 +70,12 @@ scale(fromSecond,toSecond,fromWidth,toWidth,fromHeight,toHeight){
         {attributeToAnimate: "height",fromSecond:fromSecond, toSecond:toSecond},[],{from:fromHeight, to:toHeight});
     this.data.push(h);    
     return true;    
+}
+rotate(fromSecond, toSecond,from,to){
+    const w = new Linear(
+        {attributeToAnimate: "rotateAngle",fromSecond:fromSecond, toSecond:toSecond},[],{from:from, to:to});
+    this.data.push(w);    
+    return true;
 }
 //---------------------------------
 }
