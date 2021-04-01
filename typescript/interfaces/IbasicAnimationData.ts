@@ -1,5 +1,5 @@
 export default interface IbasicAnimationData {
-    attributeToAnimate:string;
+    attributeToAnimateName:string;
     fromSecond:number;
     toSecond:number; 
 }

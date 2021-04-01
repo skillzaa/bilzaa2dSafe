@@ -63,12 +63,12 @@ exports["default"] = class BasePrimtive {
                     (currentSecond <= animation.toSecond)) {
                 //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
                 //---get item by name since its one item --a string
-                const attributeToAnimateData = this.attributes.getItem(animation.attributeToAnimate);
+                const attributeToAnimateData = this.attributes.getItem(animation.attributeToAnimate).value;
                 const readOnlyElementData = this.attributes.getItemsByNames(animation.readOnlyElementData);
                 //----STEP 3 -- Animate the data
-                const retData = animation.animate(attributeToAnimateData, currentSecond, readOnlyElementData);
+                const retValue = animation.animate(attributeToAnimateData, currentSecond, readOnlyElementData);
                 //----STEP 4 -- SAVE ATTRIBUTES
-                this.attributes.setProperty(retData.name, retData.value); //retData is aoo
+                this.attributes.setProperty(animation.attributeToAnimate, retValue); //retData is aoo
             } /////--filter no relevant animations
             //========================================== 
         });

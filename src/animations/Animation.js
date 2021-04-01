@@ -1,7 +1,7 @@
 export default class Animation {
     constructor(basicAnimationData, readOnlyElementAttrNames = [], argsForAlgo = {}) {
         //this.basicAnimationData = basicAnimationData;
-        this.attributeToAnimate = basicAnimationData.attributeToAnimate; //must 
+        this.attributeToAnimateName = basicAnimationData.attributeToAnimateName; //must 
         this.fromSecond = basicAnimationData.fromSecond; //must for every animation
         this.toSecond = basicAnimationData.toSecond; //must for every animation
         //--------------------------------------------------------------------
@@ -12,6 +12,6 @@ export default class Animation {
         this.store = {};
     }
     animate(attributeToAnimateData, currentSecond, readOnlyElementData = {}) {
-        return [];
+        return true;
     }
 }

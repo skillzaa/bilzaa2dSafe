@@ -5,9 +5,8 @@ const attributes = new ArrayOfObjects();
 
 //--The name--
 //--x,y,width,height--
-attributes.add({ name: "x", value: 100 });
-/*
 attributes.add({ name: "name", value: 0 });
+attributes.add({ name: "x", value: 100 });
 attributes.add({ name: "y", value: 100 });
 attributes.add({ name: "width", value: 100 });
 attributes.add({ name: "height", value: 50 });
@@ -44,4 +43,3 @@ attributes.add({ name: "titleOpacity", value: 1 });
 //module.exports = attributes;
 
 exports["default"] = attributes;
-*/

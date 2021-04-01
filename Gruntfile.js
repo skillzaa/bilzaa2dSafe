@@ -23,6 +23,7 @@ module.exports = function(grunt) {
       },
 
       clean: ['src' , 'build' , 'testsrc' , 'dist'],
+      cleanInter: ['src/interfaces'],
 
       transpile: {
         main: {

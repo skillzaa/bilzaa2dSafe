@@ -2,13 +2,13 @@ import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
 
 export default interface IBaseAnimation {
 
-    attributeToAnimate:string;
+    attributeToAnimateName:string;
+    readOnlyElementAttrNames:string[]|[];
     fromSecond:number;
     toSecond:number;
-    readOnlyElementAttrNames:string[]|[];
     argsForAlgo : {};
     lastExecutionTime:number;
     store:{};
     fps:number;
-    animate(attributeToAnimateData:any,currentSecond:number,readOnlyElementAttr:{}):object[]; 
+    animate(attributeToAnimateData:any,currentSecond:number,readOnlyElementAttr:{}):string|number|boolean; 
 }

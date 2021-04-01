@@ -5,7 +5,7 @@ import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
 export default abstract class Animation implements IBaseAnimation{
     
    // basicAnimationData:IbasicAnimationData;
-   attributeToAnimate:string;
+   attributeToAnimateName:string;
    fromSecond:number;
    toSecond:number;
    readOnlyElementAttrNames:string[]|[];
@@ -16,7 +16,7 @@ export default abstract class Animation implements IBaseAnimation{
 
 constructor(basicAnimationData:IbasicAnimationData,readOnlyElementAttrNames:string[]|[]=[],argsForAlgo={}){
  //this.basicAnimationData = basicAnimationData;
- this.attributeToAnimate = basicAnimationData.attributeToAnimate ;//must 
+ this.attributeToAnimateName = basicAnimationData.attributeToAnimateName ;//must 
  this.fromSecond = basicAnimationData.fromSecond  ; //must for every animation
  this.toSecond = basicAnimationData.toSecond ;//must for every animation
 //--------------------------------------------------------------------
@@ -27,8 +27,8 @@ constructor(basicAnimationData:IbasicAnimationData,readOnlyElementAttrNames:stri
  this.store = {};
 }
 
-public animate(attributeToAnimateData:any,currentSecond:number,readOnlyElementData:{}={}):object[]{    
-return [];
+public animate(attributeToAnimateData:any,currentSecond:number,readOnlyElementData:{}={}):string|number|boolean{    
+return true;
 }
 //===============================================  
 }

@@ -38,9 +38,9 @@ a.animations.widen(1,4,600,10)
 ////////////////////////////
 ////////////////////////////.
 document.getElementById("play").addEventListener("click",()=>{
-    const ret = bilzaa2d.play();
+    //    const ret = bilzaa2d.play();
 });
 window.onload = ()=>{
-   
+    const ret = bilzaa2d.play();
 }
 //console.log(ret);

@@ -18,7 +18,7 @@ const deltaPerFrame = deltaPerSecond/this.fps;
  
 //now am using current second
  attributeToAnimateData = (this.argsForAlgo.from + (deltaPerSecond * currentSecond)).toFixed(2) ;
-   return attributeToAnimateData;
+   return parseFloat(attributeToAnimateData);
 
 //--------------------------------
 }
