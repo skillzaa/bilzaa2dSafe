@@ -46,10 +46,10 @@ exports["default"] = class ArrayOfObjects {
         }
         return false;
     } //.....................
-    getProperty(name, propertyName = "value") {
+    getProperty(name, value = "value") {
         for (let idx = 0; idx < this.data.length; idx++) {
             if (this.data[idx].name === name) {
-                return this.data[idx][propertyName];
+                return this.data[idx][value];
             }
         }
         return false;

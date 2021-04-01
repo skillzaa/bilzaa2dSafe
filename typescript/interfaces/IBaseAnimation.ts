@@ -5,10 +5,10 @@ export default interface IBaseAnimation {
     attributeToAnimate:string;
     fromSecond:number;
     toSecond:number;
-    readOnlyElementData:string[]|[];
+    readOnlyElementAttrNames:string[]|[];
     argsForAlgo : {};
     lastExecutionTime:number;
     store:{};
     fps:number;
-    animate(currentSecond:number):object[]; 
+    animate(attributeToAnimateData:any,currentSecond:number,readOnlyElementAttr:{}):object[]; 
 }

@@ -13,7 +13,7 @@ exports["default"] = class Linear extends Animation {
         //   //here its just ++ wo time, note the +=  
         //attributeToAnimateData.value += deltaPerFrame ; 
         //now am using current second
-        attributeToAnimateData.value = (this.argsForAlgo.from + (deltaPerSecond * currentSecond));
+        attributeToAnimateData.value = (this.argsForAlgo.from + (deltaPerSecond * currentSecond)).toFixed(2);
         return attributeToAnimateData;
         //--------------------------------
     }

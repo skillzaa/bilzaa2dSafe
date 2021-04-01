@@ -8,26 +8,26 @@ export default abstract class Animation implements IBaseAnimation{
    attributeToAnimate:string;
    fromSecond:number;
    toSecond:number;
-    readOnlyElementData:string[]|[];
+   readOnlyElementAttrNames:string[]|[];
     argsForAlgo : {};
     lastExecutionTime:number;
     store:{};
     fps:number;
 
-constructor(basicAnimationData:IbasicAnimationData,readOnlyElementData:string[]|[]=[],argsForAlgo={}){
+constructor(basicAnimationData:IbasicAnimationData,readOnlyElementAttrNames:string[]|[]=[],argsForAlgo={}){
  //this.basicAnimationData = basicAnimationData;
  this.attributeToAnimate = basicAnimationData.attributeToAnimate ;//must 
  this.fromSecond = basicAnimationData.fromSecond  ; //must for every animation
  this.toSecond = basicAnimationData.toSecond ;//must for every animation
 //--------------------------------------------------------------------
- this.readOnlyElementData = readOnlyElementData;   
+ this.readOnlyElementAttrNames = readOnlyElementAttrNames;   
  this.argsForAlgo = argsForAlgo;
  this.fps =  60 ; // this has to be settled
  this.lastExecutionTime=0;
  this.store = {};
 }
 
-public animate(attributeToAnimateData:{},currentSecond:number,readOnlyElementData:{}={}):object[]{    
+public animate(attributeToAnimateData:any,currentSecond:number,readOnlyElementData:{}={}):object[]{    
 return [];
 }
 //===============================================  
