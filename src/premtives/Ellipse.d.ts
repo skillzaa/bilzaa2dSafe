@@ -3,4 +3,3 @@ export default class Ellipse extends BasePrimtive {
     constructor();
     draw(): void;
 }
-//# sourceMappingURL=Ellipse.d.ts.map

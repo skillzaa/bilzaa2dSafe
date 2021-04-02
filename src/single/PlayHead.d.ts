@@ -15,4 +15,3 @@ export default class PlayHead {
     forward(ms?: number): void;
     rewind(ms?: number): void;
 }
-//# sourceMappingURL=PlayHead.d.ts.map

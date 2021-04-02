@@ -10,4 +10,3 @@ export default class Bilzaa2d {
     play(): void;
     gameLoop(): void;
 }
-//# sourceMappingURL=bilzaa2d.d.ts.map

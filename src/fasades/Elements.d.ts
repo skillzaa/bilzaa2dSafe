@@ -15,4 +15,3 @@ export default class Elements {
     addTriangle(): Triangle;
     addSimpleRectangle(): any;
 }
-//# sourceMappingURL=Elements.d.ts.map

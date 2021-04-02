@@ -17,4 +17,3 @@ export default class Metal {
     rotateCanvas(attributes: any): void;
     drawEllipse(): void;
 }
-//# sourceMappingURL=Metal.d.ts.map

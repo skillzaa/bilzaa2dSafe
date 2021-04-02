@@ -11,4 +11,3 @@ export default class Animations {
     scale(fromSecond: any, toSecond: any, fromWidth: any, toWidth: any, fromHeight: any, toHeight: any): boolean;
     rotate(fromSecond: any, toSecond: any, from: any, to: any): boolean;
 }
-//# sourceMappingURL=Animations.d.ts.map

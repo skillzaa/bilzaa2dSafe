@@ -12,4 +12,3 @@ export default abstract class Animation implements IBaseAnimation {
     constructor(basicAnimationData: IbasicAnimationData, readOnlyElementAttrNames?: string[] | [], argsForAlgo?: {});
     animate(attributeToAnimateData: any, currentSecond: number, readOnlyElementData?: {}): string | number | boolean;
 }
-//# sourceMappingURL=Animation.d.ts.map

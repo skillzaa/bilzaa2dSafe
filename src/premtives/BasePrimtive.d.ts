@@ -12,4 +12,3 @@ export default class BasePrimtive implements IBasePrimtives {
     draw(): void;
     private clearCanvas;
 }
-//# sourceMappingURL=BasePrimtive.d.ts.map

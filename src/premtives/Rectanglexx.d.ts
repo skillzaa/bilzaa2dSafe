@@ -4,4 +4,3 @@ export default class Rectangle extends BasePrimtive {
     draw(): void;
     drawBorder(): void;
 }
-//# sourceMappingURL=Rectanglexx.d.ts.map

@@ -17,4 +17,3 @@ export default class ArrayOfObjects {
     setAllProperties(propertyName: string, newValue: string | number): void;
     getItemsByNames(argumentsRequired?: never[]): any[];
 }
-//# sourceMappingURL=ArrayOfObjects.d.ts.map
