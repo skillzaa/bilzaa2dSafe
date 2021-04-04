@@ -1,12 +1,13 @@
 export default class Animation {
-    constructor(basicAnimationData, readOnlyElementAttrNames = [], argsForAlgo = {}) {
-        //this.basicAnimationData = basicAnimationData;
-        this.attributeToAnimateName = basicAnimationData.attributeToAnimateName; //must 
-        this.fromSecond = basicAnimationData.fromSecond; //must for every animation
-        this.toSecond = basicAnimationData.toSecond; //must for every animation
+    constructor(aniData, argsForAlgo = {}) {
+        //this.aniData = aniData;
+        this.attributeToAnimateName = aniData.attributeToAnimateName; //must 
+        this.fromSecond = aniData.fromSecond; //must for every animation
+        this.toSecond = aniData.toSecond; //must for every animation
+        this.readOnlyElementAttrNames = aniData.readOnlyElementAttrNames;
         //--------------------------------------------------------------------
-        this.readOnlyElementAttrNames = readOnlyElementAttrNames;
         this.argsForAlgo = argsForAlgo;
+        //--------------------------------------------------------------------
         this.fps = 60; // this has to be settled
         this.lastExecutionTime = 0;
         this.store = {};

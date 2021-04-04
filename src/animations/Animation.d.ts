@@ -1,5 +1,5 @@
 import IBaseAnimation from "../interfaces/IBaseAnimation.js";
-import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
+import IaniData from "../interfaces/IaniData.js";
 export default abstract class Animation implements IBaseAnimation {
     attributeToAnimateName: string;
     fromSecond: number;
@@ -9,6 +9,6 @@ export default abstract class Animation implements IBaseAnimation {
     lastExecutionTime: number;
     store: {};
     fps: number;
-    constructor(basicAnimationData: IbasicAnimationData, readOnlyElementAttrNames?: string[] | [], argsForAlgo?: {});
+    constructor(aniData: IaniData, argsForAlgo?: {});
     animate(attributeToAnimateData: any, currentSecond: number, readOnlyElementData?: {}): string | number | boolean;
 }

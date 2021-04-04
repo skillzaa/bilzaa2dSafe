@@ -1,4 +1,4 @@
-import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
+import IbasicAnimationData from "./IaniData.js";
 
 export default interface IBaseAnimation {
 

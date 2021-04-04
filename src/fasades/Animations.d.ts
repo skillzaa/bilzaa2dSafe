@@ -1,13 +1,14 @@
-import IbasicAnimationData from "../interfaces/IbasicAnimationData.js";
+import Linear from "../animations/Linear.js";
+import IaniData from "../interfaces/IaniData.js";
 export default class Animations {
     data: object[] | [];
     constructor();
-    linear(basicAnimationData: IbasicAnimationData, dataFromElement?: never[], argsForAlgo?: {}): boolean;
+    linear(aniData: IaniData, argsForAlgo?: {}): boolean;
     moveHorizontal(fromSecond?: number, toSecond?: number, from?: number, to?: number): boolean;
     moveVerticle(fromSecond?: number, toSecond?: number, from?: number, to?: number): boolean;
     moveDiagonal(fromSecond?: number, toSecond?: number, from?: number, to?: number): boolean;
-    widen(fromSecond: any, toSecond: any, from: any, to: any): boolean;
-    heighten(fromSecond: any, toSecond: any, from: any, to: any): boolean;
-    scale(fromSecond: any, toSecond: any, fromWidth: any, toWidth: any, fromHeight: any, toHeight: any): boolean;
-    rotate(fromSecond: any, toSecond: any, from: any, to: any): boolean;
+    widen(fromSecond: number, toSecond: number, from: number, to: number): boolean;
+    heighten(fromSecond: number, toSecond: number, from: number, to: number): boolean;
+    scale(fromSecond: number, toSecond: number, fromWidth: number, toWidth: number, fromHeight: number, toHeight: number): boolean;
+    rotate(fromSecond: number, toSecond: number, from: number, to: number): Linear;
 }

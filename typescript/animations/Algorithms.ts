@@ -1,7 +1,7 @@
-import linear from "./linear.js";
-import randomNumber from "./randomNumber.js";
-import randomColor from "./randomColor.js";
-import blink from "./blink.js";
+import linear from "./Linear";
+// import randomNumber from "../algo/randomNumber.js";
+// import randomColor from "../algo/randomColor.js";
+// import blink from "../algo/blink.js";
 
 export default class Algorithms {
 constructor(){
@@ -13,13 +13,13 @@ getAlgo(name:string){
             return linear;  
             break;
         case "randomNumber":
-            return randomNumber;  
+         //   return randomNumber;  
             break;
         case "randomColor":
-            return randomColor;  
+         //   return randomColor;  
             break;
         case "toggle":
-            return blink;  
+         //   return blink;  
             break;
     
         default:

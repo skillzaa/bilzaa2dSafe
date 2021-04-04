@@ -2,8 +2,8 @@ import PlayHead from "./single/PlayHead.js";
 import Elements from './fasades/Elements.js';
 import Animations from './fasades/Animations.js';
 import Premades from './premade/Premades.js';
-/**This is from ubuntu......!!!!!! */
-export default class Bilzaa2d {
+/**This is from ubuntu......!!! */
+export default class Bilzaa2d  {
 private    playHead:PlayHead;
 public     premades:Premades;
 public    elements:Elements;

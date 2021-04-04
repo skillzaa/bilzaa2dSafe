@@ -2,7 +2,7 @@ import Metal from "../metal/Metal.js";
 import ArrayOfObjects from "../single/ArrayOfObjects.js";
 import Animations from "../fasades/Animations.js";
 import IBasePrimtives from "../interfaces/IBasePrimitive.js";
-
+    
 export default class BasePrimtive  implements IBasePrimtives{
 //attributes is instance of class AOO it itsself is not an array. it containssss an array of objects.
 public attributes:ArrayOfObjects; 
