@@ -1,4 +1,4 @@
-export default interface IbasicAnimationData {
+export default interface IaniData {
     attributeToAnimateName:string;
     readOnlyElementAttrNames:string[];
     fromSecond:number;
