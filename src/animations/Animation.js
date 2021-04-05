@@ -16,3 +16,4 @@ export default class Animation {
         return true;
     }
 }
+//# sourceMappingURL=Animation.js.map

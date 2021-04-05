@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES5",                    
+    "module": "commonjs",            
+    "declaration": true,                   
+    "declarationMap": false,                
+                         
+     "outDir": "testSrc/",                        
+     "rootDir": "./typescript",               
+    "exclude": ["**/typescript/interfaces/*"],
+    "strict": true                          
+  }
+}

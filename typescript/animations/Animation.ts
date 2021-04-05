@@ -6,7 +6,7 @@ export default abstract class Animation implements IBaseAnimation{
     
    // aniData:IaniData;
    attributeToAnimateName:string;
-   fromSecond:number;
+   fromSecond:number;   
    toSecond:number;
    readOnlyElementAttrNames:string[]|[];
     argsForAlgo : {};

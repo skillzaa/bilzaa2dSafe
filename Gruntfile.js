@@ -4,15 +4,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
 ///////////////////////////////////////////////////////////      
-      uglify: {
-        options: {
-          banner: ''
-        },
-        build: {
-          src: 'src/bilzaa2d.js',
-          dest: 'build/bilzaa2d.min.js'
-        }
-      },
 
       copy: {
         main: {
@@ -21,17 +12,21 @@ module.exports = function(grunt) {
           ],
         },
       },
-
-      clean: ['src' , 'build' , 'testsrc' , 'dist'],
-      cleanInter: ['src/interfaces'],
-
+      clean: {
+        inter: {
+          src: ['src/interfaces']
+        },
+        others:{
+          src : ['src' ,  'build' , 'testSrc' , 'dist']
+        }
+      },
       transpile: {
         main: {
           type: "cjs", // or  "cjs" "amd" or "yui"
           files: [{
             expand: true,
             cwd: 'src',
-            src: ['**/*.js'],
+            src: ['metal/Metal.js'],
             dest: 'testsrc/'
           }]
         }
@@ -47,5 +42,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     // Default task(s).
     grunt.registerTask('default', ['uglify']);
-  
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  grunt.registerTask("sleep",function(){
+    console.log("sleeping");
+  });
+  //grunt.registerTask("someName" , ["task1" , "task2"]);
+//---------------------------------------------------  
   };
+
+  

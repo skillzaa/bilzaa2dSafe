@@ -1,6 +1,6 @@
 /**i dont need attributes since now my code is DE_COUPLED it just get the required data and return data */
 //const attributes = require("./attributes.js")["default"];
-const Linear = require("../testsrc/animations/Linear.js")["default"];
+const Linear = require("../testSrc/Linear.js")["default"];
 
 
 //console.log("Linear",Linear);

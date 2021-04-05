@@ -1,0 +1,1 @@
+{"version":3,"file":"Triangle.js","sourceRoot":"","sources":["../../typescript/premtives/Triangle.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,mBAAmB,CAAC;AAE7C,MAAM,CAAC,OAAO,OAAO,QAAS,SAAQ,YAAY;IAChD;QACA,KAAK,CAAC,UAAU,CAAC,CAAC;IAClB,CAAC;IAEH,IAAI;QACJ,IAAI,CAAC,KAAK,CAAC,YAAY,CAAC,IAAI,CAAC,UAAU,CAAC,CAAC;IACzC,CAAC;CAKA"}
