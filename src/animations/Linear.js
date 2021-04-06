@@ -47,3 +47,4 @@ export default class Linear extends Animation {
         return Number(currentTimeDifference);
     }
 }
+//# sourceMappingURL=Linear.js.map
