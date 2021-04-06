@@ -114,4 +114,3 @@ export default class Metal {
         this.ctx.ellipse(100, 100, 50, 75, 45 * Math.PI / 180, 0, 2 * Math.PI);
     }
 }
-//# sourceMappingURL=Metal.js.map

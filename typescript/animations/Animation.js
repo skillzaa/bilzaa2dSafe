@@ -1,5 +1,8 @@
-export default class Animation {
-    constructor(aniData, argsForAlgo = {}) {
+"use strict";
+exports.__esModule = true;
+var Animation = /** @class */ (function () {
+    function Animation(aniData, argsForAlgo) {
+        if (argsForAlgo === void 0) { argsForAlgo = {}; }
         //this.aniData = aniData;
         this.attributeToAnimateName = aniData.attributeToAnimateName; //must 
         this.fromSecond = aniData.fromSecond; //must for every animation
@@ -12,7 +15,10 @@ export default class Animation {
         this.lastExecutionTime = 0;
         this.store = {};
     }
-    animate(attributeToAnimateData, currentSecond, readOnlyElementData = {}) {
+    Animation.prototype.animate = function (attributeToAnimateData, currentSecond, readOnlyElementData) {
+        if (readOnlyElementData === void 0) { readOnlyElementData = {}; }
         return true;
-    }
-}
+    };
+    return Animation;
+}());
+exports["default"] = Animation;

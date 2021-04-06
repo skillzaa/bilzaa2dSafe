@@ -1,10 +1,13 @@
-import Metal from "../metal/Metal.js";
-import ArrayOfObjects from "../single/ArrayOfObjects.js";
-import Animations from "../fasades/Animations.js";
-export default class BasePrimtive {
-    constructor(name = "Element") {
+"use strict";
+exports.__esModule = true;
+var Metal_js_1 = require("../metal/Metal.js");
+var ArrayOfObjects_js_1 = require("../single/ArrayOfObjects.js");
+var Animations_js_1 = require("../fasades/Animations.js");
+var BasePrimtive = /** @class */ (function () {
+    function BasePrimtive(name) {
+        if (name === void 0) { name = "Element"; }
         //=============================attributes
-        this.attributes = new ArrayOfObjects();
+        this.attributes = new ArrayOfObjects_js_1["default"]();
         //--The name--
         this.attributes.add({ name: "name", value: 0 });
         //--x,y,width,height--
@@ -42,16 +45,17 @@ export default class BasePrimtive {
         this.attributes.add({ name: "titleFontFamily", value: "Arial" });
         this.attributes.add({ name: "titleOpacity", value: 1 });
         //====Animations=============
-        this.animations = new Animations();
+        this.animations = new Animations_js_1["default"]();
         //==================================
         this.clearCanvasFlag = false; //first element of the frame has to clean
-        this.metal = new Metal();
+        this.metal = new Metal_js_1["default"]();
         //--get attrib data into attribute object
     }
-    setNextFrame(currentSecond) {
+    BasePrimtive.prototype.setNextFrame = function (currentSecond) {
+        var _this = this;
         this.clearCanvas();
         //==================LLLLLOOOOPPPPP======================== 
-        this.animations.data.forEach(animation => {
+        this.animations.data.forEach(function (animation) {
             //----STEP 1 -- GET DATA FROM ATTRIBUTES COLLECTION
             //filter out not relavant seq here
             if ((currentSecond >= animation.fromSecond)
@@ -59,24 +63,25 @@ export default class BasePrimtive {
                     (currentSecond <= animation.toSecond)) {
                 //----STEP 2 -- GET DATA FROM ATTRIBUTES COLLECTION
                 //---get item by name since its one item --a string
-                const attributeToAnimateValue = this.attributes.getItem(animation.attributeToAnimateName).value;
-                const readOnlyElementData = this.attributes.getItemsByNames(animation.readOnlyElementAttrNames);
+                var attributeToAnimateValue = _this.attributes.getItem(animation.attributeToAnimateName).value;
+                var readOnlyElementData = _this.attributes.getItemsByNames(animation.readOnlyElementAttrNames);
                 //----STEP 3 -- Animate the data
-                const retValue = animation.animate(attributeToAnimateValue, currentSecond, readOnlyElementData);
+                var retValue = animation.animate(attributeToAnimateValue, currentSecond, readOnlyElementData);
                 //----STEP 4 -- SAVE ATTRIBUTES
-                this.attributes.setProperty(animation.attributeToAnimateName, retValue); //retData is aoo
+                _this.attributes.setProperty(animation.attributeToAnimateName, retValue); //retData is aoo
             } /////--filter no relevant animations
             //========================================== 
         });
         return true;
-    }
-    draw() {
-    }
-    clearCanvas() {
+    };
+    BasePrimtive.prototype.draw = function () {
+    };
+    BasePrimtive.prototype.clearCanvas = function () {
         if (this.clearCanvasFlag === true) {
             this.metal.clearCanvas();
             this.clearCanvasFlag === false; //shd this be here?
         }
-    }
-}
-//# sourceMappingURL=BasePrimtive.js.map
+    };
+    return BasePrimtive;
+}());
+exports["default"] = BasePrimtive;

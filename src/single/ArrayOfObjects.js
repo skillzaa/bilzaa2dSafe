@@ -99,4 +99,3 @@ export default class ArrayOfObjects {
         return ret;
     }
 }
-//# sourceMappingURL=ArrayOfObjects.js.map

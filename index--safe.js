@@ -13,12 +13,6 @@ a.attributes.setProperty("titleColor" , "red");
 a.attributes.setProperty("titleFontSize" , 100);
 a.attributes.setProperty("titleOpacity" , 0);
 
-//=============================================================
-const p = bilzaa2d.primtives.addRectangle();
-p.attributes.setProperty("x",250);
-p.attributes.setProperty("backgroundColor","red");
-p.draw();
-//console.log(p);
 //--------------------ANIMATIONS
 //a.animations.moveHorizontal(1,4,10,400);
 // a.animations.moveVerticle(4,8,0,200);
@@ -50,5 +44,5 @@ document.getElementById("play").addEventListener("click",()=>{
 window.onload = ()=>{
    
 }
-//const ret = bilzaa2d.play();
+const ret = bilzaa2d.play();
 //console.log(ret);

@@ -1,46 +1,50 @@
-import Rectangle from '../premtives/Rectangle.js';
-import Circle from '../premtives/Circle.js';
-import Ellipse from '../premtives/Ellipse.js';
-import Triangle from '../premtives/Triangle.js';
-import Text from '../premtives/Text.js';
-import Complex from '../premtives/Complex.js';
-export default class Elements {
-    constructor() {
+"use strict";
+exports.__esModule = true;
+var Rectangle_js_1 = require("../premtives/Rectangle.js");
+var Circle_js_1 = require("../premtives/Circle.js");
+var Ellipse_js_1 = require("../premtives/Ellipse.js");
+var Triangle_js_1 = require("../premtives/Triangle.js");
+var Text_js_1 = require("../premtives/Text.js");
+var Complex_js_1 = require("../premtives/Complex.js");
+var Elements = /** @class */ (function () {
+    function Elements() {
         this.shapes = [];
     }
-    addRectangle() {
-        const rectangle = new Rectangle();
+    Elements.prototype.addRectangle = function () {
+        var rectangle = new Rectangle_js_1["default"]();
         this.shapes.push(rectangle);
         return rectangle;
-    }
-    addComplex() {
-        const complex = new Complex();
+    };
+    Elements.prototype.addComplex = function () {
+        var complex = new Complex_js_1["default"]();
         this.shapes.push(complex);
         return complex;
-    }
-    addCircle() {
-        const circle = new Circle();
+    };
+    Elements.prototype.addCircle = function () {
+        var circle = new Circle_js_1["default"]();
         this.shapes.push(circle);
         return circle;
-    }
-    addEllipse() {
-        const ellipse = new Ellipse();
+    };
+    Elements.prototype.addEllipse = function () {
+        var ellipse = new Ellipse_js_1["default"]();
         this.shapes.push(ellipse);
         return ellipse;
-    }
-    addText() {
-        const text = new Text();
+    };
+    Elements.prototype.addText = function () {
+        var text = new Text_js_1["default"]();
         this.shapes.push(text);
         return text;
-    }
-    addTriangle() {
-        const triangle = new Triangle();
+    };
+    Elements.prototype.addTriangle = function () {
+        var triangle = new Triangle_js_1["default"]();
         this.shapes.push(triangle);
         return triangle;
-    }
-    addSimpleRectangle() {
-        const simpleRectangle = new SimpleRectangle();
+    };
+    Elements.prototype.addSimpleRectangle = function () {
+        var simpleRectangle = new SimpleRectangle();
         this.shapes.push(simpleRectangle);
         return simpleRectangle;
-    }
-}
+    };
+    return Elements;
+}());
+exports["default"] = Elements;

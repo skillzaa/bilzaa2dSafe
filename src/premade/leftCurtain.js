@@ -33,4 +33,3 @@ const ifDefined = function (args, item, alternative) {
     }
 };
 export default leftCurtain;
-//# sourceMappingURL=leftCurtain.js.map

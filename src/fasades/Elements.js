@@ -1,9 +1,9 @@
-import Rectangle from '../premtives/Rectangle.js';
-import Circle from '../premtives/Circle.js';
-import Ellipse from '../premtives/Ellipse.js';
-import Triangle from '../premtives/Triangle.js';
-import Text from '../premtives/Text.js';
-import Complex from '../premtives/Complex.js';
+import Rectangle from '../primtives/Rectangle.js';
+import Circle from '../primtives/Circle.js';
+import Ellipse from '../primtives/Ellipse.js';
+import Triangle from '../primtives/Triangle.js';
+import Text from '../primtives/Text.js';
+import Complex from '../primtives/Complex.js';
 export default class Elements {
     constructor() {
         this.shapes = [];
@@ -44,4 +44,3 @@ export default class Elements {
         return simpleRectangle;
     }
 }
-//# sourceMappingURL=Elements.js.map

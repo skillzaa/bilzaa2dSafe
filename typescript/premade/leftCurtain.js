@@ -1,6 +1,9 @@
-const leftCurtain = function (element, args = {}) {
-    const local = {};
-    const left = element.addSimpleRectangle();
+"use strict";
+exports.__esModule = true;
+var leftCurtain = function (element, args) {
+    if (args === void 0) { args = {}; }
+    var local = {};
+    var left = element.addSimpleRectangle();
     local.fillStyle = ifDefined(args, "fillStyle", "#3c544b");
     ;
     left.attributes.setSingleValue("fillStyle", local.fillStyle);
@@ -24,7 +27,7 @@ const leftCurtain = function (element, args = {}) {
     return element;
 };
 //----------------------- 
-const ifDefined = function (args, item, alternative) {
+var ifDefined = function (args, item, alternative) {
     if (args.hasOwnProperty(item)) {
         return args[item];
     }
@@ -32,4 +35,4 @@ const ifDefined = function (args, item, alternative) {
         return alternative;
     }
 };
-export default leftCurtain;
+exports["default"] = leftCurtain;

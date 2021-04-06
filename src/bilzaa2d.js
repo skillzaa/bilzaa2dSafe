@@ -1,6 +1,7 @@
 import PlayHead from "./single/PlayHead.js";
 import Elements from './fasades/Elements.js';
 import Animations from './fasades/Animations.js';
+import Primtives from './fasades/Primtives.js';
 import Premades from './premade/Premades.js';
 /**This is from ubuntu......!!! */
 export default class Bilzaa2d {
@@ -8,6 +9,7 @@ export default class Bilzaa2d {
         this.premades = new Premades();
         this.playHead = new PlayHead();
         this.elements = new Elements();
+        this.primtives = new Primtives();
         this.animations = new Animations();
     }
     play() {
@@ -33,4 +35,3 @@ export default class Bilzaa2d {
         window.requestAnimationFrame(this.gameLoop.bind(this));
     } //play
 } //class
-//# sourceMappingURL=bilzaa2d.js.map

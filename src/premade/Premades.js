@@ -13,4 +13,3 @@ export default class Premades {
         return element;
     }
 }
-//# sourceMappingURL=Premades.js.map

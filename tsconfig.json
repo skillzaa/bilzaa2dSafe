@@ -1,13 +1,18 @@
-"compilerOptions": {
-  "rootDir": "typescript",
-  "outDir": "src",
-  "target": "es2019",
-  "lib": [
-    "es2019"
-  ],
-  "module": "",
-  "esModuleInterop": true,
-  "strict": true,
-  "declaration": true,
-  "sourceMap": true
+{
+  "compilerOptions": {
+    
+    "target": "ES2016",   
+    "module": "es2020",            
+             
+     "declaration": true,                   
+     "declarationMap": false,                
+     "outDir": "src/",                        
+     "rootDir": "./typescript",                     
+    "exclude": ["**/typescript/interfaces/*"],
+    "strict": true,                          
+    
+    "esModuleInterop": true,                 
+    "skipLibCheck": true,                    
+  
+  }
 }
