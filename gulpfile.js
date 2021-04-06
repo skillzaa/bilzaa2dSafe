@@ -1,18 +1,20 @@
 var gulp = require('gulp');
-//var browserify = require('browserify');
-var babelify = require('babelify');
-var source = require('vinyl-source-stream');
+var babel = require('gulp-babel'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
+    rename = require('gulp-rename'),
+    uglify = require('gulp-uglify'),
+    del = require('del');
 
-gulp.task('build', function () {
-  browserify({
-    entries: 'index.js',
-    extensions: ['.js'],
-    debug: true
-  })
-  .transform(babelify)
-  .bundle()
-  .pipe(source('bundle.js'))
-  .pipe(gulp.dest('dist'));
+gulp.task('clean', function(){
+  return del(['dest']);
 });
 
-gulp.task('default', ['build']);
+gulp.task('cjs',['clean'], function(){
+  return gulp.src(['src/*.js','src/**/*.js'])
+   // .pipe(babel())
+    .pipe(gulp.dest('dest/'));
+});
+
+gulp.task('default', ['cjs']);

@@ -32,6 +32,8 @@ module.exports = function(grunt) {
         }
       },
     
+
+      
 ////////////////////////////////////////////////////////////////////////
     });
   
@@ -40,6 +42,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-es6-module-transpiler');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-transform-amd');
     // Default task(s).
     grunt.registerTask('default', ['uglify']);
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
