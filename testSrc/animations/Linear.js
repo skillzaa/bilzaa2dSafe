@@ -1,5 +1,10 @@
-import Animation from "./Animation.js";
-export default class Linear extends Animation {
+//import Animation from "./Animation.js";
+const Animation = require('./Animation');
+/**
+ * This object takes in current seconds as 2 decimal number (eg 3.45) and then return the vlaue of the number sent in.
+ */
+//export default class Linear extends Animation {
+    module.exports =  class Linear extends Animation {    
     constructor(aniData, argsForAlgo = {}) {
         super(aniData, argsForAlgo);
     }

@@ -1,5 +1,7 @@
 import Animation from "./Animation.js";
+
 export default class Linear extends Animation {
+    
     constructor(aniData, argsForAlgo = {}) {
         super(aniData, argsForAlgo);
     }

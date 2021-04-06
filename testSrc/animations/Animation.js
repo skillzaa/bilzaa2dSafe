@@ -1,4 +1,4 @@
-export default class Animation {
+module.exports = class Animation {
     constructor(aniData, argsForAlgo = {}) {
         //this.aniData = aniData;
         this.attributeToAnimateName = aniData.attributeToAnimateName; //must 
