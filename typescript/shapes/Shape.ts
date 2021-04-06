@@ -3,7 +3,7 @@ import ArrayOfObjects from "../single/ArrayOfObjects.js";
 import Animations from "../fasades/Animations.js";
 import IBasePrimtives from "../interfaces/IBasePrimitive.js";
     
-export default class Primtive  implements IBasePrimtives{
+export default class Shape  implements IBasePrimtives{
 //attributes is instance of class AOO it itsself is not an array. it containssss an array of objects.
 public attributes:ArrayOfObjects; 
 //public name:string;
@@ -25,7 +25,6 @@ this.attributes.add({ name: "width", value: 100 });
 this.attributes.add({ name: "height", value: 50 });
 
 
-this.attributes.add({ name: "transparent", value: false });
 this.attributes.add({ name: "dashSize", value: 5 });
 this.attributes.add({ name: "gapBetweenDashes", value: 1 });
 
@@ -36,7 +35,7 @@ this.attributes.add({ name: "rotateAngle", value: 0});
 this.attributes.add({ name: "rps", value: 10, comments: "rotation persec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" });
 //--colors--
 this.attributes.add({ name: "backgroundColor", value: "green" });
-this.attributes.add({ name: "opacity", value: 1 });
+this.attributes.add({ name: "opacity", value: 1 });//----------???? transparency
 this.attributes.add({ name: "strokeStyle", value: "#F0000" });
 //--shadows--
 this.attributes.add({ name: "shadowColor", value: "grey" });
@@ -54,7 +53,6 @@ this.attributes.add({ name: "titleOpacity", value: 1 });
 this.animations = new Animations();
 
 //==================================
-this.clearCanvasFlag = false; //first element of the frame has to clean
 this.metal = new Metal();   
 //--get attrib data into attribute object
  
@@ -62,7 +60,7 @@ this.metal = new Metal();
 
 
 public setNextFrame(currentSecond:number){
-this.clearCanvas();   
+   
 //==================LLLLLOOOOPPPPP======================== 
 this.animations.data.forEach(animation => {
     //----STEP 1 -- GET DATA FROM ATTRIBUTES COLLECTION
@@ -90,11 +88,14 @@ draw(){
    
 }
 
-private clearCanvas(){
-    if (this.clearCanvasFlag === true){
-        this.metal.clearCanvas(); 
-        this.clearCanvasFlag === false; //shd this be here?
-    }    
+
+setAttr(attrName:string,attrValue:string|number|boolean){
+return this.attributes.setProperty(attrName , attrValue);
 }
+
+getAttr(attrName:string){
+    return this.attributes.getProperty(attrName);
+    }
+    
 //////////////////////////classsss-----------------
 }

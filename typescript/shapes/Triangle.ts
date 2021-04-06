@@ -1,6 +1,6 @@
-import BasePrimtive from "./BasePrimtive.js";
+import Shape from "./Shape.js";
 
-export default class Triangle extends BasePrimtive {
+export default class Triangle extends Shape {
   constructor() {     
   super("triangle");
   } 

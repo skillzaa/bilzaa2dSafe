@@ -1,6 +1,6 @@
-import BasePrimtive from "./BasePrimtive.js";
+import Shape from "./Shape.js";
 
-export default class Text extends BasePrimtive {
+export default class Text extends Shape {
   constructor() {      
     super("text");
     this.attributes.add({name: "title", value: "Text" });

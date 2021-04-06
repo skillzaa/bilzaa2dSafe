@@ -1,6 +1,6 @@
-import Primtive from "./Primtive.js";
+import Shape from "./Shape.js";
 
-export default class Rectangle extends Primtive {
+export default class Rectangle extends Shape {
   constructor() {   
   
     super("rectangle");

@@ -60,7 +60,7 @@ for (let idx = 0; idx < this.data.length; idx++) {
 }
 return false;    
 }
-setProperty(name:string,value:string|number,propertyName = "value"){
+setProperty(name:string,value:string|number|boolean,propertyName = "value"){
     for (let idx = 0; idx < this.data.length; idx++) {
         if(this.data[idx].name === name){
                 this.data[idx][propertyName] = value;

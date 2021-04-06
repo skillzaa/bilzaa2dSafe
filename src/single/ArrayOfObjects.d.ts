@@ -11,7 +11,7 @@ export default class ArrayOfObjects {
     get length(): number;
     getItem(name: string): {};
     getProperty(name: string, value?: string): any;
-    setProperty(name: string, value: string | number, propertyName?: string): {};
+    setProperty(name: string, value: string | number | boolean, propertyName?: string): {};
     getAllByNames(argumentsRequired?: never[]): any[];
     insertPropertiesFromArray(retData: any): boolean;
     setAllProperties(propertyName: string, newValue: string | number): void;
