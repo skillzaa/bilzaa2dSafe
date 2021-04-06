@@ -25,19 +25,21 @@ p.attributes.setProperty("title" , "red");
 p.attributes.setProperty("titleFontSize" , 100);
 p.attributes.setProperty("titleOpacity" , 1);
 
-
+p.animations.widen(1,4,10,600);
 //console.log(p);
 //--------------------------------------
  const t = bilzaa2d.shapes.addTriangle();
 t.setAttr("y",200);
 t.setAttr("title","Triangle");
- 
+t.animations.widen(1,4,10,600);
+
 const o = bilzaa2d.shapes.addCircle();
 o.setAttr("x",300);
 o.setAttr("title","Circle");  
+o.animations.widen(1,4,10,600);
 
 const txt = bilzaa2d.shapes.addText();
-
+txt.animations.widen(1,4,10,600)
 //bilzaa2d.drawShapes();
 //--------------------ANIMATIONS
 //a.animations.moveHorizontal(1,4,10,400);

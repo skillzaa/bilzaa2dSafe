@@ -71,7 +71,8 @@ drawRectangle(attributes){
 
 drawCircle(attributes){
 this.ctx.beginPath();
-this.ctx.arc(attributes.getProperty("x"),attributes.getProperty("y"), attributes.getProperty("radius"), 0, 2 * Math.PI);
+/**am using width /2 here instead of radius since widen will work */
+this.ctx.arc(attributes.getProperty("x"),attributes.getProperty("y"), attributes.getProperty("width")/2, 0, 2 * Math.PI);
 this.ctx.stroke();
 }
 drawTriangle(attributes){
