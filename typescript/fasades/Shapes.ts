@@ -1,9 +1,14 @@
+import Shape from '../shapes/Shape.js';
 import Rectangle from '../shapes/Rectangle.js';
 import Triangle from '../shapes/Triangle.js';
 import Circle from '../shapes/Circle.js';
 import Text from '../shapes/Text.js';
+import Canvas from '../shapes/Canvas.js';
+
 
 export default class Shapes {
+
+    data:Shape[];
     constructor() {
         this.data = [];
     }
@@ -11,6 +16,11 @@ export default class Shapes {
        const rectangle = new Rectangle();
         this.data.push(rectangle);
         return rectangle;
+    }
+    addCanvas() {
+       const canvas = new Canvas();
+        this.data.push(canvas);
+        return canvas;
     }
     addTriangle() {
         const triangle = new Triangle();
