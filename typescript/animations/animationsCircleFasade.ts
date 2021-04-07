@@ -7,11 +7,14 @@ constructor(){
     super();
 }
 
-widen(fromSecond:number,toSecond:number,from:number,to:number){
-    const l = new Linear(
-        {attributeToAnimateName: "radius",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:from, to:to});
-    this.data.push(l);    
+scale(fromSecond:number,toSecond:number,fromRadius:number,toRadius:number){
+    const w = new Linear(
+        {attributeToAnimateName: "radius",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:fromRadius, to:toRadius});
+    this.data.push(w);    
     return true;    
+}
+rotate(){
+    
 }
 ////888888888888888888888888888888888888888888888888    
 ////888888888888888888888888888888888888888888888888    

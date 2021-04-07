@@ -42,23 +42,19 @@ moveDiagonal(fromSecond=1,toSecond=5,fromX=1,toX=100,fromY=1,toY=100){
 //         {attributeToAnimateName: "opacity",fromSecond:fromSecond, toSecond:toSecond},[],{from:0, to:1});
 //     this.data.push(l);       
 // }
-disAappear(fromSecond=1,toSecond=5){
-    const l = new Linear(
-        {attributeToAnimateName: "opacity",fromSecond:fromSecond, toSecond:toSecond},[],{from:1, to:0});
-    this.data.push(l);       
-}
-widen(fromSecond:number,toSecond:number,from:number,to:number){
-    const l = new Linear(
-        {attributeToAnimateName: "width",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:from, to:to});
-    this.data.push(l);    
-    return true;    
-}
-heighten(fromSecond:number,toSecond:number,from:number,to:number){
-    const l = new Linear(
-        {attributeToAnimateName: "height",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:from, to:to});
-    this.data.push(l);    
-    return true;    
-}
+// //}
+// widen(fromSecond:number,toSecond:number,from:number,to:number){
+//     const l = new Linear(
+//         {attributeToAnimateName: "width",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:from, to:to});
+//     this.data.push(l);    
+//     return true;    
+// }
+// heighten(fromSecond:number,toSecond:number,from:number,to:number){
+//     const l = new Linear(
+//         {attributeToAnimateName: "height",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:from, to:to});
+//     this.data.push(l);    
+//     return true;    
+// }
 scale(fromSecond:number,toSecond:number,fromWidth:number,toWidth:number,fromHeight:number,toHeight:number){
     const w = new Linear(
         {attributeToAnimateName: "width",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:fromWidth, to:toWidth});

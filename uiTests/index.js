@@ -1,4 +1,4 @@
-import Bilzaa2d from "./src/bilzaa2d.js";
+import Bilzaa2d from "./src/bilzaa2d.js.js";
 
 
 const bilzaa2d = new Bilzaa2d();

@@ -3,14 +3,53 @@ import Bilzaa2d from './src/bilzaa2d.js';
 const bilzaa2d = new Bilzaa2d();
 
 const canvas = bilzaa2d.shapes.addCanvas();
-const rec  = bilzaa2d.shapes.addRectangle();
+
+const rect  = bilzaa2d.shapes.addRectangle();
+ rect.setAttr("x",10);
+rect.setAttr("y",10);
+rect.setAttr("width",100);
+rect.setAttr("height",100);
+//////////////////////////////////////////
+rect.animations.moveHorizontal(1,3,10,500);
+rect.animations.scale(4,6,10,700,10,300);
+//rect.animations.moveVerticle(11,13,10,300);
+//rect.animations.moveDiagonal();
+
+rect.animations.rotate(7,10,10,200);
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 const tri  = bilzaa2d.shapes.addTriangle();
-tri.setAttr("width",200);
-const txt  = bilzaa2d.shapes.addText();
+ tri.setAttr("x",10);
+tri.setAttr("y",200);
+tri.setAttr("width",100);
+tri.setAttr("height",100);
+tri.setAttr("color","red");
+//////////////////////////////////////////
+tri.animations.moveHorizontal(1,3,10,500);
+tri.animations.scale(4,6,100,200,100,200);
+//tri.animations.moveVerticle(11,13,10,300);
+//tri.animations.moveDiagonal();
+
+tri.animations.rotate(7,10,10,200);
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 const cir  = bilzaa2d.shapes.addCircle();
+ cir.setAttr("x",10);
+cir.setAttr("y",400);
+cir.setAttr("radius",100);
+
+cir.setAttr("color","blue");
+//////////////////////////////////////////
+cir.animations.moveHorizontal(1,3,10,500);
+cir.animations.scale(4,6,100,200);
+//cir.animations.moveVerticle(11,13,10,300);
+//cir.animations.moveDiagonal();
+
+//cir.animations.rotate(7,10,10,200);
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 
 
-txt.animations.widen(1,4,10,100);
-cir.animations.widen(1,4,10,100);
 bilzaa2d.play();
 console.log(bilzaa2d);

@@ -78,7 +78,7 @@ this.ctx.stroke();
 drawTriangle(attributes){
 this.ctx.save();  
   
-  this.ctx.fillStyle = attributes.getProperty("backgroundColor");
+  this.ctx.fillStyle = attributes.getProperty("color");
   this.ctx.beginPath();
   this.ctx.moveTo(attributes.getProperty("x"),attributes.getProperty("y")+attributes.getProperty("height"));
   this.ctx.lineTo(attributes.getProperty("x")+attributes.getProperty("width"),attributes.getProperty("y")+attributes.getProperty("height"));
@@ -108,7 +108,7 @@ this.ctx.restore();
 drawText(attributes){
 this.ctx.save();  
 
-this.ctx.fillStyle = attributes.getProperty("backgroundColor");
+this.ctx.fillStyle = attributes.getProperty("color");
 //this.ctx.font = attributes.getProperty("font");
 this.ctx.font = `${attributes.getProperty("fontSize")}px ${attributes.getProperty("fontFamily")}`;
 
@@ -120,8 +120,8 @@ this.ctx.restore();
  getCtxValues(attributes){
 
 //fillstyle is for internal use dont show it to users
-  this.ctx.fillStyle = attributes.getItem("backgroundColor").value;
-  this.ctx.strokeStyle = attributes.getItem("strokeStyle").value;
+  this.ctx.fillStyle = attributes.getItem("color").value;
+  this.ctx.strokeStyle = attributes.getItem("strokeColor").value;
   this.ctx.shadowColor = attributes.getItem("shadowColor").value;
   this.ctx.shadowBlur = attributes.getItem("shadowBlur").value;
   this.ctx.shadowOffsetX = attributes.getItem("shadowOffsetX").value;
