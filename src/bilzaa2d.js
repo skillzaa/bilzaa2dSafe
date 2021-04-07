@@ -17,20 +17,28 @@ export default class Bilzaa2d {
         //   } 
     } //play
     gameLoop() {
-        if (this.shapes.data.length < 1) {
-            return;
+        try {
+            if (this.shapes.data.length < 1) {
+                return;
+            }
+            //first element of the frame being drawn has to clear the canvas    
+            this.shapes.data[0].clearCanvasFlag = true;
+            //----------the main loop
+            this.shapes.data.forEach(item => {
+                const curSec = this.playHead.runningTime();
+                item.preUpdate();
+                item.update(curSec);
+                item.postUpdate();
+                item.preDraw();
+                item.draw();
+                item.postDraw();
+            });
+            window.requestAnimationFrame(this.gameLoop.bind(this));
         }
-        //first element of the frame being drawn has to clear the canvas    
-        this.shapes.data[0].clearCanvasFlag = true;
-        //----------the main loop
-        this.shapes.data.forEach(item => {
-            const curSec = this.playHead.runningTime();
-            item.update(curSec);
-            item.preDraw();
-            item.draw();
-            item.postDraw();
-        });
-        window.requestAnimationFrame(this.gameLoop.bind(this));
+        catch (err) {
+            window.requestAnimationFrame(this.gameLoop.bind(this));
+            return true;
+        }
     } //play
     drawShapes() {
         //----------the main loop

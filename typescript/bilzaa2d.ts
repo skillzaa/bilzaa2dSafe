@@ -24,18 +24,28 @@ play(){ // this method has the main try catch block
 }//play
 
 gameLoop(){    
+try{  
 if (this.shapes.data.length < 1) {return;}    
 //first element of the frame being drawn has to clear the canvas    
  this.shapes.data[0].clearCanvasFlag = true;
 //----------the main loop
 this.shapes.data.forEach(item => {
     const curSec = this.playHead.runningTime();
+            
+            item.preUpdate();
             item.update(curSec);
+            item.postUpdate();
+            
+            
             item.preDraw();
             item.draw();
             item.postDraw();
         });
 window.requestAnimationFrame(this.gameLoop.bind(this));  
+    }catch (err){
+        window.requestAnimationFrame(this.gameLoop.bind(this));  
+        return true;
+    }
 }//play
 
 drawShapes(){    

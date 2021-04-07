@@ -16,14 +16,14 @@ linear(aniData:IaniData, argsForAlgo={}){
 // //---------------------------------
 moveHorizontal(fromSecond=1,toSecond=5,fromX=1,toX=100){
     const l = new Linear(
-        {attributeToAnimateName: "x",fromSecond:fromSecond, toSecond:toSecond, readOnlyElementAttrNames:[]},{from:from, to:to});
+        {attributeToAnimateName: "x",fromSecond:fromSecond, toSecond:toSecond, readOnlyElementAttrNames:[]},{from:fromX, to:toX});
     this.data.push(l);    
     return true;
 }
 // //---------------------------------
 moveVerticle(fromSecond=1,toSecond=5,fromY=1,toY=100){
     const l = new Linear(
-        {attributeToAnimateName: "y",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:from, to:to});
+        {attributeToAnimateName: "y",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:fromY, to:toY});
     this.data.push(l);    
     return true;    
 }

@@ -7,6 +7,6 @@ export default class Bilzaa2d {
     shapes: Shapes;
     constructor();
     play(): void;
-    gameLoop(): void;
+    gameLoop(): true | undefined;
     drawShapes(): void;
 }

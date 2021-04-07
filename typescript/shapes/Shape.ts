@@ -57,7 +57,8 @@ this.metal = new Metal();
 //--get attrib data into attribute object
  
 }
-
+preUpdate(){}
+postUpdate(){}
 
 public update(currentSecond:number){
    
