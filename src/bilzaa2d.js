@@ -1,5 +1,4 @@
 import PlayHead from "./single/PlayHead.js";
-import Animations from './fasades/Animations.js';
 import Shapes from './fasades/Shapes.js';
 import Premades from './premade/Premades.js';
 /**This is from ubuntu......!!! */
@@ -8,7 +7,6 @@ export default class Bilzaa2d {
         this.premades = new Premades();
         this.playHead = new PlayHead();
         this.shapes = new Shapes();
-        this.animations = new Animations();
     }
     play() {
         // try{   
@@ -27,8 +25,10 @@ export default class Bilzaa2d {
         //----------the main loop
         this.shapes.data.forEach(item => {
             const curSec = this.playHead.runningTime();
-            item.setNextFrame(curSec);
+            item.update(curSec);
+            item.preDraw();
             item.draw();
+            item.postDraw();
         });
         window.requestAnimationFrame(this.gameLoop.bind(this));
     } //play

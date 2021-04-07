@@ -1,8 +1,8 @@
-import Animation from "../animations/Animation.js"; 
-import Linear from "../animations/Linear.js";
+import Animation from "./Animation.js"; 
+import Linear from "./Linear.js";
 import IaniData from "../interfaces/IaniData.js";
 
-export default class Animations{ 
+export default class AnimationsFasade{ 
 data:object[]|[];       
 constructor(){
 this.data=[];

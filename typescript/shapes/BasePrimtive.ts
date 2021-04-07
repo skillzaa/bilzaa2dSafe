@@ -1,6 +1,6 @@
 import Metal from "../metal/Metal.js";
 import ArrayOfObjects from "../single/ArrayOfObjects.js";
-import Animations from "../fasades/Animations.js";
+import Animations from "../animations/AnimationsFasade.js";
 import IBasePrimtives from "../interfaces/IBasePrimitive.js";
     
 export default class BasePrimtive  implements IBasePrimtives{

@@ -1,13 +1,13 @@
 import Metal from "../metal/Metal.js";
 import ArrayOfObjects from "../single/ArrayOfObjects.js";
-import Animations from "../fasades/Animations.js";
+import AnimationsFasade from "../animations/AnimationsFasade.js";
 import IBasePrimtives from "../interfaces/IBasePrimitive.js";
     
 export default class Shape  implements IBasePrimtives{
 //attributes is instance of class AOO it itsself is not an array. it containssss an array of objects.
 public attributes:ArrayOfObjects; 
 //public name:string;
-protected animations:Animations; 
+protected animations:AnimationsFasade; 
 protected metal:Metal;
 public clearCanvasFlag:boolean;
 
@@ -50,7 +50,7 @@ this.attributes.add({ name: "titleFontFamily", value: "Arial" });
 this.attributes.add({ name: "titleOpacity", value: 1 });  
 
 //====Animations=============
-this.animations = new Animations();
+this.animations = new AnimationsFasade();
 
 //==================================
 this.metal = new Metal();   
@@ -59,7 +59,7 @@ this.metal = new Metal();
 }
 
 
-public setNextFrame(currentSecond:number){
+public update(currentSecond:number){
    
 //==================LLLLLOOOOPPPPP======================== 
 this.animations.data.forEach(animation => {
@@ -84,7 +84,13 @@ this.animations.data.forEach(animation => {
     });
 return true;    
 }
+preDraw(){
+   
+}
 draw(){
+   
+}
+postDraw(){
    
 }
 

@@ -25,6 +25,7 @@ p.attributes.setProperty("title" , "red");
 p.attributes.setProperty("titleFontSize" , 100);
 p.attributes.setProperty("titleOpacity" , 1);
 
+p.animations.heighten(1,4,10,300);
 p.animations.widen(1,4,10,600);
 //console.log(p);
 //--------------------------------------
