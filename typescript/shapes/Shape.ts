@@ -42,12 +42,7 @@ this.attributes.add({ name: "shadowColor", value: "grey" });
 this.attributes.add({ name: "shadowBlur", value: 10 });
 this.attributes.add({ name: "shadowOffsetX", value: 50 });
 this.attributes.add({ name: "shadowOffsetY", value: 50 });  
-//----title
-// this.attributes.add({ name: "title", value: "The Title" });  
-// this.attributes.add({ name: "titleColor", value: "red" });  
-// this.attributes.add({ name: "titleFontSize", value: 22 });  
-// this.attributes.add({ name: "titleFontFamily", value: "Arial" });  
-// this.attributes.add({ name: "titleOpacity", value: 1 });  
+
 
 //====Animations=============
 this.animations = new AnimationsFasade();

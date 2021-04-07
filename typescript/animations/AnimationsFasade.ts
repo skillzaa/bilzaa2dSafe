@@ -1,4 +1,3 @@
-import Animation from "./Animation.js"; 
 import Linear from "./Linear.js";
 import IaniData from "../interfaces/IaniData.js";
 
