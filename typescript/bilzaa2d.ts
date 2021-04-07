@@ -1,7 +1,7 @@
 import PlayHead from "./single/PlayHead.js";
-import Animations from './animations/AnimationsFasade.js';
+
 import Shapes from './fasades/Shapes.js';
-import Premades from './premade/Premades.js';
+//import Premades from './premade/Premades.js';
 /**This is from ubuntu......!!! */
 export default class Bilzaa2d  {
 private    playHead:PlayHead;
@@ -9,7 +9,7 @@ public     premades:Premades;
   
 public    shapes:Shapes;    
 constructor() {
-    this.premades = new Premades();
+//    this.premades = new Premades();
     this.playHead = new PlayHead();
 
    this.shapes = new Shapes();
