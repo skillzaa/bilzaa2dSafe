@@ -9,7 +9,7 @@ public attributes:ArrayOfObjects;
 //public name:string;
 protected animations:AnimationsFasade; 
 protected metal:Metal;
-public clearCanvasFlag:boolean;
+
 
 
 constructor(name="Element") {          
@@ -25,14 +25,14 @@ this.attributes.add({ name: "width", value: 100 });
 this.attributes.add({ name: "height", value: 50 });
 
 
-this.attributes.add({ name: "dashSize", value: 5 });
-this.attributes.add({ name: "gapBetweenDashes", value: 1 });
+// this.attributes.add({ name: "dashSize", value: 5 });
+// this.attributes.add({ name: "gapBetweenDashes", value: 1 });
 
 //--rotation--
-this.attributes.add({ name: "rotateClockwise", value: true, comments: "t/f" });
-//---the angle at which);the obj is currently rotated
-this.attributes.add({ name: "rotateAngle", value: 0});   
-this.attributes.add({ name: "rps", value: 10, comments: "rotation persec, 6 = 360 in 1min. 0 = no rotate, this is rotation speed not current rotation angle" });
+this.attributes.add({ name: "rotateClockwise", value: true});
+//---the angle at which);the obj is currently rotated--this is also rpm / rps
+this.attributes.add({ name: "currentRotateAngle", value: 0});   
+//this.attributes.add({ name: "rps", value: 10 });
 //--colors--
 this.attributes.add({ name: "backgroundColor", value: "green" });
 this.attributes.add({ name: "opacity", value: 1 });//----------???? transparency
@@ -43,11 +43,11 @@ this.attributes.add({ name: "shadowBlur", value: 10 });
 this.attributes.add({ name: "shadowOffsetX", value: 50 });
 this.attributes.add({ name: "shadowOffsetY", value: 50 });  
 //----title
-this.attributes.add({ name: "title", value: "The Title" });  
-this.attributes.add({ name: "titleColor", value: "red" });  
-this.attributes.add({ name: "titleFontSize", value: 22 });  
-this.attributes.add({ name: "titleFontFamily", value: "Arial" });  
-this.attributes.add({ name: "titleOpacity", value: 1 });  
+// this.attributes.add({ name: "title", value: "The Title" });  
+// this.attributes.add({ name: "titleColor", value: "red" });  
+// this.attributes.add({ name: "titleFontSize", value: 22 });  
+// this.attributes.add({ name: "titleFontFamily", value: "Arial" });  
+// this.attributes.add({ name: "titleOpacity", value: 1 });  
 
 //====Animations=============
 this.animations = new AnimationsFasade();

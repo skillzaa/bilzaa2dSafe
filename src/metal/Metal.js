@@ -109,7 +109,7 @@ export default class Metal {
         this.ctx.translate(-(attributes.getItem("x").value + (attributes.getItem("width").value / 2)), -(attributes.getItem("y").value + (attributes.getItem("height").value / 2)));
     }
     rotateCanvas(attributes) {
-        this.ctx.rotate((attributes.getItem("rotateAngle").value) * Math.PI / 180);
+        this.ctx.rotate((attributes.getItem("currentRotateAngle").value) * Math.PI / 180);
     }
     drawEllipse() {
         this.ctx.ellipse(100, 100, 50, 75, 45 * Math.PI / 180, 0, 2 * Math.PI);
