@@ -27,10 +27,10 @@ draw() {
   //}   
   
   //--------------draw rect-- if visible
-  if ((this.attributes.getProperty("transparent") === false)  ) {
+ // if ((this.attributes.getProperty("transparent") === false)  ) {
 
     this.metal.drawText(this.attributes);
-  }
+ // }
   
   //------------------------------
   this.metal.restoreCtx();  

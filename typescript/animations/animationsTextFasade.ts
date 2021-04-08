@@ -7,12 +7,13 @@ constructor(){
     super();
 }
 
-widen(fromSecond:number,toSecond:number,from:number,to:number){
-    const l = new Linear(
-        {attributeToAnimateName: "fontSize",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:from, to:to});
-    this.data.push(l);    
+scale(fromSecond:number,toSecond:number,fromFontSize:number,toFontSize:number){
+    const w = new Linear(
+        {attributeToAnimateName: "fontSize",fromSecond:fromSecond, toSecond:toSecond,readOnlyElementAttrNames:[]},{from:fromFontSize, to:toFontSize});
+    this.data.push(w);    
     return true;    
 }
+
 ////888888888888888888888888888888888888888888888888    
 ////888888888888888888888888888888888888888888888888    
 ////888888888888888888888888888888888888888888888888    

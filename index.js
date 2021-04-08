@@ -1,8 +1,7 @@
 import Bilzaa2d from './src/bilzaa2d.js';
-
 const bilzaa2d = new Bilzaa2d();
-
 const canvas = bilzaa2d.shapes.addCanvas();
+
 
 const rect  = bilzaa2d.shapes.addRectangle();
  rect.setAttr("x",10);
@@ -47,6 +46,24 @@ cir.animations.scale(4,6,100,200);
 //cir.animations.moveDiagonal();
 
 //cir.animations.rotate(7,10,10,200);
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+const txt  = bilzaa2d.shapes.addText();
+ txt.setAttr("x",500);
+txt.setAttr("y",100);
+txt.setAttr("radius",100);
+
+txt.setAttr("color","blue");
+//////////////////////////////////////////
+txt.animations.moveHorizontal(1,3,300,500);
+txt.animations.scale(4,6,100,200);
+//txt.animations.moveVerticle(11,13,10,300);
+//txt.animations.moveDiagonal();
+
+txt.animations.rotate(5,10,10,200);
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 
