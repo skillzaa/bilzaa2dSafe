@@ -73,7 +73,9 @@ drawCircle(attributes){
 this.ctx.beginPath();
 /**am using width /2 here instead of radius since widen will work */
 this.ctx.arc(attributes.getProperty("x"),attributes.getProperty("y"), attributes.getProperty("radius"), 0, 2 *  Math.PI);
-this.ctx.stroke();
+//this.ctx.stroke();
+this.ctx.fillStyle = attributes.getProperty("color");
+this.ctx.fill();
 }
 drawTriangle(attributes){
 this.ctx.save();  

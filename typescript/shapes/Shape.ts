@@ -24,10 +24,6 @@ this.attributes.add({ name: "y", value: 100 });
 this.attributes.add({ name: "width", value: 100 });
 this.attributes.add({ name: "height", value: 50 });
 
-
-// this.attributes.add({ name: "dashSize", value: 5 });
-// this.attributes.add({ name: "gapBetweenDashes", value: 1 });
-
 //--rotation--
 this.attributes.add({ name: "rotateClockwise", value: true});
 //---the angle at which);the obj is currently rotated--this is also rpm / rps
@@ -39,9 +35,12 @@ this.attributes.add({ name: "opacity", value: 1 });//----------???? transparency
 this.attributes.add({ name: "strokeStyle", value: "#F0000" });
 //--shadows--
 this.attributes.add({ name: "shadowColor", value: "grey" });
-this.attributes.add({ name: "shadowBlur", value: 10 });
-this.attributes.add({ name: "shadowOffsetX", value: 50 });
-this.attributes.add({ name: "shadowOffsetY", value: 50 });  
+this.attributes.add({ name: "shadowBlur", value: 2 });
+this.attributes.add({ name: "shadowOffsetX", value: 4 });
+this.attributes.add({ name: "shadowOffsetY", value: 4 });  
+
+// this.attributes.add({ name: "dashSize", value: 5 });
+// this.attributes.add({ name: "gapBetweenDashes", value: 1 });
 
 
 //====Animations=============
