@@ -8,7 +8,7 @@ const rect  = bilzaa2d.shapes.addRectangle();
 rect.setAttr("y",10);
 rect.setAttr("width",100);
 rect.setAttr("height",100);
-//////////////////////////////////////////
+/////////////////////////////////////
 rect.animations.moveHorizontal(1,3,10,500);
 rect.animations.scale(4,6,10,700,10,300);
 //rect.animations.moveVerticle(11,13,10,300);
